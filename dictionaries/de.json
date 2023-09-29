@@ -1,0 +1,21 @@
+{
+  "main-menu": {
+    "Travel_yourself": "Travel yourself",
+    "Tourist_tour": "Tourist tour",
+    "Health_tour": "Health tour",
+    "Business_tour": "Business tour",
+    "Persian_Store": "Persian Store",
+    "About_iran": "About iran",
+    "About_us": "About us"
+  },
+  "educational": {
+    "universities": "Universities"
+  },
+  "server-component": {
+    "welcome": "Willkommen"
+  },
+  "counter": {
+    "increment": "Zuwachs",
+    "decrement": "Dekrementieren"
+  }
+}

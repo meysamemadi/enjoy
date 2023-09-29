@@ -1,0 +1,21 @@
+{
+  "main-menu": {
+    "Travel_yourself": "برای خودت سفرکن",
+    "Tourist_tour": "Tourist tour",
+    "Health_tour": "Health tour",
+    "Business_tour": "Business tour",
+    "Persian_Store": "Persian Store",
+    "About_iran": "About iran",
+    "About_us": "About us"
+  },
+  "educational": {
+    "universities": "دانشگاه ها"
+  },
+  "server-component": {
+    "welcome": "خوش آمدید"
+  },
+  "counter": {
+    "increment": "افزایش",
+    "decrement": "کاهش"
+  }
+}
