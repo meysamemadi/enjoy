@@ -1,6 +1,9 @@
 import { ChevronRightIcon } from "lucide-react";
 import { Messina_Serif } from "../../font";
 import { cn } from "@/lib/utils";
+import Educational_tour from "@/public/img/Educational_tour.png";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const EducationalTour = () => {
   return (
@@ -14,23 +17,29 @@ const EducationalTour = () => {
         >
           Educational tours
         </span>
-        <span className="text-[14px] text-[#594636] items-center font-semibold absolute right-0 -bottom-4 bg-[#FAF5EF] p-2 flex">
-          See All <ChevronRightIcon size={15} />
-        </span>
       </div>
-      <div className="flex flex-wrap md:flex-nowrap bg-white mt-4  gap-[24px]">
-        <div className=" w-full md:w-[40%]">
-          <p className="text-[#594636] font-medium text-sm leading-[28px] p-6">
+      <div className=" flex flex-wrap md:flex-nowrap bg-white mt-4 md:mt-[40px]  gap-[24px]">
+        <div className="flex flex-col order-2 md:order-1 w-full md:w-[40%] p-6">
+          <p className="text-[#594636] text-justify  font-medium text-sm leading-[28px]">
             Enjoy Persia has the ability to make all intersted people,
             instructors and students of all universities of the world experience
-            the most unique scientific and educational trips. Such trips include
-            tours on Iranian architecture, historiology, environment, industries
-            and mines, cultural studies, instruction of handicrafts in the
-            Middle East and all other tours combined with science and industry
-            and art. It is enough to send us a message.
+            the most unique scientific and educational trips.
           </p>
+          <p className=" text-[#594636] text-justify font-medium text-sm leading-[28px]">
+            Such trips include tours on Iranian architecture, historiology,
+            environment, industries and mines, cultural studies, instruction of
+            handicrafts in the Middle East and all other tours combined with
+            science and industry and art. It is enough to send us a message.
+          </p>
+          <Button className="w-full bg-[#497D59] rounded-none mt-auto">Register the form</Button>
         </div>
-        <div className="bg-blue-500 w-full md:w-[60%]">test</div>
+        <div className="order-1 md:order-2 bg-blue-500 w-full md:w-[60%]">
+          <Image
+            className="w-full h-full object-cover"
+            src={Educational_tour}
+            alt="educational tour"
+          />
+        </div>
       </div>
     </div>
   );

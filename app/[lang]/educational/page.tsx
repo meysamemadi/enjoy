@@ -11,6 +11,9 @@ import FreeConsultation from "./components/FreeConsultation";
 import OurServices from "./components/OurServices";
 import Webinars from "./components/Webinars";
 import EducationalTour from "./components/EducationalTour";
+import WorksInIran from "./components/WorksInIran";
+import IranUniversitiesSuccess from "./components/IranUniversitiesSuccess";
+import OurConnections from "./components/OurConnections";
 async function IndexPage({ params: { lang } }: { params: { lang: Locale } }) {
   const categories: Category[] = await getCategories(lang);
   const dic = await getDictionary(lang);
@@ -27,8 +30,9 @@ async function IndexPage({ params: { lang } }: { params: { lang: Locale } }) {
       <OurServices />
       <Webinars />
       <EducationalTour />
-   
-      
+      <WorksInIran />
+      <IranUniversitiesSuccess />
+      <OurConnections />
     </div>
   );
 }

@@ -1,15 +1,17 @@
 import { ChevronRightIcon } from "lucide-react";
 import React from "react";
 
-const BreadCrumb = ({
-  pages,
-}: {
-  pages: [{
+interface BreadCrumbProps {
+  pages: {
     name: string;
     href: string;
     current?: boolean;
-  }];
-}) => {
+  }[];
+}
+
+const BreadCrumb = ({
+  pages,
+}:BreadCrumbProps) => {
   return (
     <nav className="container mt-2 flex" aria-label="Breadcrumb">
       <ol role="list" className="flex items-center space-x-2">

@@ -14,14 +14,6 @@ const UniversitiesGrid = () => {
       <University />
       <University />
       <University />
-      <University />
-      <University />
-      <University />
-      <University />
-      <University />
-      <University />
-      <University />
-      <University />
     </div>
   );
 }
