@@ -23,7 +23,7 @@ const Picutre = ({gallery} : PictureProps) => {
         <div className="grid mt-4 grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
 
             {gallery && gallery.map(pic => (
-                <div className=" h-[265px]">
+                <div key={pic} className=" h-[265px]">
                     <Image className="w-full h-full object-cover" width={353} height={265} src={pic} alt="gallery" />
                 </div>
                 ))}

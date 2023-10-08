@@ -6,7 +6,6 @@ export const getCategories = async (lang: string) => {
     );
 
     const response = await res.json();
-
     return response;
   } catch (error) {
     console.log("[getCategories]", error);

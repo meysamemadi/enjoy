@@ -15,7 +15,7 @@ const IranUniversitiesSuccess = () => {
             Messina_Serif.className
           )}
         >
-          Iran's universities Successes
+          Iran&apos;s universities Successes
         </span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mt-4 md:mt-[40px]  gap-[24px]">

@@ -20,6 +20,7 @@ const CategorySlider: React.FC<CategorySliderProps> = ({ categories }) => {
   const navigationNextRef = useRef(null);
   const navigationPrevRef = useRef(null);
 
+  //@ts-ignore
    const handleSlideChange = (swiper) => {
      setActiveIndex(swiper.activeIndex);
    };
