@@ -12,7 +12,7 @@ export const Messina_Serif = localFont({
 });
 
 export const brand = localFont({
-  src: "./fonts/brand.woff",
+  src: "./fonts/Brand.woff",
   display: "swap",
 });
 
