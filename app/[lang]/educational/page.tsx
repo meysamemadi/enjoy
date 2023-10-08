@@ -22,7 +22,7 @@ async function IndexPage({ params: { lang } }: { params: { lang: Locale } }) {
 
   
   return (
-    <div className=" h-full">
+    <div className=" flex-1">
       <BreadCrumb pages={pages} />
       <Header />
       <Univercities dictionary={dic.educational} categories={categories} />

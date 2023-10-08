@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Messina_Serif } from "../../font";
-
+import { IoLogoWhatsapp } from "react-icons/io";
 const WhatsApp = () => {
   return (
     <div className="container my-6 md:my-8 ">
@@ -14,7 +14,8 @@ const WhatsApp = () => {
         >
           Need more information?
         </h3>
-        <Button className="bg-[#31CA68] rounded-none text-lg font-bold">
+        <Button className="bg-[#31CA68] rounded-none text-base md:text-lg font-bold">
+          <IoLogoWhatsapp className="mr-2 w-[32px] h-[32px]" />
           Connect with WhatsApp
         </Button>
       </div>

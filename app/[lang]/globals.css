@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
  
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -78,8 +79,11 @@
 html,
 body,
 :root {
-  height: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
 
 .swiper-button-disabled{
   display: none;

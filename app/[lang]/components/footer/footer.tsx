@@ -12,15 +12,23 @@ import master from "@/public/img/Maestro.png"
 import master1 from "@/public/img/MasterCard.png"
 import paypal from "@/public/img/PayPal.png"
 
-import facebook from "@/public/img/facebook.svg"
-import telegram from "@/public/img/telegram.svg"
-import inlogo from "@/public/img/in.svg"
-import instagram from "@/public/img/instagram.svg" 
+import US from "@/public/img/flag/US - United States.png";
+import CN from "@/public/img/flag/CN - China.png";
+import RU from "@/public/img/flag/RU - Russian Federation.png";
+import TR from "@/public/img/flag/TR - Turkey.png";
+import IR from "@/public/img/flag/IR - Iran.png";
+import DE from "@/public/img/flag/DE - gernammny.png";
+import SA from "@/public/img/flag/SA - Saudi Arabia.png";
+
+import { FaFacebookF, FaTelegram } from "react-icons/fa";
+import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
+
 import { Button } from "@/components/ui/button";
+
 
 const Footer = () => {
   return (
-    <div className="h-full">
+    <div className=" h-96">
       <WhatsApp />
       <div className="bg-white">
         <div className=" container relative">
@@ -50,6 +58,29 @@ const Footer = () => {
                 based on your own taste and have attractive and memorable
                 experiences.
               </p>
+              <div className="flex gap-2 md:gap-4 py-2">
+                <div>
+                  <Image src={US} alt="us" />
+                </div>
+                <div>
+                  <Image src={CN} alt="us" />
+                </div>
+                <div>
+                  <Image src={RU} alt="us" />
+                </div>
+                <div>
+                  <Image src={DE} alt="us" />
+                </div>
+                <div>
+                  <Image src={TR} alt="us" />
+                </div>
+                <div>
+                  <Image src={IR} alt="us" />
+                </div>
+                <div>
+                  <Image src={SA} alt="us" />
+                </div>
+              </div>
             </div>
 
             <div>
@@ -113,7 +144,7 @@ const Footer = () => {
             </div>
           </div>
           <Separator className="bg-[#594636]/20 my-4" />
-          <div className="flex mb-5 flex-col md:flex-row justify-between items-center">
+          <div className="flex mb-5 flex-col md:flex-row justify-between items-center gap-4">
             <div>
               <div className="flex gap-1 pb-2">
                 <Image src={paypal} alt="paypal" />
@@ -129,20 +160,36 @@ const Footer = () => {
 
             <div>
               <div className="flex gap-1 pb-2">
-                <Button variant={"ghost"} size={"icon"}>
-                  <Image src={facebook} alt="facebook" />
+                <Button
+                  className="bg-[#F6F6F6]"
+                  variant={"ghost"}
+                  size={"icon"}
+                >
+                  <FaFacebookF className={"w-6 h-6 text-[#594636]"} />
                 </Button>
 
-                <Button variant={"ghost"} size={"icon"}>
-                  <Image src={instagram} alt="facebook" />
+                <Button
+                  className="bg-[#F6F6F6]"
+                  variant={"ghost"}
+                  size={"icon"}
+                >
+                  <AiFillInstagram className={"w-6 h-6 text-[#594636]"} />
                 </Button>
 
-                <Button variant={"ghost"} size={"icon"}>
-                  <Image src={inlogo} alt="facebook" />
+                <Button
+                  className="bg-[#F6F6F6]"
+                  variant={"ghost"}
+                  size={"icon"}
+                >
+                  <AiFillLinkedin className={"w-6 h-6 text-[#594636]"} />
                 </Button>
 
-                <Button variant={"ghost"} size={"icon"}>
-                  <Image src={telegram} alt="facebook" />
+                <Button
+                  className="bg-[#F6F6F6]"
+                  variant={"ghost"}
+                  size={"icon"}
+                >
+                  <FaTelegram className={"w-6 h-6 text-[#594636]"} />
                 </Button>
               </div>
             </div>
