@@ -20,7 +20,7 @@ const SingleUniversity = ({
     <div>
       <BreadCrumb pages={pages} />
       <Header
-        bg_image="http://localhost/enjoypersia/upload/univercity/uni_bg.png"
+        bg_image={`https://haveyourowntrip.ir/upload/univercity/uni_bg.png`}
         title="Islamic Azad University"
         boards={[
           "The Board of Founders",
@@ -34,11 +34,11 @@ const SingleUniversity = ({
 
       <Picutre
         gallery={[
-          "http://localhost/enjoypersia/upload/univercity/uni_bg.png",
-          "http://localhost/enjoypersia/upload/univercity/uni_bg.png",
-          "http://localhost/enjoypersia/upload/univercity/uni_bg.png",
-          "http://localhost/enjoypersia/upload/univercity/uni_bg.png",
-          "http://localhost/enjoypersia/upload/univercity/uni_bg.png",
+          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
+          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
+          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
+          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
+          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
         ]}
       />
 
