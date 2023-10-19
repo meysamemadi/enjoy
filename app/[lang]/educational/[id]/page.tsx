@@ -67,7 +67,7 @@ const SingleUniversity =async ({
         </Button>
       </div>
 
-      <SecondDescription />
+      <SecondDescription meta={university && university.meta} />
     </div>
   );
 };
