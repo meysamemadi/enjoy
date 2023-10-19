@@ -77,16 +77,16 @@ const CategorySlider: React.FC<CategorySliderProps> = ({ categories }) => {
         // onSlideChange={handleSlideChange}
        breakpoints={{
           640: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 10,
           },
           768: {
-            slidesPerView: 5,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 6,
-            spaceBetween: 1,
+            slidesPerView: 4,
+            spaceBetween: 5,
           },
         }} 
         className="mySwiper"
