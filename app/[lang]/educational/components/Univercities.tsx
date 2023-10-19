@@ -19,6 +19,8 @@ const Univercities: React.FC<UnivercitiesProps> = ({
   universities,
   categories,
 }) => {
+
+  console.log(categories)
   return (
     <div className=" container">
       <div className="py-2">
