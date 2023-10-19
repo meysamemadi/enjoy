@@ -31,10 +31,10 @@ const CategorySlider: React.FC<CategorySliderProps> = ({ categories }) => {
     categories &&
     categories.map((category) => (
       <SwiperSlide
-        className="hover:bg-[#497D59] cursor-pointer  hover:text-white transition-all text-sm text-center font-semibold px-4 md:px-6 py-2  md:py-3 bg-white "
+        className="hover:bg-[#497D59] cursor-pointer whitespace-nowrap  hover:text-white transition-all text-xs text-center font-semibold px-4 md:px-6 py-2  md:py-3 bg-white "
         key={category.id}
       >
-        <span>{category.title}</span>
+        <span className=" whitespace-nowrap">{category.title}</span>
       </SwiperSlide>
     ));
 
@@ -65,7 +65,7 @@ const CategorySlider: React.FC<CategorySliderProps> = ({ categories }) => {
       <Swiper
         ref={swiperRef}
         slidesPerView={1}
-        spaceBetween={10}
+        spaceBetween={3}
         onSlideChange={handleSlideChange}
         // dir="rtl"
         // navigation={true}
@@ -85,8 +85,8 @@ const CategorySlider: React.FC<CategorySliderProps> = ({ categories }) => {
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 8,
-            spaceBetween: 30,
+            slidesPerView: 6,
+            spaceBetween: 1,
           },
         }} 
         className="mySwiper"
