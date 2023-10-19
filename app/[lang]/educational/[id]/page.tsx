@@ -6,22 +6,28 @@ import Picutre from "./_components/pictures";
 import Description from "./_components/description";
 import { Button } from "@/components/ui/button";
 import SecondDescription from "./_components/second-description";
+import { getUniversity } from "@/actions/educational";
 
-const SingleUniversity = ({
+const SingleUniversity =async ({
   params,
 }: {
   params: {
     id: number;
+    lang: string
   };
 }) => {
+
+
+  const university = await getUniversity(params.lang,params.id)
+
   const pages = [{ name: "Educational", href: "#", current: true }];
 
   return (
     <div>
       <BreadCrumb pages={pages} />
       <Header
-        bg_image={`https://haveyourowntrip.ir/upload/univercity/uni_bg.png`}
-        title="Islamic Azad University"
+        bg_image={university && university.bg_pic}
+        title={university && university.title}
         boards={[
           "The Board of Founders",
           "The Board of Trustees",
@@ -32,17 +38,12 @@ const SingleUniversity = ({
         ]}
       />
 
-      <Picutre
-        gallery={[
-          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
-          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
-          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
-          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
-          "https://haveyourowntrip.ir/upload/univercity/uni_bg.png",
-        ]}
-      />
+      <Picutre gallery={university && university.gallery} />
 
-      <Description />
+      <Description
+        univercity={university}
+        description={university && university.description}
+      />
 
       <div className="text-center container my-6 md:my-8">
         <h3

@@ -4,11 +4,36 @@ import uni from "@/public/img/uni.png"
 import { montserrat } from '../../font'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
-const University = () => {
+import { Category, Language } from '@/types'
+
+interface UniversityItemProps {
+  id: number;
+  title: string;
+  description: string;
+  categories: Category[];
+  main_pic: string;
+  bg_pic: string;
+  lang: Language;
+}
+const UniversityItem = ({
+  id,
+  title,
+  description,
+  categories,
+  main_pic,
+  bg_pic,
+  lang
+}:UniversityItemProps) => {
   return (
     <div className=" p-2 md:p-4 bg-white flex flex-col">
       <div className="relative">
-        <Image src={uni} alt="test" className="  w-full h-full object-cover" />
+        <Image
+          src={main_pic}
+          alt="test"
+          width={300}
+          height={300}
+          className="  w-full h-full object-cover"
+        />
       </div>
       <h3
         className={cn(
@@ -16,18 +41,21 @@ const University = () => {
           montserrat.className
         )}
       >
-        Tehran University
+        {title}
       </h3>
       <ul className="list-disc list-inside text-[#594636] text-xs md:text-sm">
         <li className="truncate">Computer Science</li>
         <li className="truncate">Communications</li>
         <li className="truncate">Business</li>
       </ul>
-      <Link className="my-2 md:my-4 text-xs md:text-sm text-[#A98D69] font-medium underline" href={"/"}>
+      <Link
+        className="my-2 md:my-4 text-xs md:text-sm text-[#A98D69] font-medium underline"
+        href={`/educational/${id}`}
+      >
         Read more ...
       </Link>
     </div>
   );
 }
 
-export default University
+export default UniversityItem;

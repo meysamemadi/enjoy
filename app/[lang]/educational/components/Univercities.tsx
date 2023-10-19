@@ -1,5 +1,5 @@
 'use client'
-import { Category } from '@/types'
+import { Category, University } from '@/types'
 import React from 'react'
 import { Messina_Serif } from '../../font'
 import { cn } from '@/lib/utils';
@@ -7,17 +7,18 @@ import CategorySlider from './CategorySlider';
 import UniversitiesGrid from './UniversitiesGrid';
 
 interface UnivercitiesProps {
+  universities : University[];
   categories: Category[];
   dictionary: {
     universities: string;
   };
 }
 
-const Univercities: React.FC<UnivercitiesProps> = ({ dictionary , categories }) => {
-
-
-
-    
+const Univercities: React.FC<UnivercitiesProps> = ({
+  dictionary,
+  universities,
+  categories,
+}) => {
   return (
     <div className=" container">
       <div className="py-2">
@@ -30,9 +31,9 @@ const Univercities: React.FC<UnivercitiesProps> = ({ dictionary , categories }) 
             {dictionary.universities}
           </span>
         </div>
-        <div className=''>
+        <div className="">
           <CategorySlider categories={categories} />
-          <UniversitiesGrid />
+          <UniversitiesGrid universities={universities} />
         </div>
       </div>
     </div>
