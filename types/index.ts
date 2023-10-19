@@ -6,11 +6,20 @@ export interface University {
   categories: Category[];
   main_pic: string;
   bg_pic: string;
-  lang:Language
+  meta: Meta[]
+  gallery : string[]
+  lang:Language;
 }
 export interface Category {
   id: number;
   title: string;
+}
+
+export interface Meta {
+  id: number;
+  name: string;
+  value: string;
+  type: boolean
 }
 
 export interface Language {

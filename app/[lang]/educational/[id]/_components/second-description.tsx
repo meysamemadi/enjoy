@@ -3,14 +3,10 @@
 import { Messina_Serif } from "@/app/[lang]/font";
 import { cn } from "@/lib/utils";
 import Property from "./property";
+import { Meta } from "@/types";
 
 interface SecondDescriptionProps {
-  meta : [{
-    id : number,
-    name: string,
-    value: string | boolean,
-    type: boolean
-  }]
+  meta : Meta[]
 }
 
 const SecondDescription = ({ meta}: SecondDescriptionProps) => {

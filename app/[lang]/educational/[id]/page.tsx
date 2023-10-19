@@ -7,6 +7,7 @@ import Description from "./_components/description";
 import { Button } from "@/components/ui/button";
 import SecondDescription from "./_components/second-description";
 import { getUniversity } from "@/actions/educational";
+import { University } from "@/types";
 
 const SingleUniversity =async ({
   params,
@@ -18,7 +19,7 @@ const SingleUniversity =async ({
 }) => {
 
 
-  const university = await getUniversity(params.lang,params.id)
+  const university:University = await getUniversity(params.lang,params.id)
 
   const pages = [{ name: "Educational", href: "#", current: true }];
 
