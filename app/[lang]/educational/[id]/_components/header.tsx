@@ -19,7 +19,7 @@ const Header = ({
           <Image className=" z-[1]" alt="" fill src={bg_image} />
           <div className=" bg-gradient-to-t from-[#FAF5EF] to-transparent absolute inset-0  z-[2]" />
         </div>
-        <div className="flex flex-col items-center -mt-[10px] md:-mt-[20px] z-50">
+        <div className="flex flex-col items-center -mt-[10px] md:-mt-[10px] z-50">
           <h2 className="mb-[34px] mb[46px] text-[26px] md:text-[48px] font-bold text-[#594636]">
             {title}
           </h2>

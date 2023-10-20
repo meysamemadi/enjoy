@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import uni from "@/public/img/uni.png"
@@ -5,6 +6,7 @@ import { montserrat } from '../../font'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { Category, Language } from '@/types'
+import { useParams } from 'next/navigation'
 
 interface UniversityItemProps {
   id: number;
@@ -24,6 +26,8 @@ const UniversityItem = ({
   bg_pic,
   lang
 }:UniversityItemProps) => {
+
+  const params = useParams()
   return (
     <div className=" p-2 md:p-4 bg-white flex flex-col">
       <div className="relative">
@@ -50,7 +54,7 @@ const UniversityItem = ({
       </ul>
       <Link
         className="my-2 md:my-4 text-xs md:text-sm text-[#A98D69] font-medium underline"
-        href={`/educational/${id}`}
+        href={`/${params.lang}/educational/${id}`}
       >
         Read more ...
       </Link>

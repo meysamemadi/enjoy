@@ -1,5 +1,8 @@
+'use client'
+import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "lucide-react";
 import React from "react";
+import useDirection from "./direction";
 
 interface BreadCrumbProps {
   pages: {
@@ -12,8 +15,11 @@ interface BreadCrumbProps {
 const BreadCrumb = ({
   pages,
 }:BreadCrumbProps) => {
+
+
+  const rightDirection = useDirection()
   return (
-    <nav className="container mt-2 flex" aria-label="Breadcrumb">
+    <nav className="container mt-2 mb-6 flex" aria-label="Breadcrumb">
       <ol role="list" className="flex items-center space-x-2">
         <li>
           <div>
@@ -27,7 +33,10 @@ const BreadCrumb = ({
           <li key={page.name}>
             <div className="flex items-center">
               <ChevronRightIcon
-                className="flex-shrink-0 h-5 w-5 text-gray-400"
+                className={cn(
+                  "flex-shrink-0  h-5 w-5 text-gray-400",
+                  rightDirection && " rotate-180"
+                )}
                 aria-hidden="true"
               />
               <a

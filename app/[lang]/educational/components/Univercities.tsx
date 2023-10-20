@@ -20,7 +20,7 @@ const Univercities: React.FC<UnivercitiesProps> = ({
   categories,
 }) => {
 
-  console.log(categories)
+
   return (
     <div className=" container">
       <div className="py-2">
