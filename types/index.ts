@@ -6,8 +6,9 @@ export interface University {
   categories: Category[];
   main_pic: string;
   bg_pic: string;
-  meta: Meta[]
-  gallery : string[]
+  meta: Meta[];
+  service: Service[];
+  gallery : string[];
   lang:Language;
 }
 export interface Category {
@@ -26,4 +27,9 @@ export interface Language {
   id: number;
   name: string;
   code: string;
+}
+
+export interface Service {
+  id: number;
+  title: string;
 }

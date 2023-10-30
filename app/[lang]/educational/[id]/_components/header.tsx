@@ -1,11 +1,12 @@
 'use client'
 
+import { Service } from "@/types";
 import Image from "next/image";
 
 interface HeaderProps {
     title : string;
     bg_image : string;
-    boards : string[]
+    boards : Service[]
 }
 
 const Header = ({
@@ -23,15 +24,15 @@ const Header = ({
           <h2 className="mb-[34px] mb[46px] text-[26px] md:text-[48px] font-bold text-[#594636]">
             {title}
           </h2>
-          <div className="flex flex-wrap items-center md:justify-center md:gap-y-6">
+          <div className="flex flex-wrap items-center md:justify-center md:gap-6">
             {boards &&
-              boards.map((item, index) => (
+              boards.map((item) => (
                 <div
-                  className=" relative flex flex-nowrap  gap-4  md:basis-1/3 text-center"
-                  key={index}
+                  className=" relative flex flex-nowrap whitespace-nowrap   gap-4  md:basis-1/3 text-center"
+                  key={item.id}
                 >
                   <div className=" self-center  w-[24px] md:w-[70px] h-[4px]  bg-[#a07e62]" />
-                  {item}
+                  {item.title}
                 </div>
               ))}
           </div>

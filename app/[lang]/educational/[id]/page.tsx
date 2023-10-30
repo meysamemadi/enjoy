@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import SecondDescription from "./_components/second-description";
 import { getUniversity } from "@/actions/educational";
 import { University } from "@/types";
+import Link from "next/link";
 
 const SingleUniversity =async ({
   params,
@@ -29,14 +30,7 @@ const SingleUniversity =async ({
       <Header
         bg_image={university && university.bg_pic}
         title={university && university.title}
-        boards={[
-          "The Board of Founders",
-          "The Board of Trustees",
-          "The President of the University",
-          "The University Council",
-          "The President of the University",
-          "The University Council",
-        ]}
+        boards={university && university.service}
       />
 
       <Picutre gallery={university && university.gallery} />
@@ -46,7 +40,7 @@ const SingleUniversity =async ({
         description={university && university.description}
       />
 
-      <div className="text-center container my-6 md:my-8">
+      <div className="text-center flex flex-col items-center container my-6 md:my-8">
         <h3
           className={cn(
             Messina_Serif.className,
@@ -58,14 +52,16 @@ const SingleUniversity =async ({
         <p className="text-[#594636] font-medium text-sm">
           If you want to go on this Univercity, contact us.
         </p>
-        <Button
+        <Link
           className={cn(
             Messina_Serif.className,
-            "bg-[#497D59] mt-7 text-[22px] font-bold rounded-none py-4 px-[48px] text-[#FAF7F5]"
+            "bg-[#497D59] w-fit mt-6 text-[22px] font-bold rounded-none py-4 px-[48px] text-[#FAF7F5]"
           )}
+          href={`/${params.lang}/educational/${params.id}/contact`}
         >
           Get It Touch
-        </Button>
+        </Link>
+        
       </div>
 
       <SecondDescription meta={university && university.meta} />
