@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className=" container">
       <div className=" flex flex-wrap md:flex-nowrap gap-2 justify-between items-center mb-8 md:mb-12">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 order-2 md:order-1">
           <span
             className={cn(
               brand.className,
@@ -30,7 +30,7 @@ const Header = () => {
             Studying in the land of extraordinary attractions and beauties!
           </span>
         </div>
-        <Image alt="test" src={ImageHeader} />
+        <Image className="order-1 md:order-2  " alt="test" src={ImageHeader} />
       </div>
       <p
         className={cn(
