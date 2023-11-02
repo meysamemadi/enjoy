@@ -1,3 +1,5 @@
+import { title } from 'process';
+import { type } from 'os';
 
 export interface University {
   id: number;
@@ -32,4 +34,20 @@ export interface Language {
 export interface Service {
   id: number;
   title: string;
+}
+
+
+export interface Webinar {
+  id: number;
+  type: string;
+  title: string;
+  sub_title: string;
+  subject: string;
+  languages: string;
+  present_by: string;
+  location: string;
+  main_pic: string;
+  video_url?: string;
+  lang: Language;
+  featured : boolean;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import Univercities from "./components/Univercities";
 import { Locale } from "@/i18n-config";
-import { getCategories, getUniversities } from "@/actions/educational";
+import { getCategories, getFeaturedWebinar, getUniversities, getWebinars } from "@/actions/educational";
 import { Category } from "@/types";
 import { getDictionary } from "@/get-dictionary";
 import Header from "./components/Header";
@@ -21,17 +21,24 @@ async function IndexPage({ params: { lang } }: { params: { lang: Locale } }) {
   const pages = [{ name: "Educational", href: "#", current: false }];
 
   const universities = await getUniversities(lang, null);
+  const webinars = await getWebinars(lang);
+  const FeaturedWebinar = await getFeaturedWebinar(lang);
 
-  
+
+
   
   return (
     <div className=" flex-1">
       <BreadCrumb pages={pages} />
       <Header />
-      <Univercities dictionary={dic.educational} universities={universities} categories={categories} />
+      <Univercities
+        dictionary={dic.educational}
+        universities={universities}
+        categories={categories}
+      />
       <FreeConsultation />
       <OurServices />
-      <Webinars />
+      <Webinars webinars={webinars} featured={FeaturedWebinar} />
       <EducationalTour />
       <WorksInIran />
       <IranUniversitiesSuccess />

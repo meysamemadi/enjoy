@@ -19,7 +19,7 @@ export const getUniversities = async (
 ) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}university/index?lang=${lang}&category=${category}`
+      `${process.env.NEXT_PUBLIC_API_URL}university/index?lang=${lang}`
     );
 
     const response = await res.json();
@@ -45,5 +45,37 @@ export const getUniversity = async (
   } catch (error) {
     console.log("[getUnivercity]", error);
     throw new Error("get Univercity error");
+  }
+};
+
+
+// webinars 
+export const getWebinars = async (
+  lang: string | string[],
+) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}webinar/index?lang=${lang}`
+    );
+
+    const response = await res.json();
+    return response;
+  } catch (error) {
+    console.log("[getUnivercities]", error);
+    throw new Error("get Categories error");
+  }
+};
+
+export const getFeaturedWebinar = async (lang: string | string[]) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}webinar/featured?lang=${lang}`
+    );
+
+    const response = await res.json();
+    return response;
+  } catch (error) {
+    console.log("[getUnivercities]", error);
+    throw new Error("get Categories error");
   }
 };

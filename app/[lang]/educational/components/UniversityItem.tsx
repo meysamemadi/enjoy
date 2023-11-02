@@ -47,10 +47,10 @@ const UniversityItem = ({
       >
         {title}
       </h3>
-      <ul className="list-disc list-inside text-[#594636] text-xs md:text-sm">
-        <li className="truncate">Computer Science</li>
-        <li className="truncate">Communications</li>
-        <li className="truncate">Business</li>
+      <ul className=" line-clamp-3 list-disc list-inside text-[#594636] text-xs md:text-sm">
+        {categories.map((category) => (
+          <li key={category.id} className="truncate">{category.title}</li>
+        ))}
       </ul>
       <Link
         className="my-2 md:my-4 text-xs md:text-sm text-[#A98D69] font-medium underline"
