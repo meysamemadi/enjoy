@@ -1,10 +1,15 @@
+'use client'
 import { cn } from "@/lib/utils";
 import { Messina_Serif } from "../../font";
 import workInIran from "@/public/img/work_in_iran.png"
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 
 const WorksInIran = () => {
+
+  const params = useParams();
   return (
     <div className=" container my-6 md:my-8">
       <div className=" relative mt-6 md:mt-8 py-2 border-b border-[#A07E624D]/30">
@@ -34,8 +39,8 @@ const WorksInIran = () => {
             a unique experience.
           </p>
 
-          <Button className="w-full bg-[#497D59] rounded-none mt-auto">
-            Register the form
+          <Button asChild className="w-full bg-[#497D59] rounded-none mt-auto">
+            <Link href={`/${params.lang}/educational/work-in-iran`}> Register the Form</Link>
           </Button>
         </div>
       </div>

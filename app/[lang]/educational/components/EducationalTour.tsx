@@ -1,11 +1,19 @@
+'use client'
 import { ChevronRightIcon } from "lucide-react";
 import { Messina_Serif } from "../../font";
 import { cn } from "@/lib/utils";
 import Educational_tour from "@/public/img/Educational_tour.png";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const EducationalTour = () => {
+
+
+  const params = useParams();
+
+
   return (
     <div className=" container my-6 md:my-8">
       <div className=" relative mt-6 md:mt-8 py-2 border-b border-[#A07E624D]/30">
@@ -31,7 +39,9 @@ const EducationalTour = () => {
             handicrafts in the Middle East and all other tours combined with
             science and industry and art. It is enough to send us a message.
           </p>
-          <Button className="w-full bg-[#497D59] rounded-none mt-auto">Register the form</Button>
+          <Button asChild className="w-full bg-[#497D59] rounded-none mt-auto">
+            <Link href={`/${params.lang}/educational/edcational-tour`}>Register the form</Link>
+          </Button>
         </div>
         <div className="order-1 md:order-2 bg-blue-500 w-full md:w-[60%]">
           <Image
