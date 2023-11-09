@@ -20,9 +20,11 @@ async function IndexPage({ params: { lang } }: { params: { lang: Locale } }) {
 
   const pages = [{ name: "Educational", href: "#", current: false }];
 
-  const universities = await getUniversities(lang, null);
+  const universities = await getUniversities(lang);
   const webinars = await getWebinars(lang);
   const FeaturedWebinar = await getFeaturedWebinar(lang);
+
+
 
 
 

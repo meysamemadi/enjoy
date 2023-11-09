@@ -1,6 +1,6 @@
 'use client'
 import { Category, University } from '@/types'
-import React from 'react'
+import React, { useState } from 'react'
 import { Messina_Serif } from '../../font'
 import { cn } from '@/lib/utils';
 import CategorySlider from './CategorySlider';
@@ -21,6 +21,9 @@ const Univercities: React.FC<UnivercitiesProps> = ({
 }) => {
 
 
+  const [universitiesState , setUniversitiesState] = useState(universities)
+
+
   return (
     <div className=" container">
       <div className="py-2">
@@ -34,8 +37,11 @@ const Univercities: React.FC<UnivercitiesProps> = ({
           </span>
         </div>
         <div className="">
-          <CategorySlider categories={categories} />
-          <UniversitiesGrid universities={universities} />
+          <CategorySlider
+            setUniversitiesState={setUniversitiesState}
+            categories={categories}
+          />
+          <UniversitiesGrid universities={universitiesState} />
         </div>
       </div>
     </div>

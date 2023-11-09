@@ -11,12 +11,14 @@ interface UniversitiesGridProps {
 
 const UniversitiesGrid = ({universities} : UniversitiesGridProps) => {
 
-  const [uni , setUni] = useState(universities)
+  
+
+ 
 
   return (
     <div className="py-4 md:py-6 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-      {uni &&
-        uni.map((university) => (
+      {universities &&
+        universities.map((university) => (
           <UniversityItem key={university.id} {...university} />
         ))}
     </div>

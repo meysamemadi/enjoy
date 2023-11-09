@@ -2,7 +2,10 @@
 export const getCategories = async (lang: string) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}category/univercity?lang=${lang}`
+      `${process.env.NEXT_PUBLIC_API_URL}category/univercity?lang=${lang}`,
+      {
+        cache: "no-cache",
+      }
     );
 
     const response = await res.json();
@@ -14,12 +17,34 @@ export const getCategories = async (lang: string) => {
 };
 
 export const getUniversities = async (
+  lang: string | string[]
+) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}university/index?lang=${lang}`,
+      {
+        cache: "no-cache",
+      }
+    );
+
+    const response = await res.json();
+    return response;
+  } catch (error) {
+    console.log("[getUnivercities]", error);
+    throw new Error("get Categories error");
+  }
+};
+
+export const getUniversitiesByCategory = async (
   lang: string | string[],
   category: string | string[] | null | undefined
 ) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}university/index?lang=${lang}`
+      `${process.env.NEXT_PUBLIC_API_URL}university/index-by-category?lang=${lang}&category=${category}`,
+      {
+        cache: "no-cache",
+      }
     );
 
     const response = await res.json();
@@ -37,7 +62,10 @@ export const getUniversity = async (
 ) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}university/single?lang=${lang}&id=${id}`
+      `${process.env.NEXT_PUBLIC_API_URL}university/single?lang=${lang}&id=${id}`,
+      {
+        cache: "no-cache",
+      }
     );
 
     const response = await res.json();
@@ -55,7 +83,10 @@ export const getWebinars = async (
 ) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}webinar/index?lang=${lang}`
+      `${process.env.NEXT_PUBLIC_API_URL}webinar/index?lang=${lang}`,
+      {
+        cache: "no-cache",
+      }
     );
 
     const response = await res.json();
@@ -69,7 +100,10 @@ export const getWebinars = async (
 export const getFeaturedWebinar = async (lang: string | string[]) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}webinar/featured?lang=${lang}`
+      `${process.env.NEXT_PUBLIC_API_URL}webinar/featured?lang=${lang}`,
+      {
+        cache: "no-cache",
+      }
     );
 
     const response = await res.json();
