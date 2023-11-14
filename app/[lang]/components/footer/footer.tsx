@@ -25,18 +25,36 @@ import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
 import { Button } from "@/components/ui/button";
 
+interface FooterProps {
+  dictionary: {
+    About_Enjoy_Persia: string;
+    about_us_text: string;
+    Link: string;
+    have_your_own_trip: string;
+    Tourism_tour: string;
+    Health_tour: string;
+    About_us: string;
+    Medical_tour: string;
+    Persian_store: string;
+    Our_Licenses: string;
+    Application: string;
+    CopyRight: string;
+    Need_more_information: string;
+    Connect_with_WhatsApp: string;
+  };
+}
 
-const Footer = () => {
+const Footer = ({dictionary}: FooterProps) => {
   return (
     <div className=" h-96">
-      <WhatsApp />
+      <WhatsApp dictionary={dictionary} />
       <div className="bg-white">
         <div className=" container relative">
           <div className=" relative ">
             <Image
               className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               src={Logo}
-              alt="Logo"
+              alt="enjoy Persia"
             />
           </div>
           <div className="flex flex-wrap justify-between gap-2 pt-10 md:pt-16">
@@ -47,16 +65,10 @@ const Footer = () => {
                   " text-2xl font-semibold text-[#A07E62] py-4"
                 )}
               >
-                About Enjoy Persia
+                {dictionary.About_Enjoy_Persia}
               </h4>
               <p className="text-xs font-medium text-[#594636] line-clamp-3 md:line-clamp-none">
-                Enjoy Persia as a sub-branch of Raha commercial group
-                (rahabusiness.com) is a tourism company that delivers the most
-                diverse amusement and traveling services with cooperation of big
-                community of Iran tourism. By such services that are delivered
-                to tourists for the first time in Iran, we enable you to travel
-                based on your own taste and have attractive and memorable
-                experiences.
+                {dictionary.about_us_text}
               </p>
               <div className="flex gap-2 md:gap-4 py-2">
                 <div>
@@ -90,32 +102,32 @@ const Footer = () => {
                   " text-2xl font-semibold text-[#A07E62] py-4"
                 )}
               >
-                Link
+                {dictionary.Link}
               </h4>
               <div className="grid grid-cols-2 gap-4">
                 <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  Have your own trip
+                  {dictionary.have_your_own_trip}
                 </Link>
                 <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  Tourism tour
+                  {dictionary.Tourism_tour}
                 </Link>
                 <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  Health tour
+                  {dictionary.Health_tour}
                 </Link>
                 <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  About us
+                  {dictionary.About_us}
                 </Link>
                 <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  Medical tour
+                  {dictionary.Medical_tour}
                 </Link>
                 <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  Tourism tour
+                  {dictionary.Tourism_tour}
                 </Link>
                 <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  Persian store
+                  {dictionary.Persian_store}
                 </Link>
                 <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  Our Licenses
+                  {dictionary.Our_Licenses}
                 </Link>
               </div>
             </div>
@@ -127,7 +139,7 @@ const Footer = () => {
                   " text-2xl font-semibold text-[#A07E62] py-4"
                 )}
               >
-                Application
+                {dictionary.Application}
               </h4>
 
               <div className="flex  gap-4 py-4 px-4 bg-[#F6F6F6]">
@@ -153,8 +165,7 @@ const Footer = () => {
                 <Image src={visa} alt="paypal" />
               </div>
               <p className=" text-[11px] text-[#594636] font-medium">
-                © 2021 All rights reserved, including site and documentation,
-                with this website.
+                {dictionary.CopyRight}
               </p>
             </div>
 

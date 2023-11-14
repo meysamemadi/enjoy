@@ -20,6 +20,8 @@ const Header = ({
     Persian_Store: string;
     About_iran: string;
     About_us: string;
+    Register: string;
+    Login: string;
   };
 }) => {
 
@@ -34,7 +36,7 @@ const Header = ({
 
   return (
     <header>
-      <div className="container mx-auto max-w-7xl px-3 md:px-2 sm:px-6 lg:px-8">
+      <div className="container mx-auto  ">
         <div className="relative  flex items-center justify-between h-[72px] border-0 md:border-b md:border-[#A07E621A] md:h-[114px]">
           <div
             className={cn(
@@ -54,13 +56,13 @@ const Header = ({
               variant={"outline"}
               className=" bg-inherit border-[#A07E6280] text-[11px] text-[#594636] rounded-none"
             >
-              Register
+              {dictionary.Register}
             </Button>
           </div>
           <div className="flex  flex-1  space-x-[30px] items-center justify-center md:justify-start ">
             <div className="flex flex-shrink-0 ">
               <Link href="/">
-                <Image alt="logo" src={Logo} />
+                <Image alt="enjoy Persian" src={Logo} />
               </Link>
             </div>
             <div className=" hidden md:flex space-x-[30px]">
@@ -110,6 +112,18 @@ const Header = ({
           </div>
           <div className="hidden md:flex space-x-[30px]">
             <LocaleSwitcher />
+            <Button
+              variant={"outline"}
+              className=" bg-inherit border-none text-[11px] text-[#594636] rounded-none"
+            >
+              {dictionary.Login}
+            </Button>
+            <Button
+              variant={"outline"}
+              className=" bg-inherit border-[#A07E6280] text-[11px] text-[#594636] rounded-none"
+            >
+              {dictionary.Register}
+            </Button>
           </div>
         </div>
       </div>

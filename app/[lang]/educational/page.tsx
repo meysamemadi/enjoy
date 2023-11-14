@@ -16,6 +16,7 @@ import IranUniversitiesSuccess from "./components/IranUniversitiesSuccess";
 import OurConnections from "./components/OurConnections";
 async function IndexPage({ params: { lang } }: { params: { lang: Locale } }) {
   const categories: Category[] = await getCategories(lang);
+
   const dic = await getDictionary(lang);
 
   const pages = [{ name: "Educational", href: "#", current: false }];
@@ -32,7 +33,7 @@ async function IndexPage({ params: { lang } }: { params: { lang: Locale } }) {
   return (
     <div className=" flex-1">
       <BreadCrumb pages={pages} />
-      <Header />
+      <Header dictionary={dic["educational"]} />
       <Univercities
         dictionary={dic.educational}
         universities={universities}

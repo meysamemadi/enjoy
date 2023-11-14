@@ -1,6 +1,5 @@
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "../../i18n-config";
-import Counter from "./components/counter";
 import LocaleSwitcher from "./components/locale-switcher";
 import Link from "next/link";
 export default async function IndexPage({
@@ -14,12 +13,11 @@ export default async function IndexPage({
     <div>
       <LocaleSwitcher />
       <p>Current locale: {lang}</p>
-      <p>
-        This text is rendered on the server:{" "}
-        {dictionary["server-component"].welcome}
-      </p>
-      <Link href={`${lang}/educational`}>Educational</Link>
-      <Counter dictionary={dictionary.counter} />
+
+      <div className="flex flex-col gap-4">
+        <Link href={`${lang}/educational`}>Educational Tour</Link>
+        <Link href={`${lang}/medical`}>Medical Tour</Link>
+      </div>
     </div>
   );
 }

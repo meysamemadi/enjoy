@@ -2,7 +2,11 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Messina_Serif } from "../../font";
 import { IoLogoWhatsapp } from "react-icons/io";
-const WhatsApp = () => {
+const WhatsApp = ({ dictionary}: {dictionary: { 
+  Need_more_information: string,
+  Connect_with_WhatsApp : string
+
+ }}) => {
   return (
     <div className="container my-6 md:my-8 ">
       <div className="bg-white py-3 flex flex-wrap gap-2 items-center justify-evenly">
@@ -12,11 +16,11 @@ const WhatsApp = () => {
             "text-[19px] font-semibold text-[#594636]"
           )}
         >
-          Need more information?
+          {dictionary.Need_more_information}
         </h3>
         <Button className="bg-[#31CA68] rounded-none text-base md:text-lg font-bold">
           <IoLogoWhatsapp className="mr-2 w-[32px] h-[32px]" />
-          Connect with WhatsApp
+          {dictionary.Connect_with_WhatsApp}
         </Button>
       </div>
     </div>

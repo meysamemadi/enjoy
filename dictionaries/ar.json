@@ -6,16 +6,56 @@
     "Business_tour": "Business tour",
     "Persian_Store": "Persian Store",
     "About_iran": "About iran",
-    "About_us": "About us"
+    "About_us": "About us",
+    "Login": "Login",
+    "Register": "Register"
   },
   "educational": {
-    "universities": "Universities"
+    "universities": "Universities",
+    "Educational_Tour": "Educational Tour",
+    "Educational_Tour_desc": "Studying in the land of extraordinary attractions and beauties!",
+    "What_is_Educational_Tour": "What is “Educational Tour”?",
+    "header_discription": "Whether you travel with your family or alone, do not worry about which places to visit, where to stay at night, where to go shopping and how to find a tour leader and interpreter. Ask anything from us:"
+  },
+  "medical": {
+    "Medical_Tour": "Medical Tour",
+    "Medical_Tour_desc": "Firat Class Health Services with Low Price in persia",
+    "Medical_Tourism_in_Iran": "Medical Tourism in Iran",
+    "Medical_Tourism_description": "Iran is one of the best choices for providing health and care services in the world due to its advnaced technology of medicine and drugs, qualified doctors and nurses, effective health system and high position of medical ethical codes and Iranian hospitals provide all care process in all branches with reasonable costs for you. Enjoy Persia is a professional company in industry of health tourist that works with specialists and well-equipped hospitals in different cities of Iran. In addition to tourism capacities of our country, our team can provide desirable tourism, residential and naturopathy services with the highest quality and reasonable prices so that you can enjoy tourism and recreation attractions of Iran while having your health trip. Enjoy Persia also provides 24/7 services of private nurses and interpreters in order to enhance quality of services and preserve your comfort.We are honored to announce that our experts will be your advisors and guides 24/7 free of charge.",
+    "Special_Services": "Special Services",
+    "Free_consultation": "Free consultation",
+    "Free_consultation_description": "Enjoy pershia can provide your medical services in any city you like. You can even get advice from us and it will be completely free.",
+    "Enjoy_Persia_health_care_global_network": "Enjoy Persia health care global network",
+    "Enjoy_Persia_health_care_global_network_description": "Enjoy Persia is a pioneer that provides the best health care,medical and tourism services in Iran by its excellent doctors,clinics and care specialty hospitals in different cities of Iran,and also by its representatives and experts in different parts of the world.",
+    "Doctors": "Doctors",
+    "Hospitals": "Hospitals",
+    "Clinics": "Clinics",
+    "Pharmacies": "Pharmacies",
+    "Employees": "Employees",
+    "Cities": "Cities",
+    "Cities_health_services": "Cities health services",
+    "Facilities_with_treatment": "Facilities with treatment",
+    "naturopathy": "naturopathy",
+    "naturopathy_description": "Besides treatment with modern medical science, you can experience attractions of naturopathy such as hot water, treatment with salt, traditional medicine and other treatment facilities in Iran.",
+    "Our_doctors_success": "Our doctors’ success"
   },
   "server-component": {
-    "welcome": "Vítejte"
+    "welcome": "Welcome"
   },
-  "counter": {
-    "increment": "Přidat",
-    "decrement": "Ubrat"
+  "footer": {
+    "About_Enjoy_Persia": "About Enjoy Persia",
+    "about_us_text": "Enjoy Persia as a sub-branch of Raha commercial group (rahabusiness.com) is a tourism company that delivers the most diverse amusement and traveling services with cooperation of big community of Iran tourism. By such services that are delivered to tourists for the first time in Iran, we enable you to travel based on your own taste and have attractive and memorable experiences.",
+    "Link": "Link",
+    "have_your_own_trip": "Have your own trip",
+    "Tourism_tour": "Tourism tour",
+    "Health_tour": "Health tour",
+    "About_us": "About us",
+    "Medical_tour": "Medical tour",
+    "Persian_store": "Persian store",
+    "Our_Licenses": "Our Licenses",
+    "Application": "Application",
+    "CopyRight": "© 2021 All rights reserved, including site and documentation, with this website.",
+    "Need_more_information": "Need more information?",
+    "Connect_with_WhatsApp": "Connect with WhatsApp"
   }
 }

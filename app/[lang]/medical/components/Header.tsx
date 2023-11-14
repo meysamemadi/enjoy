@@ -1,18 +1,19 @@
 'use client'
 import Lottie from "lottie-react";
 import madar from "@/public/madar.json"
-import ImageHeader from "@/public/img/image.svg"
+import ImageHeader from "@/public/img/health_tour.png"
 import Image from "next/image";
 import { brand , harmony , Messina_Serif } from "@/app/[lang]/font";
 import { cn } from "@/lib/utils";
+import DescriptionCollapse from "./DescriptionCollapse";
 const Header = ({
   dictionary,
 }: {
   dictionary: {
-    What_is_Educational_Tour: string;
-    Educational_Tour: string;
-    Educational_Tour_desc: string;
-    header_discription: string;
+    Medical_Tourism_description: string;
+    Medical_Tour: string;
+    Medical_Tour_desc: string;
+    Medical_Tourism_in_Iran: string;
   };
 }) => {
   return (
@@ -25,7 +26,7 @@ const Header = ({
               " text-5xl md:text-7xl text-[#497D59] font-normal"
             )}
           >
-            {dictionary.Educational_Tour}
+            {dictionary.Medical_Tour}
           </span>
           <span
             className={cn(
@@ -33,7 +34,7 @@ const Header = ({
               " text-5xl md:text-[64px] text-[#707070] font-normal"
             )}
           >
-            {dictionary.Educational_Tour_desc}
+            {dictionary.Medical_Tour_desc}
           </span>
         </div>
         <Image
@@ -48,11 +49,12 @@ const Header = ({
           "  text-center text-[#594636] text-2xl md:text-[46px]"
         )}
       >
-        {dictionary.What_is_Educational_Tour}
+        {dictionary.Medical_Tourism_in_Iran}
       </p>
-      <p className="text-center font-medium mt-4 md:mt-5">
-        {dictionary.header_discription}
-      </p>
+      <DescriptionCollapse text={dictionary.Medical_Tourism_description} />
+      {/* <p className="text-center font-medium mt-4 md:mt-5 max-w-[880px] mx-auto line-clamp-3">
+        {dictionary.Medical_Tourism_description}
+      </p> */}
     </div>
   );
 };
