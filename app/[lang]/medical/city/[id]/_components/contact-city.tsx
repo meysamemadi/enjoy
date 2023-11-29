@@ -8,7 +8,7 @@ const ContactCity = () => {
         <h3
           className={cn(
             Messina_Serif.className,
-            " text-[56px] text-[#594636] font-semibold capitalize"
+            " text-2xl md:text-[40px] lg:text-[56px] text-[#594636] font-semibold capitalize"
           )}
         >
           Is this City your choice?
