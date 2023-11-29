@@ -12,7 +12,7 @@ const DescriptionCollapse = ({text}:{text:string}) => {
     return (
       <p
         className={cn(
-          "relative text-center font-medium mt-4 md:mt-5 max-w-[880px] mx-auto transition-all ease-in-out  ",
+          "relative text-center font-medium mt-4 md:mt-5 max-w-[880px] mx-auto transition-all ease-in-out text-[#594636] ",
           active
             ? ""
             : "transition-all ease-in-out line-clamp-5 md:line-clamp-4 after:inset-0 after:absolute  after:bg-gradient-to-t after:from-[#FAF5EF] after:to-[#faf5ef00]"
