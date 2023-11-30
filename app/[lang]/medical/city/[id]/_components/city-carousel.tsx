@@ -19,9 +19,7 @@ const CityCarousel = () => {
   const navigationNextRef = useRef(null);
   const navigationPrevRef = useRef(null);
 
-  useEffect(() => {
-    console.log(navigationNextRef, navigationPrevRef);
-  }, []);
+
 
   const handleslideNextClick = useCallback(() => {
     if (!sliderRef.current) return;
