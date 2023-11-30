@@ -2,6 +2,7 @@ import { getDictionary } from "@/get-dictionary";
 import { Locale } from "../../i18n-config";
 import LocaleSwitcher from "./components/locale-switcher";
 import Link from "next/link";
+
 export default async function IndexPage({
   params: { lang },
 }: {

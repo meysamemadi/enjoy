@@ -28,7 +28,7 @@ const OurServices = () => {
             Our Services
           </span>
         </div>
-        <div className=" py-4 mt-4 md:mt-10 justify-between text-center bg-white grid grid-cols-3 md:grid-cols-4">
+        <div className=" py-4 mt-4 md:mt-10 justify-center text-center bg-white grid grid-cols-3 md:grid-cols-4">
           <div className="flex flex-col items-center justify-center ">
             <Image src={e_c} alt="Educational Counseling" />
             <Link href={"/"} className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6">

@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { Messina_Serif } from "@/app/[lang]/font";
 import { RiArrowDownLine } from "react-icons/ri";
 import TouristAttractions from "./_components/tourist-attractions";
+import Accommodations from "./_components/accommodations";
 
 const CityPage = ({ params: { lang , id } }: { params: { lang: Locale , id: string } }) => {
 
@@ -37,6 +38,8 @@ const CityPage = ({ params: { lang , id } }: { params: { lang: Locale , id: stri
         </div>
       </div>
       <TouristAttractions />
+      <Accommodations />
+
 
     </div>
   );

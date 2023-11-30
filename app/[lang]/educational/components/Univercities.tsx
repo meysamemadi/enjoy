@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import CategorySlider from './CategorySlider';
 import UniversitiesGrid from './UniversitiesGrid';
 
+
 interface UnivercitiesProps {
   universities : University[];
   categories: Category[];
