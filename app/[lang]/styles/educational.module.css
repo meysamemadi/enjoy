@@ -1,6 +1,7 @@
 .header_education{
     position: relative;
     z-index: 2;
+    overflow: hidden;
 }
 .header_education::after{
     @apply w-[393px] md:w-[595px] h-[180px] md:h-[274px]  absolute -bottom-[160px] md:-bottom-[120px] left-[50px] md:left-0  content-[''] bg-[url('img/uni-header-bg.png')] z-[1] 
