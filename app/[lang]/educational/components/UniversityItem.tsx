@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { Category, Language } from '@/types'
 import { useParams } from 'next/navigation'
+import { UniversityItemCarousel } from './univercity-item-carousel'
 
 interface UniversityItemProps {
   id: number;
@@ -47,11 +48,12 @@ const UniversityItem = ({
       >
         {title}
       </h3>
-      <ul className=" line-clamp-3 list-disc list-inside text-[#594636] text-xs md:text-sm">
+      <UniversityItemCarousel categories={categories} />
+      {/* <div className=" line-clamp-3 list-disc list-inside text-[#594636] text-xs md:text-sm">
         {categories.map((category) => (
           <li key={category.id} className="truncate">{category.title}</li>
         ))}
-      </ul>
+      </div> */}
       <Link
         className="my-2 md:my-4 text-xs md:text-sm text-[#A98D69] font-medium underline"
         href={`/${params.lang}/educational/${id}`}
