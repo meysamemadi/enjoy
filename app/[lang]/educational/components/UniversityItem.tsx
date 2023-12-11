@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Category, Language } from '@/types'
 import { useParams } from 'next/navigation'
 import { UniversityItemCarousel } from './univercity-item-carousel'
+import { MotionDiv } from '../../components/motion'
 
 interface UniversityItemProps {
   id: number;
@@ -17,6 +18,7 @@ interface UniversityItemProps {
   main_pic: string;
   bg_pic: string;
   lang: Language;
+  index:number
 }
 const UniversityItem = ({
   id,
@@ -25,12 +27,19 @@ const UniversityItem = ({
   categories,
   main_pic,
   bg_pic,
-  lang
+  lang,
+  index
 }:UniversityItemProps) => {
 
   const params = useParams()
   return (
-    <div className=" p-2 md:p-4 bg-white flex flex-col">
+    <MotionDiv
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3 * index }}
+      viewport={{ once: true }}
+      className=" p-2 md:p-4 bg-white flex flex-col"
+    >
       <div className="relative">
         <Image
           src={main_pic}
@@ -60,7 +69,7 @@ const UniversityItem = ({
       >
         Read more ...
       </Link>
-    </div>
+    </MotionDiv>
   );
 }
 

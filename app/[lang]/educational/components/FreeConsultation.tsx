@@ -5,6 +5,7 @@ import { Messina_Serif } from '../../font'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import style from "@/app/[lang]/styles/educational.module.css"
+import { MotionDiv } from '../../components/motion'
 
 const FreeConsultation = () => {
   return (
@@ -26,26 +27,48 @@ const FreeConsultation = () => {
           Enjoy pershia can provide your medical services in any city you like.
           You can even get advice from us and it will be completely free.
         </p>
-        <Link
-          className={cn(
-            "py-4 px-12 text-[22px] bg-[#497D59] text-center font-bold text-white w-full md:w-fit ",
-            Messina_Serif.className
-          )}
-          href={"/"}
-          title="Free consultation"
+        <MotionDiv
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.3,
+            ease: [0, 0.71, 0.2, 1.01],
+            scale: {
+              type: "spring",
+              damping: 5,
+              stiffness: 100,
+              restDelta: 0.001,
+            },
+          }}
         >
-          Free consultation
-        </Link>
+          <Link
+            className={cn(
+              "py-4 px-12 text-[22px] bg-[#497D59] text-center font-bold text-white w-full md:w-fit ",
+              Messina_Serif.className
+            )}
+            href={"/"}
+            title="Free consultation"
+          >
+            Free consultation
+          </Link>
+        </MotionDiv>
       </div>
-      <div
-        className={cn( style.freeConsultation," relative w-full h-full   order-1 md:order-2")}
+      <MotionDiv
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className={cn(
+          style.freeConsultation,
+          " relative w-full h-full   order-1 md:order-2"
+        )}
       >
         <Image
           className="md:absolute mx-auto  -bottom-[57px] right-[50px]    "
           src={free_consultation}
           alt="Free consultation"
         />
-      </div>
+      </MotionDiv>
     </div>
   );
 }

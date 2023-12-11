@@ -63,9 +63,9 @@ const UniversitiesGrid = ({universities} : UniversitiesGridProps) => {
             className="mySwiper medical-services container"
           >
             {universities &&
-              universities.map((university) => (
+              universities.map((university, index) => (
                 <SwiperSlide key={university.id}>
-                  <UniversityItem {...university} />
+                  <UniversityItem index={index} {...university} />
                 </SwiperSlide>
               ))}
           </Swiper>
