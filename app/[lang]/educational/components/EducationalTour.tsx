@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { MotionDiv } from "../../components/motion";
 
 
 
@@ -29,7 +30,12 @@ const EducationalTour = () => {
         </span>
       </div>
       <div className=" flex flex-wrap md:flex-nowrap bg-white mt-4 md:mt-[40px]  gap-[24px]">
-        <div className="flex flex-col order-2 md:order-1 w-full md:w-[40%] p-6">
+        <MotionDiv
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="flex flex-col order-2 md:order-1 w-full md:w-[40%] p-6"
+        >
           <p className="text-[#594636] text-justify  font-medium text-sm leading-[28px]">
             Enjoy Persia has the ability to make all intersted people,
             instructors and students of all universities of the world experience
@@ -42,16 +48,23 @@ const EducationalTour = () => {
             science and industry and art. It is enough to send us a message.
           </p>
           <Button asChild className="w-full bg-[#497D59] rounded-none mt-auto">
-            <Link href={`/${params.lang}/educational/edcational-tour`}>Register the form</Link>
+            <Link href={`/${params.lang}/educational/edcational-tour`}>
+              Register the form
+            </Link>
           </Button>
-        </div>
-        <div className="order-1 md:order-2 bg-blue-500 w-full md:w-[60%]">
+        </MotionDiv>
+        <MotionDiv
+          initial={{ x: 50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="order-1 md:order-2 bg-blue-500 w-full md:w-[60%]"
+        >
           <Image
             className="w-full h-full object-cover"
             src={Educational_tour}
             alt="educational tour"
           />
-        </div>
+        </MotionDiv>
       </div>
     </div>
   );

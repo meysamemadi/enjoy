@@ -12,6 +12,7 @@ import v_t from "@/public/img/vip_tourism.png"
 import v_h from "@/public/img/vip_health.png"
 import Image from 'next/image';
 import Link from 'next/link';
+import { MotionDiv } from '../../components/motion';
 
 
 const OurServices = () => {
@@ -29,54 +30,126 @@ const OurServices = () => {
           </span>
         </div>
         <div className=" py-4 mt-4 md:mt-10 justify-center text-center bg-white grid grid-cols-3 md:grid-cols-4">
-          <div className="flex flex-col items-center justify-center ">
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="flex flex-col items-center justify-center "
+          >
             <Image src={e_c} alt="Educational Counseling" />
-            <Link href={"/"} className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6">
+            <Link
+              href={"/"}
+              className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6"
+            >
               Educational Counseling
             </Link>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
+          </MotionDiv>
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-col items-center justify-center "
+          >
             <Image src={u_r} alt="Educational Counseling" />
-            <Link href={"/"} className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6">
+            <Link
+              href={"/"}
+              className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6"
+            >
               University Registration
             </Link>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
+          </MotionDiv>
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-col items-center justify-center "
+          >
             <Image src={a_t} alt="Educational Counseling" />
-            <Link href={"/"} className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6">
+            <Link
+              href={"/"}
+              className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6"
+            >
               Airplane Ticket
             </Link>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
+          </MotionDiv>
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-col items-center justify-center "
+          >
             <Image src={o_b} alt="Educational Counseling" />
-            <Link href={"/"} className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6">
+            <Link
+              href={"/"}
+              className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6"
+            >
               Opening a Bank Account
             </Link>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
+          </MotionDiv>
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="flex flex-col items-center justify-center "
+          >
             <Image src={a_a} alt="Educational Counseling" />
-            <Link href={"/"} className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6">
+            <Link
+              href={"/"}
+              className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6"
+            >
               Accommodation and Dormitory
             </Link>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
+          </MotionDiv>
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-col items-center justify-center "
+          >
             <Image src={t_a} alt="Educational Counseling" />
-            <Link href={"/"} className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6">
+            <Link
+              href={"/"}
+              className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6"
+            >
               Thesis/Dissertation Affairs
             </Link>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
+          </MotionDiv>
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.7 }}
+            className="flex flex-col items-center justify-center "
+          >
             <Image src={v_t} alt="Educational Counseling" />
-            <Link href={"/"} className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6">
+            <Link
+              href={"/"}
+              className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6"
+            >
               VIP- Tourism and Recreation
             </Link>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
+          </MotionDiv>
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8 }}
+            className="flex flex-col items-center justify-center "
+          >
             <Image src={v_h} alt="Educational Counseling" />
-            <Link href={"/"} className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6">
+            <Link
+              href={"/"}
+              className="text-[10px] md:text-[14px] font-bold mt-[11px] mb-[13px] md:mt-4 md:mb-6"
+            >
               VIP- Health Tourism
             </Link>
-          </div>
+          </MotionDiv>
         </div>
       </div>
     </div>

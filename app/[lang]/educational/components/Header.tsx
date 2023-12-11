@@ -5,7 +5,7 @@ import ImageHeader from "@/public/img/image.svg"
 import Image from "next/image";
 import { brand , harmony , Messina_Serif } from "@/app/[lang]/font";
 import { cn } from "@/lib/utils";
-import { MotionP, MotionSpan } from "../../components/motion";
+import { MotionDiv, MotionP, MotionSpan } from "../../components/motion";
 import useDirection from "../../components/direction";
 import style from "@/app/[lang]/styles/educational.module.css"
 // import { useInView } from "framer-motion";
@@ -32,7 +32,9 @@ const Header = ({
 
   return (
     <div className=" container  ">
-      <div
+      <MotionDiv
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         className={cn(
           "flex flex-wrap md:flex-nowrap gap-2 justify-between items-center mb-8 md:mb-12",
           style.header_education
@@ -40,11 +42,12 @@ const Header = ({
       >
         <div className="flex flex-col gap-2 order-2 md:order-1 mt-[18px] md:mt-0 z-[1]">
           <MotionSpan
-            variants={variantsVisible}
+            variants={variantsMoveLeft}
             initial="hidden"
             animate="visible"
             transition={{
               ease: "easeInOut",
+              delay: 0.3,
               // duration: 0.3,
             }}
             className={cn(
@@ -57,11 +60,13 @@ const Header = ({
             {dictionary.Educational_Tour}
           </MotionSpan>
           <MotionSpan
-            variants={variantsVisible}
+            variants={variantsMoveLeft}
             initial="hidden"
             animate="visible"
             transition={{
               ease: "easeInOut",
+              delay: 0.3,
+
               // duration: 0.5,
             }}
             className={cn(
@@ -79,7 +84,7 @@ const Header = ({
           alt="enjoy persia"
           src={ImageHeader}
         />
-      </div>
+      </MotionDiv>
       <MotionP
         variants={variantsMoveLeft}
         initial="hidden"

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { MotionDiv } from "../../components/motion";
 
 const WorksInIran = () => {
 
@@ -23,14 +24,24 @@ const WorksInIran = () => {
         </span>
       </div>
       <div className=" flex flex-wrap md:flex-nowrap bg-white mt-4 md:mt-[40px]  gap-[24px]">
-        <div className=" bg-blue-500 w-full md:w-[60%]">
+        <MotionDiv
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className=" bg-blue-500 w-full md:w-[60%]"
+        >
           <Image
             className="w-full h-full object-cover"
             src={workInIran}
             alt="Work in Iran"
           />
-        </div>
-        <div className="flex flex-col  w-full md:w-[40%] p-6">
+        </MotionDiv>
+        <MotionDiv
+          initial={{ x: 50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="flex flex-col  w-full md:w-[40%] p-6"
+        >
           <p className="text-[#594636] text-justify  font-medium text-sm leading-[28px]">
             If you intend to travel to Iran but are alone and seek co-travelers
             who match your taste and interests, it is enough to inform Enjoy
@@ -40,9 +51,12 @@ const WorksInIran = () => {
           </p>
 
           <Button asChild className="w-full bg-[#497D59] rounded-none mt-auto">
-            <Link href={`/${params.lang}/educational/work-in-iran`}> Register the Form</Link>
+            <Link href={`/${params.lang}/educational/work-in-iran`}>
+              {" "}
+              Register the Form
+            </Link>
           </Button>
-        </div>
+        </MotionDiv>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { Messina_Serif } from '../../font'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import style from "@/app/[lang]/styles/educational.module.css"
-import { MotionDiv } from '../../components/motion'
+import { MotionDiv, MotionH4, MotionP } from '../../components/motion'
 
 const FreeConsultation = () => {
   return (
@@ -15,23 +15,34 @@ const FreeConsultation = () => {
       )}
     >
       <div className=" mb-[50px] md:top-0 flex order-2 md:order-1 flex-col z-[2]">
-        <h4
+        <MotionH4
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
           className={cn(
             "text-2xl md:text-[64px] font-semibold text-[#497D59]",
             Messina_Serif.className
           )}
         >
           Free consultation
-        </h4>
-        <p className=" mt-4 mb-6 md:mb-[40px] text-sm font-medium text-[#594636]">
+        </MotionH4>
+        <MotionP
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className=" mt-4 mb-6 md:mb-[40px] text-sm font-medium text-[#594636]"
+        >
           Enjoy pershia can provide your medical services in any city you like.
           You can even get advice from us and it will be completely free.
-        </p>
+        </MotionP>
         <MotionDiv
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
           transition={{
-            duration: 0.3,
+            duration: 0.6,
             ease: [0, 0.71, 0.2, 1.01],
             scale: {
               type: "spring",
