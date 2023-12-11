@@ -13,7 +13,7 @@ const FreeConsultation = () => {
         "container grid grid-cols-1 md:grid-cols-2 mt-[40px] md:mt-[70px] lg:mt-[160px] gap-0 md:gap-2 md:flex-nowrap justify-between items-center"
       )}
     >
-      <div className=" -top-2 md:top-0 relative flex order-2 md:order-1 flex-col z-[2]">
+      <div className=" mb-[50px] md:top-0 flex order-2 md:order-1 flex-col z-[2]">
         <h4
           className={cn(
             "text-2xl md:text-[64px] font-semibold text-[#497D59]",
@@ -41,7 +41,7 @@ const FreeConsultation = () => {
         className={cn( style.freeConsultation," relative w-full h-full   order-1 md:order-2")}
       >
         <Image
-          className="md:absolute   -bottom-[57px] right-[50px]    "
+          className="md:absolute mx-auto  -bottom-[57px] right-[50px]    "
           src={free_consultation}
           alt="Free consultation"
         />
