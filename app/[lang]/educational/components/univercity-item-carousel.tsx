@@ -6,13 +6,31 @@ import bodyContr from "@/public/img/Body contouring.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
-import Image from "next/image";
+import "swiper/css/navigation";
+
 import { Button } from "@/components/ui/button";
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { Category } from "@/types";
+import { MotionDiv } from "../../components/motion";
+import { Navigation } from "swiper/modules";
 
 interface UniversityItemCarouselProps {
     categories: Category[]
+}
+
+export const Item = ({ category , index}:{category:Category,index:number}) => {
+
+  return (
+    <MotionDiv
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.1 * index }}
+      viewport={{ once: true }}
+      className=" text-xs md:text-sm leading-4"
+    >
+      {category.title}
+    </MotionDiv>
+  );
 }
 
 export const UniversityItemCarousel = ({categories}:UniversityItemCarouselProps) => {
@@ -33,29 +51,31 @@ export const UniversityItemCarousel = ({categories}:UniversityItemCarouselProps)
     sliderRef.current.swiper.slidePrev();
   }, []);
 
+
   return (
-    <div >
-   
-      <div className="">
-        <Swiper
-          ref={sliderRef}
-          direction={"vertical"}
-          slidesPerView={4}
-          spaceBetween={0}
-          loop={false}
-          pagination={{
-            clickable: true,
-          }}
-          className="mySwiper h-[148px] md:h-[151px]"
-        >
-          {categories.map((category) => (
-            <SwiperSlide key={category.id} className="text-[#594636] p-0 !h-[17px] my-[2px] m-0">
-              {category.title}
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      <div>
+    <>
+      <Swiper
+        ref={sliderRef}
+        direction={"vertical"}
+        slidesPerView={3}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Navigation]}
+        navigation={{
+          prevEl: navigationPrevRef.current,
+          nextEl: navigationNextRef.current,
+        }}
+        className="mySwiper "
+      >
+        {categories.map((category, index) => (
+          <SwiperSlide key={category.id}>
+            <Item category={category} index={index} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="mb-4 w-full self-center text-center  ">
         <Button
           ref={navigationPrevRef}
           onClick={handleslidePrevClick}
@@ -81,6 +101,8 @@ export const UniversityItemCarousel = ({categories}:UniversityItemCarouselProps)
           />
         </Button>
       </div>
-    </div>
+    </>
   );
+
+
 };

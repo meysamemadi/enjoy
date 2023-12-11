@@ -1,14 +1,14 @@
-'use client'
-import Image from 'next/image'
-import React from 'react'
-import uni from "@/public/img/uni.png"
-import { montserrat } from '../../font'
-import { cn } from '@/lib/utils'
-import Link from 'next/link'
-import { Category, Language } from '@/types'
-import { useParams } from 'next/navigation'
-import { UniversityItemCarousel } from './univercity-item-carousel'
-import { MotionDiv } from '../../components/motion'
+"use client";
+import Image from "next/image";
+import React from "react";
+import uni from "@/public/img/uni.png";
+import { montserrat } from "../../font";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { Category, Language } from "@/types";
+import { useParams } from "next/navigation";
+import { UniversityItemCarousel } from "./univercity-item-carousel";
+import { MotionDiv } from "../../components/motion";
 
 interface UniversityItemProps {
   id: number;
@@ -18,7 +18,7 @@ interface UniversityItemProps {
   main_pic: string;
   bg_pic: string;
   lang: Language;
-  index:number
+  index: number;
 }
 const UniversityItem = ({
   id,
@@ -28,10 +28,9 @@ const UniversityItem = ({
   main_pic,
   bg_pic,
   lang,
-  index
-}:UniversityItemProps) => {
-
-  const params = useParams()
+  index,
+}: UniversityItemProps) => {
+  const params = useParams();
   return (
     <MotionDiv
       initial={{ opacity: 0, y: 50 }}
@@ -57,20 +56,22 @@ const UniversityItem = ({
       >
         {title}
       </h3>
-      <UniversityItemCarousel categories={categories} />
+      <div className="h-[150px] md:h-[188px] bg-white flex flex-col items-center justify-center pt-6">
+        <UniversityItemCarousel categories={categories} />
+      </div>
       {/* <div className=" line-clamp-3 list-disc list-inside text-[#594636] text-xs md:text-sm">
         {categories.map((category) => (
           <li key={category.id} className="truncate">{category.title}</li>
         ))}
       </div> */}
       <Link
-        className="my-2 md:my-4 text-xs md:text-sm text-[#A98D69] font-medium underline"
+        className="my-4 md:my-6 text-xs md:text-sm text-[#A98D69] font-medium underline"
         href={`/${params.lang}/educational/${id}`}
       >
         Read more ...
       </Link>
     </MotionDiv>
   );
-}
+};
 
 export default UniversityItem;
