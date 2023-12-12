@@ -9,6 +9,9 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'haveyourowntrip.ir'
+      },{
+        protocol: 'https',
+        hostname:'assets3.lottiefiles.com'
       }
     ],
   },

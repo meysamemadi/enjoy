@@ -1,16 +1,16 @@
-'use client'
+"use client";
 import Image from "next/image";
 import WhatsApp from "./whatsapp";
-import Logo from  "@/public/img/Logo.svg"
-import PWA from "@/public/img/PWA.svg"
+import Logo from "@/public/img/Logo.svg";
+import PWA from "@/public/img/PWA.svg";
 import { cn } from "@/lib/utils";
 import { Messina_Serif } from "../../font";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import visa from "@/public/img/Visa.png"
-import master from "@/public/img/Maestro.png"
-import master1 from "@/public/img/MasterCard.png"
-import paypal from "@/public/img/PayPal.png"
+import visa from "@/public/img/Visa.png";
+import master from "@/public/img/Maestro.png";
+import master1 from "@/public/img/MasterCard.png";
+import paypal from "@/public/img/PayPal.png";
 
 import US from "@/public/img/flag/US - United States.png";
 import CN from "@/public/img/flag/CN - China.png";
@@ -24,6 +24,7 @@ import { FaFacebookF, FaTelegram } from "react-icons/fa";
 import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
 import { Button } from "@/components/ui/button";
+import { MotionDiv } from "../motion";
 
 interface FooterProps {
   dictionary: {
@@ -44,19 +45,23 @@ interface FooterProps {
   };
 }
 
-const Footer = ({dictionary}: FooterProps) => {
+const Footer = ({ dictionary }: FooterProps) => {
   return (
     <div className=" h-96">
       <WhatsApp dictionary={dictionary} />
       <div className="bg-white">
         <div className=" container relative">
-          <div className=" relative ">
+          <MotionDiv
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
             <Image
               className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               src={Logo}
               alt="enjoy Persia"
             />
-          </div>
+          </MotionDiv>
           <div className="flex flex-wrap justify-between gap-2 pt-10 md:pt-16">
             <div className="w-full md:max-w-[400px]">
               <h4
@@ -71,27 +76,62 @@ const Footer = ({dictionary}: FooterProps) => {
                 {dictionary.about_us_text}
               </p>
               <div className="flex gap-2 md:gap-4 py-2">
-                <div>
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.1 }}
+                  viewport={{ once: true }}
+                >
                   <Image src={US} alt="us" />
-                </div>
-                <div>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
                   <Image src={CN} alt="us" />
-                </div>
-                <div>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 }}
+                  viewport={{ once: true }}
+                >
                   <Image src={RU} alt="us" />
-                </div>
-                <div>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
                   <Image src={DE} alt="us" />
-                </div>
-                <div>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5 }}
+                  viewport={{ once: true }}
+                >
                   <Image src={TR} alt="us" />
-                </div>
-                <div>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
                   <Image src={IR} alt="us" />
-                </div>
-                <div>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.7 }}
+                  viewport={{ once: true }}
+                >
                   <Image src={SA} alt="us" />
-                </div>
+                </MotionDiv>
               </div>
             </div>
 
@@ -105,30 +145,110 @@ const Footer = ({dictionary}: FooterProps) => {
                 {dictionary.Link}
               </h4>
               <div className="grid grid-cols-2 gap-4">
-                <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  {dictionary.have_your_own_trip}
-                </Link>
-                <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  {dictionary.Tourism_tour}
-                </Link>
-                <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  {dictionary.Health_tour}
-                </Link>
-                <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  {dictionary.About_us}
-                </Link>
-                <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  {dictionary.Medical_tour}
-                </Link>
-                <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  {dictionary.Tourism_tour}
-                </Link>
-                <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  {dictionary.Persian_store}
-                </Link>
-                <Link className="text-[#594636] text-xs font-medium" href={"/"}>
-                  {dictionary.Our_Licenses}
-                </Link>
+                <MotionDiv
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    className="text-[#594636] text-xs font-medium"
+                    href={"/"}
+                  >
+                    {dictionary.have_your_own_trip}
+                  </Link>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    className="text-[#594636] text-xs font-medium"
+                    href={"/"}
+                  >
+                    {dictionary.Tourism_tour}
+                  </Link>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    className="text-[#594636] text-xs font-medium"
+                    href={"/"}
+                  >
+                    {dictionary.Health_tour}
+                  </Link>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    className="text-[#594636] text-xs font-medium"
+                    href={"/"}
+                  >
+                    {dictionary.About_us}
+                  </Link>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    className="text-[#594636] text-xs font-medium"
+                    href={"/"}
+                  >
+                    {dictionary.Medical_tour}
+                  </Link>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    className="text-[#594636] text-xs font-medium"
+                    href={"/"}
+                  >
+                    {dictionary.Tourism_tour}
+                  </Link>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    className="text-[#594636] text-xs font-medium"
+                    href={"/"}
+                  >
+                    {dictionary.Persian_store}
+                  </Link>
+                </MotionDiv>
+                <MotionDiv
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    className="text-[#594636] text-xs font-medium"
+                    href={"/"}
+                  >
+                    {dictionary.Our_Licenses}
+                  </Link>
+                </MotionDiv>
               </div>
             </div>
 
@@ -171,37 +291,65 @@ const Footer = ({dictionary}: FooterProps) => {
 
             <div>
               <div className="flex gap-1 pb-2">
-                <Button
-                  className="bg-[#F6F6F6]"
-                  variant={"ghost"}
-                  size={"icon"}
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }}
                 >
-                  <FaFacebookF className={"w-6 h-6 text-[#594636]"} />
-                </Button>
+                  <Button
+                    className="bg-[#F6F6F6]"
+                    variant={"ghost"}
+                    size={"icon"}
+                  >
+                    <FaFacebookF className={"w-6 h-6 text-[#594636]"} />
+                  </Button>
+                </MotionDiv>
 
-                <Button
-                  className="bg-[#F6F6F6]"
-                  variant={"ghost"}
-                  size={"icon"}
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5 }}
+                  viewport={{ once: true }}
                 >
-                  <AiFillInstagram className={"w-6 h-6 text-[#594636]"} />
-                </Button>
+                  <Button
+                    className="bg-[#F6F6F6]"
+                    variant={"ghost"}
+                    size={"icon"}
+                  >
+                    <AiFillInstagram className={"w-6 h-6 text-[#594636]"} />
+                  </Button>
+                </MotionDiv>
 
-                <Button
-                  className="bg-[#F6F6F6]"
-                  variant={"ghost"}
-                  size={"icon"}
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4 }}
+                  viewport={{ once: true }}
                 >
-                  <AiFillLinkedin className={"w-6 h-6 text-[#594636]"} />
-                </Button>
+                  <Button
+                    className="bg-[#F6F6F6]"
+                    variant={"ghost"}
+                    size={"icon"}
+                  >
+                    <AiFillLinkedin className={"w-6 h-6 text-[#594636]"} />
+                  </Button>
+                </MotionDiv>
 
-                <Button
-                  className="bg-[#F6F6F6]"
-                  variant={"ghost"}
-                  size={"icon"}
+                <MotionDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 }}
+                  viewport={{ once: true }}
                 >
-                  <FaTelegram className={"w-6 h-6 text-[#594636]"} />
-                </Button>
+                  <Button
+                    className="bg-[#F6F6F6]"
+                    variant={"ghost"}
+                    size={"icon"}
+                  >
+                    <FaTelegram className={"w-6 h-6 text-[#594636]"} />
+                  </Button>
+                </MotionDiv>
               </div>
             </div>
           </div>

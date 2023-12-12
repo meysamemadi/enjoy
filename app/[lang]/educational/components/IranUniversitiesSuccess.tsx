@@ -1,9 +1,11 @@
+
 import { cn } from "@/lib/utils";
 import { Messina_Serif } from "../../font";
 import Image from "next/image"
 import IranSuccess from "@/public/img/iran_success.png"
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import { MotionDiv } from "../../components/motion";
 
 const IranUniversitiesSuccess = () => {
   return (
@@ -46,13 +48,19 @@ const IranUniversitiesSuccess = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-1 gap-4">
           <div className="flex gap-2 md:gap-6 border-b-0  md:border-b border-b-[#A07E624D] pb-0 md:pb-4 ">
-            <div className=" w-[164px] ">
+            <MotionDiv
+              initial={{ opacity: 0, scale: 0.2 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className=" w-[164px] "
+            >
               <Image
                 className="w-full h-full object-cover"
                 src={IranSuccess}
                 alt="iranSuccess"
               />
-            </div>
+            </MotionDiv>
             <div className=" w-full self-center">
               <h3
                 className={cn(
@@ -74,13 +82,19 @@ const IranUniversitiesSuccess = () => {
           </div>
 
           <div className="flex gap-2 md:gap-6 border-b-0  md:border-b border-b-[#A07E624D] pb-0 md:pb-4 ">
-            <div className=" w-[164px] ">
+            <MotionDiv
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className=" w-[164px] "
+            >
               <Image
                 className="w-full h-full object-cover"
                 src={IranSuccess}
                 alt="iranSuccess"
               />
-            </div>
+            </MotionDiv>
             <div className=" w-full self-center">
               <h3
                 className={cn(
@@ -102,13 +116,19 @@ const IranUniversitiesSuccess = () => {
           </div>
 
           <div className="flex gap-2 md:gap-6">
-            <div className=" w-[164px] ">
+            <MotionDiv
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className=" w-[164px] "
+            >
               <Image
                 className="w-full h-full object-cover"
                 src={IranSuccess}
                 alt="iranSuccess"
               />
-            </div>
+            </MotionDiv>
             <div className=" w-full self-center">
               <h3
                 className={cn(
