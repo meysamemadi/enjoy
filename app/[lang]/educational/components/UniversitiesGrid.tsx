@@ -32,7 +32,7 @@ const UniversitiesGrid = ({universities} : UniversitiesGridProps) => {
 
     return (
       <div className=" max-w-[1440px] relative mx-auto py-4 md:py-6">
-        <div className="container">
+        <div className="container px-0  md:px-4">
           <Swiper
             slidesPerView={3}
             spaceBetween={20}
@@ -45,7 +45,7 @@ const UniversitiesGrid = ({universities} : UniversitiesGridProps) => {
             breakpoints={{
               "@0.00": {
                 slidesPerView: 2,
-                spaceBetween: 10,
+                spaceBetween: 4,
                 grid: {
                   rows: 2,
                   fill: "row",

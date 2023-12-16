@@ -26,7 +26,7 @@ export const Item = ({ category , index}:{category:Category,index:number}) => {
       whileInView={{ opacity: 1 }}
       transition={{ delay: 0.1 * index }}
       viewport={{ once: true }}
-      className=" text-xs md:text-sm leading-4"
+      className=" text-xs md:text-sm leading-[200%] line-clamp-2"
     >
       {category.title}
     </MotionDiv>

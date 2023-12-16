@@ -29,10 +29,10 @@ const EducationalTour = () => {
           Educational tours
         </span>
       </div>
-      <div className=" flex flex-wrap md:flex-nowrap bg-white mt-4 md:mt-[40px]  gap-[24px]">
+      <div className=" flex overflow-hidden flex-wrap md:flex-nowrap bg-white mt-4 md:mt-[40px]  gap-[24px]">
         <MotionDiv
-          initial={{ x: -50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ y: -50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           className="flex flex-col order-2 md:order-1 w-full md:w-[40%] p-6"
         >
@@ -54,8 +54,8 @@ const EducationalTour = () => {
           </Button>
         </MotionDiv>
         <MotionDiv
-          initial={{ x: 50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           className="order-1 md:order-2 bg-blue-500 w-full md:w-[60%]"
         >

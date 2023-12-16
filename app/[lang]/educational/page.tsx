@@ -39,13 +39,13 @@ async function IndexPage({ params: { lang } }: { params: { lang: Locale } }) {
         universities={universities}
         categories={categories}
       />
-      <FreeConsultation />
+       <FreeConsultation />
       <OurServices />
       <Webinars webinars={webinars} featured={FeaturedWebinar} />
       <EducationalTour />
       <WorksInIran />
       <IranUniversitiesSuccess />
-      <OurConnections />
+      <OurConnections /> 
     </div>
   );
 }

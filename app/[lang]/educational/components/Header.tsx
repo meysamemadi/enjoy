@@ -31,7 +31,7 @@ const Header = ({
  
 
   return (
-    <div className=" container  ">
+    <div className=" container overflow-hidden  ">
       <MotionDiv
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}

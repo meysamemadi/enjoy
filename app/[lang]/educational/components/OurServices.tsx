@@ -29,13 +29,13 @@ const OurServices = () => {
             Our Services
           </span>
         </div>
-        <div className=" py-4 mt-4 md:mt-10 justify-center text-center bg-white grid grid-cols-3 md:grid-cols-4">
+        <div className=" py-4 mt-4 md:mt-10 justify-center text-center bg-white flex flex-wrap">
           <MotionDiv
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="flex flex-col items-center justify-center "
+            className=" w-1/3 md:w-1/4 flex flex-col items-center justify-center "
           >
             <Image src={e_c} alt="Educational Counseling" />
             <Link
@@ -50,7 +50,7 @@ const OurServices = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="flex flex-col items-center justify-center "
+            className="w-1/3 md:w-1/4 flex flex-col items-center justify-center "
           >
             <Image src={u_r} alt="Educational Counseling" />
             <Link
@@ -65,7 +65,7 @@ const OurServices = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col items-center justify-center "
+            className="w-1/3 md:w-1/4 flex flex-col items-center justify-center "
           >
             <Image src={a_t} alt="Educational Counseling" />
             <Link
@@ -80,7 +80,7 @@ const OurServices = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="flex flex-col items-center justify-center "
+            className="w-1/3 md:w-1/4  flex flex-col items-center justify-center "
           >
             <Image src={o_b} alt="Educational Counseling" />
             <Link
@@ -95,7 +95,7 @@ const OurServices = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="flex flex-col items-center justify-center "
+            className="w-1/3 md:w-1/4 flex flex-col items-center justify-center "
           >
             <Image src={a_a} alt="Educational Counseling" />
             <Link
@@ -110,7 +110,7 @@ const OurServices = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="flex flex-col items-center justify-center "
+            className="w-1/3 md:w-1/4 flex flex-col items-center justify-center "
           >
             <Image src={t_a} alt="Educational Counseling" />
             <Link
@@ -125,7 +125,7 @@ const OurServices = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.7 }}
-            className="flex flex-col items-center justify-center "
+            className="w-1/3 md:w-1/4 flex flex-col  col-span-[1.5] md:col-span-1 items-center justify-center "
           >
             <Image src={v_t} alt="Educational Counseling" />
             <Link
@@ -140,7 +140,7 @@ const OurServices = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.8 }}
-            className="flex flex-col items-center justify-center "
+            className="w-1/3 md:w-1/4 flex flex-col items-center justify-center  col-span-2 md:col-span-1"
           >
             <Image src={v_h} alt="Educational Counseling" />
             <Link

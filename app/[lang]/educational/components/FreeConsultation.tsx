@@ -11,47 +11,33 @@ const FreeConsultation = () => {
   return (
     <div
       className={cn(
-        "container grid grid-cols-1 md:grid-cols-2 mt-[40px] md:mt-[70px] lg:mt-[160px] gap-0 md:gap-2 md:flex-nowrap justify-between items-center"
+        "container  grid grid-cols-1 md:grid-cols-2 mt-[40px] md:mt-[70px] lg:mt-[160px] gap-0 md:gap-2 md:flex-nowrap justify-between items-center"
       )}
     >
       <div className=" mb-[50px] md:top-0 flex order-2 md:order-1 flex-col z-[2]">
         <MotionH4
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
           className={cn(
-            "text-2xl md:text-[64px] font-semibold text-[#497D59]",
+            "text-2xl md:text-[64px] font-semibold text-[#497D59] capitalize",
             Messina_Serif.className
           )}
         >
           Free consultation
         </MotionH4>
         <MotionP
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className=" mt-4 mb-6 md:mb-[40px] text-sm font-medium text-[#594636]"
+          className=" mt-4 mb-6  md:mb-[40px] text-sm font-medium text-[#594636]"
         >
           Enjoy pershia can provide your medical services in any city you like.
           You can even get advice from us and it will be completely free.
         </MotionP>
-        <MotionDiv
-          initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.6,
-            ease: [0, 0.71, 0.2, 1.01],
-            scale: {
-              type: "spring",
-              damping: 5,
-              stiffness: 100,
-              restDelta: 0.001,
-            },
-          }}
-        >
+        
           <Link
             className={cn(
               "py-4 px-12 text-[22px] bg-[#497D59] text-center font-bold text-white w-full md:w-fit ",
@@ -62,11 +48,10 @@ const FreeConsultation = () => {
           >
             Free consultation
           </Link>
-        </MotionDiv>
       </div>
       <MotionDiv
-        initial={{ opacity: 0, x: 100 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
         className={cn(

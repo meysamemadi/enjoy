@@ -56,7 +56,7 @@ const UniversityItem = ({
       >
         {title}
       </h3>
-      <div className="h-[150px] md:h-[188px] bg-white flex flex-col items-center justify-center pt-6">
+      <div className="h-[180px] md:h-[188px] bg-white flex flex-col items-center justify-center pt-6">
         <UniversityItemCarousel categories={categories} />
       </div>
       {/* <div className=" line-clamp-3 list-disc list-inside text-[#594636] text-xs md:text-sm">

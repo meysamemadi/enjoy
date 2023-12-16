@@ -25,8 +25,8 @@ const WorksInIran = () => {
       </div>
       <div className=" flex flex-wrap md:flex-nowrap bg-white mt-4 md:mt-[40px]  gap-[24px]">
         <MotionDiv
-          initial={{ x: -50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ y: -50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           className=" bg-blue-500 w-full md:w-[60%]"
         >
@@ -37,8 +37,8 @@ const WorksInIran = () => {
           />
         </MotionDiv>
         <MotionDiv
-          initial={{ x: 50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           className="flex flex-col  w-full md:w-[40%] p-6"
         >

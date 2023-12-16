@@ -2,9 +2,11 @@
 import { register } from "swiper/element/bundle";
 import { useRef, useEffect, useState, Dispatch, use } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation } from "swiper/modules";
+import { FreeMode, Grid, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/grid";
+
 import { ChevronRightIcon , ChevronLeftIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Category } from "@/types";
@@ -71,7 +73,7 @@ const CategorySlider: React.FC<CategorySliderProps> = ({
         key={category.id}
         onClick={() => handleClick(category)}
       >
-        <div className="w-full hover:bg-[#497D59]  cursor-pointer  hover:text-white transition-all text-xs text-center font-semibold px-4 md:px-6 py-2  md:py-3 bg-white ">
+        <div className="w-full hover:bg-[#497D59]  cursor-pointer  hover:text-white transition-all text-xs text-center font-semibold px-1 md:px-4 py-2  md:py-3 bg-white ">
           {category.title}
         </div>
       </SwiperSlide>
@@ -79,7 +81,7 @@ const CategorySlider: React.FC<CategorySliderProps> = ({
 
   return (
     <div className="container relative   mt-4 md:mt-10">
-      <div className="">
+      <div className="hidden md:block">
         <button
           className="absolute right-0 translate-y-[50%] "
           ref={navigationNextRef}
@@ -105,25 +107,39 @@ const CategorySlider: React.FC<CategorySliderProps> = ({
         ref={swiperRef}
         onSlideChange={handleSlideChange}
         centeredSlides={true}
-        spaceBetween={30}
-        slidesPerView={"auto"}
+        spaceBetween={15}
+        slidesPerView={3}
         loop={true}
+        grid={{
+          rows: 1,
+          fill: "row",
+        }}
         // dir="rtl"
         // navigation={true}
-        modules={[FreeMode, Navigation]}
+        modules={[FreeMode, Navigation, Grid]}
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
         }}
         breakpoints={{
-          640: {
-            slidesPerView: 2,
-          },
-
-          1024: {
+          "@0.00": {
             slidesPerView: 3,
+            spaceBetween: 4,
+            grid: {
+              rows: 3,
+              fill: "row",
+            },
+          },
+          "@0.75": {
+            grid: {
+              rows: 1,
+              fill: "row",
+            },
+            slidesPerView: 3,
+            spaceBetween: 20,
           },
         }}
+      
         // onSlideChange={handleSlideChange}
 
         className="mySwiper"
