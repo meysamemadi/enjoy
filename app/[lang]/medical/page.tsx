@@ -3,13 +3,14 @@ import { Locale } from "@/i18n-config";
 import BreadCrumb from "../components/breadcrumb";
 import Header from "./components/Header";
 import Title from "../components/title";
-import SpecialServices from "./components/special-services";
+import {SpecialServices} from "./components/special-services";
 import FreeConsultation from "./components/FreeConsultation";
 import MedicalState from "./components/medical-state";
 import CitiesHealthService from "./components/cities_health_service";
 import Facilites from "./components/facilities";
 import Naturopathy from "./components/naturopathy";
 import DoctorsSuccess from "./components/doctors-success";
+import { Suspense } from "react";
 
 const MedicalRoot = async ({
   params: { lang },
@@ -26,7 +27,9 @@ const MedicalRoot = async ({
       <div className="mt-4">
         <Title title={dic["medical"]["Special_Services"]} />
       </div>
-      <SpecialServices />
+      <Suspense fallback={<SpecialServices.Skeleton/>}>
+        <SpecialServices lang={lang} />
+      </Suspense>
       <FreeConsultation dictionary={dic["medical"]} />
       <MedicalState dictionary={dic["medical"]} />
       <div className="mt-[40px]">
@@ -50,3 +53,6 @@ const MedicalRoot = async ({
 };
 
 export default MedicalRoot;
+
+
+

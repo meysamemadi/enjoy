@@ -16,6 +16,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { FileInput } from "@/components/form/file-upload";
+import { useCallback, useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import { CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const formSchema = z.object({
   fullname: z.string().min(2).max(50),
@@ -25,18 +31,20 @@ const formSchema = z.object({
   mobile: z.string().min(2).max(50),
   email: z.string().min(2).max(50),
   description: z.string().min(2).max(50),
-  resume: z.object({
-    name: z.string(),
-    type: z.string().refine((type) => type.startsWith("image/"), {
-      message: "File must be an image.",
-    }),
-    size: z.number().refine((size) => size <= 5 * 1024 * 1024, {
-      message: "File size must be less than 5MB.",
-    }),
-  }),
+  resume: z
+    .string({
+      required_error: "resume is required",
+      invalid_type_error: "resume must be a string",
+    })
+    .min(2, { message: "resume is required" }),
 });
 
 const EdcationalForm = () => {
+  const [isSuccessful, setIsSuccessful] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
+  const params = useParams();
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,22 +55,137 @@ const EdcationalForm = () => {
       major: "",
       mobile: "",
       email: "",
-      resume: undefined,
+      resume: "",
       description: "",
     },
   });
 
+  const renderResumeError = () => {
+    const { resume } = form.formState.errors;
+    if (resume) {
+      // Check for specific errors related to the 'resume' field
+      if (Array.isArray(resume)) {
+        return resume.map((error, index) => (
+          <FormMessage key={index} className="text-xs">
+            {error.message}
+          </FormMessage>
+        ));
+      } else {
+        return <FormMessage className="text-xs">{resume.message}</FormMessage>;
+      }
+    }
+
+    return null;
+  };
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  async function onSubmit(
+    values: z.infer<typeof formSchema>,
+    event: React.FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+    setLoading(true);
+
+
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}consultation/create-educational-work`,
+        values
+      );
+
+
+      console.log(response.data);
+
+      if (response.data.status) {
+        setIsSuccessful(true);
+        setResult(response.data.data);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+ const onFileDrop = useCallback( async (acceptedFiles: File[]) => {
+   if (acceptedFiles && acceptedFiles.length > 0) {
+      const selectedImage = acceptedFiles[0];
+
+     const formData = new FormData();
+     formData.append("file", selectedImage);
+
+     await axios
+       .post(
+         `${process.env.NEXT_PUBLIC_API_URL}consultation/upload-educational-work`,
+         formData,
+         {
+           headers: {
+             "Content-Type": "multipart/form-data",
+           },
+         }
+       )
+       .then((response: AxiosResponse<{ status: boolean; value: string }>) => {
+         if (response.data.status) {
+           form.setValue("resume", response.data.value);
+         }
+       })
+       .catch((error) => console.log(error));
+
+
+  
+   }
+   // Do something with the files
+ }, []);
+
+// const onFileDrop = (acceptedFiles: any) => {
+//   // Update the 'resume' field with the first file from the dropped files
+//   if (acceptedFiles.length > 0) {
+//     const { name, path, size, type } = acceptedFiles[0];
+//     form.setValue("resume", [{ name, path, size, type }]);
+//   }
+// };
+
+
+  if (isSuccessful && result) {
+    return (
+      <div className="container ">
+        <section className="bg-white p-4 md:p-6 lg:p-[40px]">
+          <div className="flex flex-col items-center gap-4">
+            <CheckCircle2 className="text-[#497D59]" size={64} />
+            <div className="bg-[#F8F3EF] p-2 md:p-3 flex  justify-between items-center">
+              <span className="text-[#594636] text-sm font-medium">
+                Tracking Code :
+              </span>
+
+              <span className="text-[#594636] text-sm font-bold">
+                {
+                  /*@ts-ignore */
+                  result.id
+                }
+              </span>
+            </div>
+            <p className="text-[#594636] font-medium text-lg text-center">
+              Thanks for registering your information, we will contact you soon.
+            </p>
+
+            <Button
+              className="bg-[#497D59] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+              asChild
+            >
+              <Link href={`/${params.lang}/educational`}>
+                Back to education
+              </Link>
+            </Button>
+          </div>
+        </section>
+      </div>
+    );
   }
 
   return (
     <div className="container ">
       <section className="bg-white p-4 md:p-6 lg:p-[40px]">
         <Form {...form}>
+          {/**@ts-ignore */}
           <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className=" space-y-6">
@@ -76,6 +199,7 @@ const EdcationalForm = () => {
                       </FormLabel>
                       <FormControl>
                         <Input
+                          disabled={loading}
                           className=" focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62]"
                           placeholder="enter your Name"
                           {...field}
@@ -96,6 +220,7 @@ const EdcationalForm = () => {
                       </FormLabel>
                       <FormControl>
                         <Input
+                          disabled={loading}
                           className=" focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62]"
                           placeholder="enter your country"
                           {...field}
@@ -116,6 +241,7 @@ const EdcationalForm = () => {
                       </FormLabel>
                       <FormControl>
                         <Input
+                          disabled={loading}
                           className=" focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62]"
                           placeholder="enter your university"
                           {...field}
@@ -136,6 +262,7 @@ const EdcationalForm = () => {
                       </FormLabel>
                       <FormControl>
                         <Input
+                          disabled={loading}
                           className=" focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62]"
                           placeholder="enter your major"
                           {...field}
@@ -157,6 +284,7 @@ const EdcationalForm = () => {
                       </FormLabel>
                       <FormControl>
                         <Input
+                          disabled={loading}
                           className=" focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62]"
                           placeholder="enter phone number"
                           {...field}
@@ -177,6 +305,7 @@ const EdcationalForm = () => {
                       </FormLabel>
                       <FormControl>
                         <Input
+                          disabled={loading}
                           className=" focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62]"
                           placeholder="enter your email"
                           {...field}
@@ -197,6 +326,7 @@ const EdcationalForm = () => {
                       </FormLabel>
                       <FormControl>
                         <Textarea
+                          disabled={loading}
                           placeholder="Enter your description"
                           className=" h-[135px] focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62]"
                           {...field}
@@ -209,22 +339,16 @@ const EdcationalForm = () => {
               </div>
             </div>
 
-            <div className=" col-span-2">
+            <div className=" col-span-2 mt-4">
+              <FileInput onDrop={onFileDrop} />
+
               <FormField
                 control={form.control}
-                name="email"
+                name="resume"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[#594636] text-[13px] font-semibold capitalize">
-                      your email
-                    </FormLabel>
                     <FormControl>
-                      <Input
-                        className=" focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62]"
-                        placeholder="enter your email"
-                        type="file"
-                        {...field}
-                      />
+                      <input hidden {...field} />
                     </FormControl>
                     <FormMessage className="text-xs" />
                   </FormItem>
@@ -233,6 +357,7 @@ const EdcationalForm = () => {
             </div>
 
             <Button
+              disabled={loading}
               className=" mt-4 col-span-2 rounded-none bg-[#497D59] w-full text-[#FAF7F5] font-bold"
               type="submit"
             >

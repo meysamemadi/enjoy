@@ -1,5 +1,5 @@
-import { title } from 'process';
-import { type } from 'os';
+import { title } from "process";
+import { type } from "os";
 
 export interface University {
   id: number;
@@ -10,8 +10,8 @@ export interface University {
   bg_pic: string;
   meta: Meta[];
   service: Service[];
-  gallery : string[];
-  lang:Language;
+  gallery: string[];
+  lang: Language;
 }
 export interface Category {
   id: number;
@@ -22,7 +22,7 @@ export interface Meta {
   id: number;
   name: string;
   value: string;
-  type: boolean
+  type: boolean;
 }
 
 export interface Language {
@@ -36,7 +36,6 @@ export interface Service {
   title: string;
 }
 
-
 export interface Webinar {
   id: number;
   type: string;
@@ -49,5 +48,19 @@ export interface Webinar {
   main_pic: string;
   video_url?: string;
   lang: Language;
-  featured : boolean;
+  featured: boolean;
+}
+
+export interface MedicalSpecialService {
+  id: number;
+  title: string;
+  short_description: string;
+  subtitle_one: string;
+  subtitle_two: string;
+  description_one: string;
+  description_two: string;
+  image: string;
+  image_bg: string;
+  image_one: string;
+  image_two: string;
 }

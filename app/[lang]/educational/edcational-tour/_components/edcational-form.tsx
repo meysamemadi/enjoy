@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -16,18 +16,28 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import axios from "axios";
+import { CheckCircle2 } from "lucide-react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 
 const formSchema = z.object({
   fullname: z.string().min(2).max(50),
   country: z.string().min(2).max(50),
   university: z.string().min(2).max(50),
   major: z.string().min(2).max(50),
-  mobile: z.string().min(2).max(50),
+  phone_number: z.string().min(2).max(50),
   email: z.string().min(2).max(50),
   description: z.string().min(2).max(50),
 });
 
 const EdcationalForm = () => {
+  const [isSuccessful, setIsSuccessful] = useState(false);
+  const [result, setResult] = useState(null);
+
+  const params = useParams();
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,17 +46,61 @@ const EdcationalForm = () => {
       country: "",
       university: "",
       major: "",
-      mobile: "",
+      phone_number: "",
       email: "",
       description: "",
     },
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}consultation/create-educational-tour`,
+      values
+    );
+    if (response.data.status) {
+      setIsSuccessful(true);
+      setResult(response.data.data);
+    }
+  }
+
+  if (isSuccessful && result) {
+    return (
+      <div className="container ">
+        <section className="bg-white p-4 md:p-6 lg:p-[40px]">
+          <div className="flex flex-col items-center gap-4">
+            <CheckCircle2 className="text-[#497D59]" size={64} />
+            <div className="bg-[#F8F3EF] p-2 md:p-3 flex  justify-between items-center">
+              <span className="text-[#594636] text-sm font-medium">
+                Tracking Code :
+              </span>
+
+              <span className="text-[#594636] text-sm font-bold">
+                {
+                  /*@ts-ignore */
+                  result.id
+                }
+              </span>
+            </div>
+            <p className="text-[#594636] font-medium text-lg text-center">
+              Thanks for registering your information, we will contact you soon.
+            </p>
+
+            <Button
+              className="bg-[#497D59] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+              asChild
+            >
+              <Link href={`/${params.lang}/educational`}>
+                Back to education
+              </Link>
+            </Button>
+          </div>
+        </section>
+      </div>
+    );
   }
 
   return (
@@ -139,7 +193,7 @@ const EdcationalForm = () => {
               <div className=" space-y-6">
                 <FormField
                   control={form.control}
-                  name="mobile"
+                  name="phone_number"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-[#594636] text-[13px] font-semibold capitalize">
@@ -210,6 +264,6 @@ const EdcationalForm = () => {
       </section>
     </div>
   );
-}
- 
+};
+
 export default EdcationalForm;
