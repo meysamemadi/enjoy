@@ -6,8 +6,8 @@ import Image from "next/image"
 import { Messina_Serif } from "../../font"
 import { useParams, useRouter } from "next/navigation"
 
-const CityItem = ({name , image}:{
-    name:string,image:string
+const CityItem = ({id,name , image}:{
+id:number,    name:string,image:string
 }) => {
 
     const router = useRouter();
@@ -15,10 +15,10 @@ const CityItem = ({name , image}:{
 
     return (
       <div
-        onClick={() => router.push(`${params.lang}/medical/city/1`)}
+        onClick={() => router.push(`${params.lang}/medical/city/${id}`)}
         className=" cursor-pointer h-[132px] md:h-[240px] flex flex-col items-center justify-center gap-[8px] md:gap-5"
       >
-        <Image alt={name} src={city} />
+        <Image width={300} height={200} alt={name} src={image} />
 
         <h3
           className={cn(
