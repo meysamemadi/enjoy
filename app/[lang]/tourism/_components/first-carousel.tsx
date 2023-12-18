@@ -13,8 +13,17 @@ import t1 from "@/public/image/t1.png";
 import t2 from "@/public/image/t2.jpg";
 import t3 from "@/public/image/t3.png";
 
+interface FirstCarouselProps {
+  sliderRef: any;
+  navigationNextRef: any;
+  navigationPrevRef: any;
+}
 
-export const FirstCarousel = ({ sliderRef , navigationNextRef , navigationPrevRef }) => {
+export const FirstCarousel = ({
+  sliderRef,
+  navigationNextRef,
+  navigationPrevRef,
+}: FirstCarouselProps) => {
   return (
     <Swiper
       ref={sliderRef}

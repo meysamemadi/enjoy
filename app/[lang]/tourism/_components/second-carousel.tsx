@@ -15,12 +15,17 @@ import t1 from "@/public/image/t1.png";
 import t2 from "@/public/image/t2.jpg";
 import t3 from "@/public/image/t3.png";
 
+interface SecondCarouselProps {
+  sliderRef: any;
+  navigationNextRef: any;
+  navigationPrevRef: any;
+}
 
 export const SecondCarousel = ({
   sliderRef,
   navigationNextRef,
   navigationPrevRef,
-}) => {
+}:SecondCarouselProps) => {
   return (
     <Swiper
       ref={sliderRef}
