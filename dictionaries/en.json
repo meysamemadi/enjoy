@@ -39,6 +39,12 @@
     "naturopathy_description":"Besides treatment with modern medical science, you can experience attractions of naturopathy such as hot water, treatment with salt, traditional medicine and other treatment facilities in Iran.",
     "Our_doctors_success":"Our doctors’ success"
   },
+  "tourism":{
+    "Tourism" : "Tourism",
+    "Tour" : "Tour",
+    "Touch_your_dreams_in_Persia":"Touch your dreams in Persia"
+
+  },
   "server-component": {
     "welcome": "Welcome"
   },
