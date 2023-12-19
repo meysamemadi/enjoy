@@ -18,6 +18,7 @@ export default async function IndexPage({
       <div className="flex flex-col gap-4">
         <Link href={`${lang}/educational`}>Educational Tour</Link>
         <Link href={`${lang}/medical`}>Medical Tour</Link>
+        <Link href={`${lang}/tourism`}>tourism Tour</Link>
       </div>
     </div>
   );
