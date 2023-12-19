@@ -6,6 +6,7 @@ import { SecondCarousel } from "./second-carousel";
 import { useCallback, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import Link from "next/link";
 
 
 export const NextTours = () => {
@@ -85,6 +86,35 @@ export const NextTours = () => {
             navigationNextRef={navigationNextRef}
             navigationPrevRef={navigationPrevRef}
           />
+        </div>
+        <div className="flex items-center justify-between mb-4 md:hidden">
+          <Button
+            className=" bg-inherit rounded-none text-[#594636] border border-[594636] text-sm font-normal capitalize"
+            asChild
+          >
+            <Link className="" href={"/"}>
+              See More
+            </Link>
+          </Button>
+
+          <div className=" space-x-6">
+            <Button
+              size={"icon"}
+              onClick={handleslidePrevClick}
+              ref={navigationNextRef}
+              className=" bg-inherit text-[#594636] rounded-none"
+            >
+              <BsChevronLeft className=" w-6 h-6" />
+            </Button>
+            <Button
+              onClick={handleslideNextClick}
+              ref={navigationPrevRef}
+              className="  bg-inherit text-[#594636] rounded-none"
+              size={"icon"}
+            >
+              <BsChevronRight className=" w-6 h-6" />
+            </Button>
+          </div>
         </div>
       </div>
     );
