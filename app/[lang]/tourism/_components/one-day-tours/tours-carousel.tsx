@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/grid";
 
-import style from "@/app/[lang]/medicalService.module.css";
+import style from "@/app/[lang]/styles/tourism.module.css";
 
 import t1 from "@/public/image/t1.png";
 import t2 from "@/public/image/t2.jpg";
@@ -25,7 +25,7 @@ export const ToursCarousel = () => {
   const sliderRef = useRef(null);
 
   const pagination = {
-    el: ".containerForBullets",
+    el: ".containerForBulletsTourism",
     clickable: true,
     bulletClass: style.bulletClass,
     bulletActiveClass: style.bulletActiveClass,
@@ -63,10 +63,10 @@ export const ToursCarousel = () => {
         modules={[FreeMode, Grid, Pagination, Navigation]}
         breakpoints={{
           "@0.00": {
-            slidesPerView: 2,
+            slidesPerView: 1.2,
             spaceBetween: 6,
             grid: {
-              rows: 3,
+              rows: 1,
               fill: "row",
             },
           },
@@ -86,8 +86,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t1.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -97,8 +95,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t2.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -108,8 +104,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t3.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -119,8 +113,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t1.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -130,8 +122,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t2.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -141,8 +131,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t3.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -152,8 +140,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t1.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -163,8 +149,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t2.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -174,8 +158,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t3.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -185,8 +167,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t1.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -196,8 +176,6 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t2.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
@@ -207,13 +185,9 @@ export const ToursCarousel = () => {
             id={1}
             title="Weaving original Iranian carpets"
             image={t3.src}
-            days="1-7 days"
-            start_at="22/June"
             price="$406.27"
           />
         </SwiperSlide>
-
-
       </Swiper>
 
       <div
@@ -231,11 +205,28 @@ export const ToursCarousel = () => {
         <SlArrowLeft className="w-[20px] h-[40px] text-[#594636]" />
       </div>
 
-      <div className="hidden md:flex containerForBullets mb-4 justify-center mt-[25px] md:mt-[45px] space-x-[10px]"></div>
-      <div className=" flex md:hidden items-center w-full justify-center my-4 ">
+      <div className="hidden md:flex containerForBulletsTourism mb-4 justify-center mt-[25px] md:mt-[45px] space-x-[10px]"></div>
+      <div className=" flex md:hidden items-center w-full justify-between my-4 ">
         <Button className=" bg-inherit text-[#594636] border border-[#594636] rounded-none">
           See More
         </Button>
+        <div className="flex space-x-4">
+          <div
+            onClick={handleslideNextClick}
+            ref={navigationNextRef}
+            className="tourism-special-tours-next cursor-pointer  w-fit h-fit "
+          >
+            <SlArrowLeft className="w-[20px] h-[40px] text-[#594636]" />
+          </div>
+
+          <div
+            onClick={handleslidePrevClick}
+            ref={navigationPrevRef}
+            className="tourism-special-tours-prev cursor-pointer  w-fit h-fit  "
+          >
+            <SlArrowRight className="w-[20px] h-[40px] text-[#594636]" />
+          </div>
+        </div>
       </div>
     </div>
   );

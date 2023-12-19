@@ -47,7 +47,7 @@ interface FooterProps {
 
 const Footer = ({ dictionary }: FooterProps) => {
   return (
-    <div className=" h-96">
+    <div className="bg-[#FAF5EF] h-96">
       <WhatsApp dictionary={dictionary} />
       <div className="bg-white">
         <div className=" container relative">
