@@ -19,6 +19,7 @@ export default async function IndexPage({
         <Link href={`${lang}/educational`}>Educational Tour</Link>
         <Link href={`${lang}/medical`}>Medical Tour</Link>
         <Link href={`${lang}/tourism`}>tourism Tour</Link>
+        <Link href={`${lang}/have-your-own-trip`}>Have Your own Trip</Link>
       </div>
     </div>
   );

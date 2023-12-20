@@ -45,6 +45,12 @@
     "Touch_your_dreams_in_Persia":"Touch your dreams in Persia"
 
   },
+  "have_your_own_trip":{
+    "Have_your" : "Have your",
+    "own_trip" : "own trip",
+    "Endless_adventure_in_Persia":"Endless adventure in Persia"
+
+  },
   "server-component": {
     "welcome": "Welcome"
   },
