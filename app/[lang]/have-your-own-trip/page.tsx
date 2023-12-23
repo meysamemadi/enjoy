@@ -19,6 +19,9 @@ import cta4 from "@/public/img/haveyorowntrip/c4.jpg";
 import cta5 from "@/public/img/haveyorowntrip/c5.png";
 import cta6 from "@/public/img/haveyorowntrip/c6.jpg";
 import { Photographer } from "./_components/photographer/photographer";
+import { Accommodations } from "./_components/accommodations/accommodations";
+import { RestaurantAndCafe } from "./_components/restaurant-and-cafe/restaurant-and-cafe";
+import { State } from "./_components/state/state";
 
 
 const HaveYourOwnTrip = async ({
@@ -104,6 +107,39 @@ const HaveYourOwnTrip = async ({
         </div>
       </div>
       <Photographer />
+      <Accommodations />
+      <div className="container my-[48px] lg:my-[80px]">
+        <div
+          className={cn(
+            "  aspect-[1/1.4] md:aspect-video bg-red-500  md:max-h-[400px] w-full h-full",
+            style.one_day_tour_header
+          )}
+        >
+          <div className=" w-full h-full  z-40 absolute flex flex-col gap-4 md:gap-6 justify-end inset-0 p-6 md:py-[62px] md:px-[70px] ">
+            <h2
+              className={cn(
+                "text-white capitalize font-semibold text-[40px] md:text-[48px] md:max-w-[324px]",
+                Messina_Serif.className
+              )}
+            >
+              One day tours
+            </h2>
+            <p className="text-white text-base leading-[24px] md:max-w-[391px] font-semibold">
+              If you are in cities of Iran, you can experience our attractive
+              one-day tours besides your main tour or the purpose you have
+              traveled for
+            </p>
+            <Link
+              className="py-3 px-[30px] md:px-[20px] border border-white font-semibold text-sm text-[#594636] w-fit md:text-white bg-white md:bg-inherit"
+              href={""}
+            >
+              Choose a Tour
+            </Link>
+          </div>
+        </div>
+      </div>
+      <RestaurantAndCafe />
+      <State />
     </div>
   );
 };

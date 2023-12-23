@@ -5,12 +5,12 @@ import { RiCamera3Fill , RiFilmFill  , RiAddBoxLine } from 'react-icons/ri'
 
 export const PhotographerItem = () => {
   return (
-    <div className=" aspect-square  md:aspect-[2/1] w-full   border border-[#A07E6280] p-3 ">
-      <div className=" hidden md:flex gap-2 ">
-        <div className=" bg-red-400 w-1/3">
-          <Image className=" w-full h-full object-cover" src={pic} alt="user" />
+    <div className=" aspect-square  md:aspect-[2/1] w-full max-h-[245px]   border border-[#A07E6280] p-3 ">
+      <div className="h-full hidden md:flex gap-2 ">
+        <div className=" relative h-full w-1/3">
+          <Image fill className=" w-full h-full object-contain" src={pic} alt="user" />
         </div>
-        <div className="flex flex-col gap-2 w-2/3">
+        <div className="flex flex-col justify-between pt-2 gap-2 w-2/3">
           <h3 className=" font-bold capitalize text-sm text-[#594636]">
             alireza mohammadi
           </h3>
