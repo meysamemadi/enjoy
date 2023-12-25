@@ -26,6 +26,8 @@ import { TravelCheap } from "./_components/travel-cheap/travel-cheap";
 import { Locations } from "./_components/locations/locations";
 import { Music } from "./_components/music/music";
 import { Stores } from "./_components/stores/stores";
+import { Companion } from "./_components/find-companion/companion";
+import { TouristSay } from "./_components/tourists-say/tourist-say";
 
 
 const HaveYourOwnTrip = async ({
@@ -166,8 +168,9 @@ const HaveYourOwnTrip = async ({
           Get in touch
         </Button>
       </div>
-
       <Stores />
+      <Companion />
+      <TouristSay />
 
     </div>
   );
