@@ -23,7 +23,6 @@
   @apply absolute w-full h-full inset-0  content-[''] md:bg-[linear-gradient(0deg,_rgba(240,_113,_72,_0.50)_0%,_rgba(240,_113,_72,_0.50)_100%),_linear-gradient(90deg,_#568CE6_-5.39%,_rgba(106,_145,_210,_0.70)_19.31%,_rgba(177,_200,_191,_0.00)_100%),_linear-gradient(90deg,_#568CE6_-5.39%,_rgba(106,_145,_210,_0.70)_19.31%,_rgba(177,_200,_191,_0.00)_100%),_linear-gradient(90deg,_#568CE6_-5.39%,_rgba(106,_145,_210,_0.70)_19.31%,_rgba(177,_200,_191,_0.00)_100%)];
 }
 
-
 .bgWrap {
   position: fixed;
   height: 100vh;
@@ -32,3 +31,32 @@
   z-index: -1;
 }
 
+.bulletClassStore {
+  width: 8px;
+  height: 4px;
+  opacity: 0.3;
+  background: #594636;
+  cursor: pointer;
+}
+.bulletActiveClassStore {
+  width: 35px;
+  height: 4px;
+  opacity: 1;
+  background: #594636;
+}
+
+.bulletClassStoreItem {
+  width: 6px;
+  height: 6px;
+  opacity: 0.2;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 0%;
+}
+.bulletActiveClassStoreItem {
+  width: 6px;
+  height: 6px;
+  opacity: 1;
+  border-radius: 0%;
+  background: #fff;
+}

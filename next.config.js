@@ -12,6 +12,9 @@ const nextConfig = {
       },{
         protocol: 'https',
         hostname:'assets3.lottiefiles.com'
+      },{
+        protocol: 'https',
+        hostname: 'test-videos.co.uk'
       }
     ],
   },

@@ -22,6 +22,10 @@ import { Photographer } from "./_components/photographer/photographer";
 import { Accommodations } from "./_components/accommodations/accommodations";
 import { RestaurantAndCafe } from "./_components/restaurant-and-cafe/restaurant-and-cafe";
 import { State } from "./_components/state/state";
+import { TravelCheap } from "./_components/travel-cheap/travel-cheap";
+import { Locations } from "./_components/locations/locations";
+import { Music } from "./_components/music/music";
+import { Stores } from "./_components/stores/stores";
 
 
 const HaveYourOwnTrip = async ({
@@ -111,7 +115,7 @@ const HaveYourOwnTrip = async ({
       <div className="container my-[48px] lg:my-[80px]">
         <div
           className={cn(
-            "  aspect-[1/1.4] md:aspect-video bg-red-500  md:max-h-[400px] w-full h-full",
+            "  aspect-[1/1.4] md:aspect-video  md:max-h-[400px] w-full h-full",
             style.one_day_tour_header
           )}
         >
@@ -140,6 +144,31 @@ const HaveYourOwnTrip = async ({
       </div>
       <RestaurantAndCafe />
       <State />
+      <TravelCheap />
+      <Locations />
+      <Music />
+      <div className=" my-12 md:mt-[80px] md:mb-8 flex flex-col gap-6 items-center justify-center text-center">
+        <h4
+          className={cn(
+            " text-lg md:text-[46px] text-[#594636] font-semibold leading-[85.2%]",
+            Messina_Serif.className
+          )}
+        >
+          Rent and purchase equipment
+        </h4>
+        <p className="text-sm leading-[200%] font-medium max-w-[728px] text-[#594636]">
+          Enjoy Persia can buy or even rent various facilities for you in all
+          cities in Iran. See the features below and then fill out the form at
+          the bottom of the page.
+        </p>
+
+        <Button className="bg-[#F07148] py-4 px-[48px] font-bold rounded-none text-base text-[#FAF7F5] capitalize leading-[85.2%]">
+          Get in touch
+        </Button>
+      </div>
+
+      <Stores />
+
     </div>
   );
 };
