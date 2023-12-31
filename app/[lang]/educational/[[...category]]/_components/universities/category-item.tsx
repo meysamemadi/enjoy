@@ -15,13 +15,20 @@ export const CategoryItem = ({ id, name, active }: CategoryItemProps) => {
   const router = useRouter();
   const params = useParams();
 
+  const category = params?.category;
+
+
+
+
+
   return (
     <Button
       onClick={() => router.push(`/${params.lang}/educational/${id}`)}
       className={cn(
-        " bg-white border text-[10px] md:text-sm text-[#33281F] font-semibold capitalize rounded-none w-full hover:bg-[#F071481A] hover:text-[#33281F] leading-[111%]",
-        active &&
-          "bg-[#F07148] text-white hover:bg-[#F07148]/80 hover:text-white/90 "
+        " bg-white border text-[10px] md:text-sm text-[#33281F] font-semibold capitalize rounded-none w-full hover:bg-[#497D59]/80  hover:text-white leading-[111%]",
+        //@ts-ignore
+        category && (category[0] == id) &&
+          "bg-[#497D59] text-white hover:bg-[#497D59]/80 hover:text-white/90 "
       )}
     >
       {name}

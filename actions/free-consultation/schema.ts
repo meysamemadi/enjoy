@@ -60,5 +60,5 @@ export const CreateFreeConsultation = z.object({
   condition: z.string().min(2, {
     message: "This can not be empty",
   }),
-  document: z.string(),
+  upload: z.string(),
 });

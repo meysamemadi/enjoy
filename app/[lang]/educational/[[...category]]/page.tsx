@@ -19,7 +19,7 @@ const IndexEducational = async ({
   params: { category: string | undefined; lang: Locale };
 }) => {
   const lang = params.lang;
-  const category = params.lang
+  const category = params.category
   const pages = [{ name: "Educational", href: "#", current: false }];
   const dic = await getDictionary(lang);
 

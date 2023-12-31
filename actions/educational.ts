@@ -3,13 +3,11 @@ import { UniversitySuccess, Webinar } from "@/types";
 export const getCategories = async (lang: string) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}category/univercity?lang=${lang}`,
-      {
-        cache: "no-cache",
-      }
+      `${process.env.NEXT_PUBLIC_API_URL}category/univercity?lang=${lang}`
     );
 
     const response = await res.json();
+    console.log(response)
     return response;
   } catch (error) {
     console.log("[getCategories]", error);

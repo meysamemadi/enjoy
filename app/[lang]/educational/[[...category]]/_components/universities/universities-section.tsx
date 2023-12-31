@@ -11,7 +11,7 @@ export const UniversitiesSection = async ({
   category,
 }: {
   lang: Locale;
-  category: string;
+  category: string | string[] | undefined;
 }) => {
   return (
     <div className="mt-[28px] md:[50px] ">

@@ -7,7 +7,7 @@ const Universities = async ({
   category,
 }: {
   lang: Locale;
-  category: string;
+  category: string | string[] | undefined;
 }) => {
   const universities = await getUniversitiesByCategory(lang, category);
 

@@ -15,7 +15,7 @@ id:number,    name:string,image:string
 
     return (
       <div
-        onClick={() => router.push(`${params.lang}/medical/city/${id}`)}
+        onClick={() => router.push(`/${params.lang}/medical/city/${id}`)}
         className=" cursor-pointer h-[132px] md:h-[240px] flex flex-col items-center justify-center gap-[8px] md:gap-5"
       >
         <Image width={300} height={200} alt={name} src={image} />

@@ -11,7 +11,6 @@ import Link from "next/link";
 import { FormInput } from "@/components/form/form-input";
 import { Label } from "@/components/ui/label";
 import { FormSubmit } from "@/components/form/form-submit";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FormSelect } from "@/components/form/form-select";
 import { FileInput } from "@/components/form/file-upload";
 import axios, { AxiosResponse } from "axios";
@@ -49,7 +48,7 @@ export function ConsultationForm() {
     const university = formData.get("university") as string;
     const major = formData.get("major") as string;
     const condition = formData.get("condition") as string;
-    const document = formData.get("document") as string;
+    const upload = formData.get("upload") as string;
 
     execute({
       first_name,
@@ -62,7 +61,7 @@ export function ConsultationForm() {
       university,
       major,
       condition,
-      document
+      upload
     });
   };
 
@@ -263,7 +262,7 @@ export function ConsultationForm() {
           />
         </div>
 
-        <Input type="hidden" defaultValue={documentField} id="documenu" name="document" />
+        <Input type="hidden" defaultValue={documentField} id="upload" name="upload" />
 
         <FileInput className="py-[25px]" onDrop={onFileDrop} />
 
