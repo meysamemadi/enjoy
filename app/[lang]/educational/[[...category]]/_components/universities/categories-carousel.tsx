@@ -1,0 +1,101 @@
+"use client";
+
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Grid, Pagination, Navigation } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/grid";
+
+import { Category } from "@/types";
+import { useCallback, useRef } from "react";
+import { CategoryItem } from "./category-item";
+
+const CategoriesCarousel = ({
+  categories,
+}: {
+  categories: Category[] | [] | null;
+}) => {
+  const navigationNextRef = useRef(null);
+  const navigationPrevRef = useRef(null);
+  const sliderRef = useRef(null);
+
+  const handleslideNextClick = () => {
+    if (!sliderRef.current) return;
+    //@ts-ignore
+    sliderRef.current.swiper.slideNext();
+  };
+
+  const handleslidePrevClick = () => {
+    if (!sliderRef.current) return;
+    //@ts-ignore
+    sliderRef.current.swiper.slidePrev();
+  };
+  return (
+    <div className="mb-6 relative container lg:px-6">
+      <Swiper
+        ref={sliderRef}
+        slidesPerView={"auto"}
+        spaceBetween={20}
+        loop={true}
+        navigation={{
+          prevEl: navigationNextRef.current,
+          nextEl: navigationPrevRef.current,
+        }}
+        grid={{
+          rows: 2,
+          fill: "row",
+        }}
+        modules={[FreeMode, Grid, Pagination, Navigation]}
+        breakpoints={{
+          "@0.00": {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            grid: {
+              rows: 3,
+              fill: "row",
+            },
+          },
+          "@0.75": {
+            grid: {
+              rows: 1,
+              fill: "row",
+            },
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }}
+        className="mySwiper max-w-[1440px] mx-auto px-4 md:px-6 lg:px-[200px]"
+      >
+        {categories &&
+          categories.map((category) => (
+            <SwiperSlide className=" flex-shrink-0 w-full" key={category.id}>
+              <CategoryItem id={category.id} name={category.title} />
+            </SwiperSlide>
+          ))}
+      </Swiper>
+
+      <div
+        onClick={handleslidePrevClick}
+        ref={navigationPrevRef}
+        className="tourism-special-tours-prev cursor-pointer hidden md:block absolute w-fit h-fit  top-1/2  md:right-0 2xl:-right-[2%] inset-y-0 -translate-y-1/2"
+      >
+        <SlArrowRight className="w-[20px] h-[40px] text-[#594636]" />
+      </div>
+      <div
+        onClick={handleslideNextClick}
+        ref={navigationNextRef}
+        className="tourism-special-tours-next cursor-pointer hidden md:block absolute w-fit h-fit  top-1/2 md:left-0 2xl:-left-[2%] inset-y-0 -translate-y-1/2 "
+      >
+        <SlArrowLeft className="w-[20px] h-[40px] text-[#594636]" />
+      </div>
+
+      <div className="flex containerForBullets justify-center space-x-[10px]"></div>
+    </div>
+  );
+};
+
+export default CategoriesCarousel;

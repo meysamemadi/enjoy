@@ -8,7 +8,7 @@ const EducationalLayout = async ({ children , params } : {children:React.ReactNo
      const dictionary = await getDictionary(params.lang);
    
   return (
-    <div className="bg-[#FAF5EF] min-h-full flex flex-col">
+    <div className="bg-[#FAF5EF] h-full flex flex-col">
       <Header dictionary={dictionary["main-menu"]} />
       {children}
       <Footer dictionary={dictionary["footer"]} />

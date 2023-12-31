@@ -1,5 +1,5 @@
 import { title } from "process";
-import { type } from "os";
+import { FreeConsultation } from "./../app/[lang]/educational/[[...category]]/_components/free-consultation";
 
 export interface University {
   id: number;
@@ -36,19 +36,30 @@ export interface Service {
   title: string;
 }
 
+export interface UniversitySuccess {
+  id: number;
+  title: string;
+  time: string;
+  main_pic: string;
+}
+
 export interface Webinar {
   id: number;
-  type: string;
+  type: "webinar" | "video";
   title: string;
   sub_title: string;
   subject: string;
   languages: string;
   present_by: string;
+  description: string;
   location: string;
   main_pic: string;
   video_url?: string;
   lang: Language;
   featured: boolean;
+  start_date: string;
+  start_time: string;
+  organizer: string;
 }
 
 export interface MedicalSpecialService {
@@ -63,4 +74,9 @@ export interface MedicalSpecialService {
   image_bg: string;
   image_one: string;
   image_two: string;
+}
+
+export interface FreeConsultation {
+  status: boolean;
+  data: any;
 }
