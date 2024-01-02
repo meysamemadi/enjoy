@@ -9,29 +9,22 @@ const ConatcPage = async ({
 }: {
   params: {
     lang: string;
-    id: string;
   };
 }) => {
-
-  
-      const pages = [
-        { name: "medical", href: "#", current: true },
-        { name: "Educational", href: "#", current: true },
-      ];
+      const pages = [{ name: "Educational", href: "#", current: true }];
 
 
   return (
     <div className="flex-1 bg-[#FAF5EF]">
       <BreadCrumb pages={pages} />
-      <ContactHeader />
 
-      <Title title="Free consultation to you" />
+      <Title title="Reservation this doctor " />
       <div className="container">
-        <div className="bg-white p-4">
+        <div className="bg-white p-4 md:px-[60px] lg:px-[90px]">
           <div className="bg-[#FAF5EF] p-4 my-6">
             <p className="text-[#594636] text-xs font-bold">
-              If you have chosen this doctor for your treatment in Iran, you can
-              fill out the form so that we can contact you soon
+              the following form is for announcing your health tourism and we
+              will contact you after registering the form.
             </p>
           </div>
 
