@@ -57,7 +57,7 @@ const DoctorPage = async ({
                   Therapeutic measures:
                 </p>
                 <ul className=" list-[square] list-inside marker:text-lg text-[#594636] text-xs items-start justify-start text-left">
-                  {doctor.therapeutic.map(
+                  {doctor.therapeutic.lenght && doctor.therapeutic.map(
                     (item: any) =>
                       item.value && <li key={item.id}>{item.name}</li>
                   )}
@@ -128,13 +128,13 @@ const DoctorPage = async ({
               Messina_Serif.className
             )}
           >
-            <Link href={`/${params.lang}/medical/doctor/${params.id}/contact`}>Get it touch</Link>
+            <Link href={`/${params.lang}/medical/doctor/${params.id}/contact`}>
+              Get it touch
+            </Link>
           </Button>
         </div>
 
         <Others />
-
-
       </div>
     </div>
   );
