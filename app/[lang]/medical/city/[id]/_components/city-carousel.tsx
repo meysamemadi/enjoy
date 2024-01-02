@@ -12,14 +12,16 @@ import CityItem from "./city-item";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { FreeMode, Navigation } from "swiper/modules";
 import { Button } from "@/components/ui/button";
+import { City } from "@/types";
 
-const CityCarousel = () => {
+
+
+const CityCarousel = ({ cities }: { cities: City[] }) => {
+
   const sliderRef = useRef(null);
 
   const navigationNextRef = useRef(null);
   const navigationPrevRef = useRef(null);
-
-
 
   const handleslideNextClick = useCallback(() => {
     if (!sliderRef.current) return;
@@ -67,30 +69,11 @@ const CityCarousel = () => {
         }}
         className="container mySwiper "
       >
-        <SwiperSlide>
-          <CityItem id="2" name="rasht" active />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CityItem id="2" name="rasht" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CityItem id="2" name="rasht" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CityItem id="2" name="rasht" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CityItem id="2" name="rasht" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CityItem id="2" name="rasht" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CityItem id="2" name="rasht" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CityItem id="2" name="rasht" />
-        </SwiperSlide>
+        {cities.map((city) => (
+          <SwiperSlide key={city.id}>
+            <CityItem id={city.id} name={city.name} image={city.image_two} />
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className="flex md:hidden w-full items-center space-x-6 justify-end mt-[14px]">

@@ -1,3 +1,4 @@
+import { City } from './../app/[lang]/have-your-own-trip/_components/photographer/city';
 import { title } from "process";
 import { FreeConsultation } from "./../app/[lang]/educational/[[...category]]/_components/free-consultation";
 
@@ -79,4 +80,28 @@ export interface MedicalSpecialService {
 export interface FreeConsultation {
   status: boolean;
   data: any;
+}
+
+// medical
+
+export interface specialService {
+  id: string;
+  title: string;
+  short_description: string;
+  subtitle_one: string;
+  subtitle_two: string;
+  description_one: string;
+  description_two: string;
+  image: string;
+  image_bg: string;
+  image_one: string;
+  image_two: string;
+}
+
+export interface City {
+  id: string;
+  name: string;
+  description: string;
+  image_one: string;
+  image_two: string;
 }

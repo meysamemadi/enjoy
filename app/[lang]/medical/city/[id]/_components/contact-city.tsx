@@ -1,8 +1,12 @@
+'use client'
 import { Messina_Serif } from "@/app/[lang]/font";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const ContactCity = () => {
+  const params = useParams();
     return (
       <div className="container mt-[48px] md:mt-[110px] flex flex-col space-y-6 items-center justify-center">
         <h3
@@ -18,12 +22,13 @@ const ContactCity = () => {
           out the form so we can contact you soon.
         </p>
         <Button
+          asChild
           className={cn(
             "bg-[#43B8A2] w-full max-w-[728px] text-[#FAF7F5] text-[22px] py-4 font-bold rounded-none",
             Messina_Serif.className
           )}
         >
-          Get In Touch
+          <Link href={`/${params.lang}/medical/free-consultation`}>Get In Touch</Link>
         </Button>
       </div>
     );

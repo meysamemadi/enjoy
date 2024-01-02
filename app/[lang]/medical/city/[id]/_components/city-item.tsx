@@ -1,23 +1,27 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import uni from "@/public/img/uni.jpg"
 import { cn } from "@/lib/utils";
+import { useParams } from "next/navigation";
 
 interface CityItemProps {
   id: string;
   name: string;
-  image?: string;
-  active ?: boolean;
+  image: string;
 }
 
-const CityItem = ({id,name,image , active}: CityItemProps) => {
+const CityItem = ({id,name,image}: CityItemProps) => {
+
+  const params = useParams()
+
     return (
-      <Link href={`/medical/city/${id}`} title={name}>
+      <Link href={`/${params.lang}/medical/city/${id}`} title={name}>
         <div
           className={cn(
             "bg-white items-center  h-[175px] md:h-[230px] flex flex-col gap-3 mb-2  ",
-            !active && "opacity-50",
-            active && "city-container border-b-8 border-[#43B8A2]"
+            params.id === id &&
+              "opacity-50 city-container border-b-8 border-[#43B8A2]"
           )}
         >
           <div className="p-[8px] h-[128px]  md:h-[164px]">
@@ -25,7 +29,7 @@ const CityItem = ({id,name,image , active}: CityItemProps) => {
               width={164}
               height={164}
               className="w-full h-full bg-cover mx-auto"
-              src={uni}
+              src={image}
               alt={name}
             />
           </div>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import h1 from "@/public/h1.png";
 import { MedicalSpecialService } from "@/types";
+import { useParams, useRouter } from "next/navigation";
 
 const ServiceItem = ({
   id,
@@ -17,8 +18,11 @@ const ServiceItem = ({
   image_one,
   image_two,
 }: MedicalSpecialService) => {
+
+  const router = useRouter();
+  const params = useParams()
   return (
-    <div className=" group w-full h-full max-h-[334px] relative">
+    <div onClick={()=> router.push(`/${params.lang}/medical/special-service/${id}`)} className=" cursor-pointer group w-full h-full max-h-[334px] relative">
       <Image
         width={"1000"}
         height={"500"}

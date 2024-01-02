@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { ElementRef, useCallback, useRef, useState } from "react";
 import { useAction } from "@/hooks/use-action";
 import { Button } from "@/components/ui/button";
-import { createFreeConsultation } from "@/actions/free-consultation";
+import { createMedicalFreeConsultation } from "@/actions/create-medical-free-consultion";
 import { useRouter } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
@@ -20,16 +20,14 @@ export function ConsultationForm() {
   const [isSuccessful, setIsSuccessful] = useState(false);
   const [result, setResult] = useState(null);
   const params = useParams();
-  const router = useRouter();
   const formRef = useRef<ElementRef<"form">>(null);
 
   const [documentField , setDocumentField] = useState('')
 
-  const { execute, fieldErrors } = useAction(createFreeConsultation, {
+  const { execute, fieldErrors } = useAction(createMedicalFreeConsultation, {
     onSuccess: (data) => {
-      setIsSuccessful(data.status)
+      setIsSuccessful(data.status);
       setResult(data.data);
-      // router.refresh();
     },
     onError: (error) => {
       console.log(error);
@@ -40,27 +38,27 @@ export function ConsultationForm() {
     const first_name = formData.get("first_name") as string;
     const last_name = formData.get("last_name") as string;
     const gender = formData.get("gender") as string;
-    const academic_discipline = formData.get("academic_discipline") as string;
-    const academic_orientation = formData.get("academic_orientation") as string;
-    const email = formData.get("email") as string;
+    const date_of_birth = formData.get("date_of_birth") as string;
+    const country = formData.get("country") as string;
     const phone_number = formData.get("phone_number") as string;
-    const university = formData.get("university") as string;
-    const major = formData.get("major") as string;
-    const condition = formData.get("condition") as string;
+    const email = formData.get("email") as string;
+    const type_of_disease = formData.get("type_of_disease") as string;
+    const disease_background = formData.get("disease_background") as string;
+    const description = formData.get("description") as string;
     const upload = formData.get("upload") as string;
 
     execute({
       first_name,
       last_name,
       gender,
-      academic_discipline,
-      academic_orientation,
-      email,
+      date_of_birth,
+      country,
       phone_number,
-      university,
-      major,
-      condition,
-      upload
+      email,
+      type_of_disease,
+      disease_background,
+      description,
+      upload,
     });
   };
 
@@ -114,11 +112,11 @@ export function ConsultationForm() {
         </p>
 
         <Button
-          className="bg-[#497D59] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+          className="bg-[#43B8A2] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
           asChild
         >
-          <Link href={`/${params.lang}/educational`}>
-            Back to education tour
+          <Link href={`/${params.lang}/medical`}>
+            Back to health tourism
           </Link>
         </Button>
       </div>
@@ -179,23 +177,35 @@ export function ConsultationForm() {
 
         <div className="flex flex-col space-y-2">
           <Label className="text-[#594636] text-[13px] font-semibold capitalize">
-            academic discipline
+            Date of birth
           </Label>
           <FormInput
             errors={fieldErrors}
-            id="academic_discipline"
+            id="date_of_birth"
             className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-            placeholder="Enter list title..."
+            placeholder="Choose your Date of birth"
           />
         </div>
 
         <div className="flex flex-col space-y-2">
           <Label className="text-[#594636] text-[13px] font-semibold capitalize">
-            academic orientation
+            Country
           </Label>
           <FormInput
             errors={fieldErrors}
-            id="academic_orientation"
+            id="country"
+            className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+            placeholder="enter your country"
+          />
+        </div>
+
+        <div className="flex flex-col space-y-2">
+          <Label className="text-[#594636] text-[13px] font-semibold capitalize">
+            phone number
+          </Label>
+          <FormInput
+            errors={fieldErrors}
+            id="phone_number"
             className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
             placeholder="Enter list title..."
           />
@@ -215,53 +225,41 @@ export function ConsultationForm() {
 
         <div className="flex flex-col space-y-2">
           <Label className="text-[#594636] text-[13px] font-semibold capitalize">
-            phone number
+            Type of disease
           </Label>
           <FormInput
             errors={fieldErrors}
-            id="phone_number"
+            id="type_of_disease"
             className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-            placeholder="Enter list title..."
+            placeholder="Choose your Type of disease"
           />
         </div>
 
         <div className="flex flex-col space-y-2">
           <Label className="text-[#594636] text-[13px] font-semibold capitalize">
-            university
+            disease background
           </Label>
           <FormInput
             errors={fieldErrors}
-            id="university"
+            id="disease_background"
             className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-            placeholder="Enter list title..."
+            placeholder="Enter your disease background"
           />
         </div>
 
         <div className="flex flex-col space-y-2">
           <Label className="text-[#594636] text-[13px] font-semibold capitalize">
-            major
+            Description
           </Label>
           <FormInput
             errors={fieldErrors}
-            id="major"
+            id="description"
             className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-            placeholder="Enter list title..."
+            placeholder="your medical issue ..."
           />
         </div>
 
-        <div className="flex flex-col space-y-2">
-          <Label className="text-[#594636] text-[13px] font-semibold capitalize">
-            condition
-          </Label>
-          <FormInput
-            errors={fieldErrors}
-            id="condition"
-            className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-            placeholder="Enter list title..."
-          />
-        </div>
-
-        <Input type="hidden" defaultValue={documentField} id="upload" name="upload" />
+        <Input defaultValue={documentField} id="upload" name="upload" />
 
         <FileInput className="py-[25px]" onDrop={onFileDrop} />
 
