@@ -20,6 +20,8 @@ const DoctorPage = async ({
   if (!doctor) {
     notFound();
   }
+  console.log(doctor);
+  
 
   return (
     <div className="flex-1 h-full ">
