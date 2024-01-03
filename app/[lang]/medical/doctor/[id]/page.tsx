@@ -21,10 +21,6 @@ const DoctorPage = async ({
     notFound();
   }
 
-  
-  console.log(doctor);
-
-
   return (
     <div className="flex-1 h-full ">
       <div className="container">
@@ -61,7 +57,7 @@ const DoctorPage = async ({
                   Therapeutic measures:
                 </p>
                 <ul className=" list-[square] list-inside marker:text-lg text-[#594636] text-xs items-start justify-start text-left">
-                  {doctor.therapeutic.lenght && doctor.therapeutic.map(
+                  {doctor.therapeutic.map(
                     (item: any) =>
                       item.value && <li key={item.id}>{item.name}</li>
                   )}

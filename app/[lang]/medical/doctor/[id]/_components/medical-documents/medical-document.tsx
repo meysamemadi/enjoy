@@ -8,6 +8,10 @@ interface Document {
 }
 
 export const MedicalDocument = ({ document }: { document : Document[] }) => {
+
+
+  console.log(document)
+
   return (
     <div className="mt-[30px] md:mt-[60px] lg:mt-[100px]">
       <Title title="medical documents" />
