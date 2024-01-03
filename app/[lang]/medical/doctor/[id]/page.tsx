@@ -20,8 +20,10 @@ const DoctorPage = async ({
   if (!doctor) {
     notFound();
   }
-  console.log(doctor);
+
   
+  console.log(doctor);
+
 
   return (
     <div className="flex-1 h-full ">
@@ -107,7 +109,7 @@ const DoctorPage = async ({
           </div>
         </div>
 
-        <MedicalDocument document={doctor.document} />
+        {/* <MedicalDocument document={doctor.document} /> */}
 
         <div className="text-center mt-[48px] md:mt-[80px] lg:mt-[100px]">
           <h2
