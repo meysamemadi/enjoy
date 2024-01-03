@@ -109,7 +109,7 @@ const DoctorPage = async ({
           </div>
         </div>
 
-        {/* <MedicalDocument document={doctor.document} /> */}
+        <MedicalDocument document={doctor.document} />
 
         <div className="text-center mt-[48px] md:mt-[80px] lg:mt-[100px]">
           <h2
