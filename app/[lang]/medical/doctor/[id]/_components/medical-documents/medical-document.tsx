@@ -1,3 +1,4 @@
+'use client'
 import Title from "@/app/[lang]/components/title"
 import { DocumentItem } from "./document-item";
 
