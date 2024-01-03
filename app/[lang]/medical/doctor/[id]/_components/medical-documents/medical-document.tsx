@@ -11,6 +11,8 @@ interface Document {
 export const MedicalDocument = ({ document }: { document : Document[] }) => {
 
 
+  console.log("in document: " , document)
+
   if(!document)
   {
     return null;

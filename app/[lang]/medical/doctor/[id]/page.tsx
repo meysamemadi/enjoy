@@ -21,6 +21,9 @@ const DoctorPage = async ({
     notFound();
   }
 
+    console.log("in doctor: ", doctor);
+
+
   return (
     <div className="flex-1 h-full ">
       <div className="container">
