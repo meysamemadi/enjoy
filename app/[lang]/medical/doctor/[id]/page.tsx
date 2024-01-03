@@ -9,6 +9,8 @@ import { MedicalDocument } from "./_components/medical-documents/medical-documen
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Others } from "./_components/others/others";
+import Title from "@/app/[lang]/components/title";
+import { DocumentItem } from "./_components/medical-documents/document-item";
 
 const DoctorPage = async ({
   params,
@@ -105,7 +107,14 @@ const DoctorPage = async ({
           </div>
         </div>
 
-        <MedicalDocument document={doctor.document} />
+        <div className="mt-[30px] md:mt-[60px] lg:mt-[100px]">
+          <Title title="medical documents" />
+          <div className=" container mt-4 md:mt-[40px] grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {doctor.document.map((item: any) => (
+              <DocumentItem key={item.id} {...item} />
+            ))}
+          </div>
+        </div>
 
         <div className="text-center mt-[48px] md:mt-[80px] lg:mt-[100px]">
           <h2
