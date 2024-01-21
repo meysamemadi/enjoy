@@ -1,0 +1,38 @@
+
+
+.one_day_tour_header {
+  @apply relative bg-[url('img/base_bannser_mobile.png')] md:bg-[url('img/base_bannser.png')]  bg-no-repeat md:bg-center bg-cover w-full;
+}
+.one_day_tour_header::after {
+  @apply absolute w-full h-full inset-0  content-[''] bg-[linear-gradient(0deg,_#561528_0%,_rgba(81,_18,_36,_0.00)_100%)] md:bg-[linear-gradient(90deg,_#561528_-33.42%,_rgba(81,_18,_36,_0.00)_100%)];
+}
+
+.bulletClassStore {
+  width: 8px;
+  height: 4px;
+  opacity: 0.3;
+  background: #594636;
+  cursor: pointer;
+}
+.bulletActiveClassStore {
+  width: 35px;
+  height: 4px;
+  opacity: 1;
+  background: #594636;
+}
+
+.bulletClassStoreItem {
+  width: 6px;
+  height: 6px;
+  opacity: 0.2;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 0%;
+}
+.bulletActiveClassStoreItem {
+  width: 6px;
+  height: 6px;
+  opacity: 1;
+  border-radius: 0%;
+  background: #fff;
+}

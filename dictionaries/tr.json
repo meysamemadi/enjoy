@@ -10,6 +10,11 @@
     "Login": "Login",
     "Register": "Register"
   },
+  "base": {
+    "enjoy": "Enjoy",
+    "persia": "Persia",
+    "Lovely_destination_for_your_next_travel": "Lovely destination for your next travel"
+  },
   "educational": {
     "universities": "Universities",
     "Educational_Tour": "Educational Tour",
