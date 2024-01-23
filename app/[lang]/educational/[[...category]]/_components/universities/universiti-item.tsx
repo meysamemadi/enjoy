@@ -36,12 +36,11 @@ export const UniversityItem = ({
 
       className=" p-2 md:p-4 bg-white aspect-[1/2] md:aspect-[1.5/1] flex flex-col h-full max-h-[700px]"
     >
-      <div className="relative">
+      <div className="relative aspect-[1.5/1] max-h-[320px]">
         <Image
           src={main_pic}
           alt="test"
-          width={300}
-          height={300}
+          fill
           className="  w-full h-full object-cover"
         />
       </div>
