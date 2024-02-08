@@ -12,8 +12,11 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 
 const options = [
   { value: "en", label: "english", image: US.src },
+  { value: "ar", label: "english", image: SA.src },
   { value: "tr", label: "turky", image: TR.src },
-  { value: "ar", label: "turky", image: SA.src },
+  { value: "ch", label: "turky", image: CN.src },
+  { value: "kr", label: "turky", image: IR.src },
+  { value: "ru", label: "turky", image: RU.src },
   // Add more options as needed
 ];
 

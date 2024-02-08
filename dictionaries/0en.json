@@ -10,19 +10,19 @@
     "Login": "Login",
     "Register": "Register"
   },
-  "base": {
+  "base":{
     "enjoy": "Enjoy",
     "persia": "Persia",
     "Lovely_destination_for_your_next_travel": "Lovely destination for your next travel"
   },
   "educational": {
-    "universities": "Universities",
+    "universities" : "Universities",
     "Educational_Tour": "Educational Tour",
-    "Educational_Tour_desc": "Studying in the land of extraordinary attractions and beauties!",
+    "Educational_Tour_desc":"Studying in the land of extraordinary attractions and beauties!",
     "What_is_Educational_Tour": "What is “Educational Tour”?",
     "header_discription": "Whether you travel with your family or alone, do not worry about which places to visit, where to stay at night, where to go shopping and how to find a tour leader and interpreter. Ask anything from us:"
   },
-  "medical": {
+  "medical":{
     "Medical_Tour": "Medical Tour",
     "Medical_Tour_desc": "Firat Class Health Services with Low Price in persia",
     "Medical_Tourism_in_Iran": "Medical Tourism in Iran",
@@ -33,44 +33,47 @@
     "Enjoy_Persia_health_care_global_network": "Enjoy Persia health care global network",
     "Enjoy_Persia_health_care_global_network_description": "Enjoy Persia is a pioneer that provides the best health care,medical and tourism services in Iran by its excellent doctors,clinics and care specialty hospitals in different cities of Iran,and also by its representatives and experts in different parts of the world.",
     "Doctors": "Doctors",
-    "Hospitals": "Hospitals",
+    "Hospitals" : "Hospitals",
     "Clinics": "Clinics",
     "Pharmacies": "Pharmacies",
-    "Employees": "Employees",
+    "Employees" : "Employees",
     "Cities": "Cities",
-    "Cities_health_services": "Cities health services",
-    "Facilities_with_treatment": "Facilities with treatment",
+    "Cities_health_services":"Cities health services",
+    "Facilities_with_treatment":"Facilities with treatment",
     "naturopathy": "naturopathy",
-    "naturopathy_description": "Besides treatment with modern medical science, you can experience attractions of naturopathy such as hot water, treatment with salt, traditional medicine and other treatment facilities in Iran.",
-    "Our_doctors_success": "Our doctors’ success"
+    "naturopathy_description":"Besides treatment with modern medical science, you can experience attractions of naturopathy such as hot water, treatment with salt, traditional medicine and other treatment facilities in Iran.",
+    "Our_doctors_success":"Our doctors’ success"
   },
-  "tourism": {
-    "Tourism": "Tourism",
-    "Tour": "Tour",
-    "Touch_your_dreams_in_Persia": "Touch your dreams in Persia"
+  "tourism":{
+    "Tourism" : "Tourism",
+    "Tour" : "Tour",
+    "Touch_your_dreams_in_Persia":"Touch your dreams in Persia"
+
   },
-  "have_your_own_trip": {
-    "Have_your": "Have your",
-    "own_trip": "own trip",
-    "Endless_adventure_in_Persia": "Endless adventure in Persia"
+  "have_your_own_trip":{
+    "Have_your" : "Have your",
+    "own_trip" : "own trip",
+    "Endless_adventure_in_Persia":"Endless adventure in Persia"
+
   },
   "server-component": {
     "welcome": "Welcome"
   },
   "footer": {
     "About_Enjoy_Persia": "About Enjoy Persia",
-    "about_us_text": "Enjoy Persia as a sub-branch of Raha commercial group (rahabusiness.com) is a tourism company that delivers the most diverse amusement and traveling services with cooperation of big community of Iran tourism. By such services that are delivered to tourists for the first time in Iran, we enable you to travel based on your own taste and have attractive and memorable experiences.",
-    "Link": "Link",
+    "about_us_text" : "Enjoy Persia as a sub-branch of Raha commercial group (rahabusiness.com) is a tourism company that delivers the most diverse amusement and traveling services with cooperation of big community of Iran tourism. By such services that are delivered to tourists for the first time in Iran, we enable you to travel based on your own taste and have attractive and memorable experiences.",
+    "Link" : "Link",
     "have_your_own_trip": "Have your own trip",
-    "Tourism_tour": "Tourism tour",
+    "Tourism_tour":"Tourism tour",
     "Health_tour": "Health tour",
     "About_us": "About us",
-    "Medical_tour": "Medical tour",
+    "Medical_tour":"Medical tour",
     "Persian_store": "Persian store",
-    "Our_Licenses": "Our Licenses",
+    "Our_Licenses" : "Our Licenses",
     "Application": "Application",
-    "CopyRight": "© 2021 All rights reserved, including site and documentation, with this website.",
-    "Need_more_information": "Need more information?",
-    "Connect_with_WhatsApp": "Connect with WhatsApp"
+    "CopyRight" : "© 2021 All rights reserved, including site and documentation, with this website.",
+    "Need_more_information"  : "Need more information?",
+    "Connect_with_WhatsApp" : "Connect with WhatsApp"
+
   }
 }

@@ -1,0 +1,79 @@
+{
+  "main-menu": {
+    "Travel_yourself": "拥有自己的旅行",
+    "Tourist_tour": "旅游游览",
+    "Health_tour": "健康旅游",
+    "Business_tour": "商务旅游",
+    "Persian_Store": "伊朗商店",
+    "About_iran": "关于伊朗",
+    "About_us": "关于我们",
+    "Login": "登录",
+    "Register": "登记"
+  },
+  "base":{
+    "enjoy": "Enjoy",
+    "persia": "Persia",
+    "Lovely_destination_for_your_next_travel": "下次旅行的优美目的地"
+  },
+  "educational": {
+    "universities" : "Universities",
+    "Educational_Tour": "Educational Tour",
+    "Educational_Tour_desc":"Studying in the land of extraordinary attractions and beauties!",
+    "What_is_Educational_Tour": "What is “Educational Tour”?",
+    "header_discription": "Whether you travel with your family or alone, do not worry about which places to visit, where to stay at night, where to go shopping and how to find a tour leader and interpreter. Ask anything from us:"
+  },
+  "medical":{
+    "Medical_Tour": "健康旅游",
+    "Medical_Tour_desc": "波斯低价一流的医疗服务",
+    "Medical_Tourism_in_Iran": "伊朗的健康旅游",
+    "Medical_Tourism_description": "凭借先进的医疗和制药技术、熟练的医生和护士、高效的卫生系统和高水平的医学道德，伊朗是世界上健康和治疗服务的最佳选择之一，伊朗的医院提供所有分支机构的所有治疗流程 以合理的成本为您服务。 Enjoy Persia是一家旅游健康行业的专业公司，与伊朗不同城市的专家和设备齐全的医院合作。 此外，考虑到我国的旅游能力，我们的团队可以在您治疗旅途中以最优质、合理的价格提供您想要的旅游、住宿和自然治疗服务，让您在您的治疗旅程中享受伊朗旅游休闲的魅力。 此外，为了提高服务质量并保持您的舒适，Enjoy Persia提供24小时私人护士和翻译服务。 我们很自豪地宣布，我们的专家将全天候免费为您提供顾问和指导。",
+    "Special_Services": "特别服务",
+    "Free_consultation": "免费咨询",
+    "Free_consultation_description": "Enjoy Persia可以在您喜欢的任何城市为您提供医疗服务。 您甚至可以向我们寻求建议，而且完全免费。",
+    "Enjoy_Persia_health_care_global_network": "Enjoy Persia的全球健康服务网络",
+    "Enjoy_Persia_health_care_global_network_description": "Enjoy Persia公司的健康旅游部门是在伊朗提供各种医疗服务的先驱，通过伊朗不同城市的医生、诊所和专科医院，以及其在世界不同国家的代表和专家，为您提供 前往伊朗旅行时享受最多样化的医疗健康和旅游服务。.",
+    "Doctors": "医生",
+    "Hospitals" : "医院",
+    "Clinics": "诊所",
+    "Pharmacies": "药房",
+    "Employees" : "雇员",
+    "Cities": "城市",
+    "Cities_health_services":"城市健康服务",
+    "Facilities_with_treatment":"治疗设施",
+    "naturopathy": "自然疗法",
+    "naturopathy_description":"在伊朗除了现代医学的治疗外，您还可以体验伊朗的自然疗法景点，如热水、盐疗、传统医学等治疗设施。",
+    "Our_doctors_success":"我们医生的成功"
+  },
+  "tourism":{
+    "Tourism" : "旅游游览",
+    "Tour" : "",
+    "Touch_your_dreams_in_Persia":"到波斯触摸你的梦想"
+
+  },
+  "have_your_own_trip":{
+    "Have_your" : "拥有自己的旅行",
+    "own_trip" : "",
+    "Endless_adventure_in_Persia":"伊朗在调查的结束"
+
+  },
+  "server-component": {
+    "welcome": "欢迎光临"
+  },
+  "footer": {
+    "About_Enjoy_Persia": "关于Enjoy Persia",
+    "about_us_text" : "Enjoy Persia是一家旅游公司，与伊朗大型旅游界合作，为您提供最多样化的娱乐和旅游服务。 通过提供各种服务，其中许多服务是为第一次来伊朗的游客提供的，我们为您提供根据您的品味前往伊朗并获得有吸引力和难忘的体验的机会。 - 在我们的各种服务中，向您的国家或城市出口手工艺品，为有兴趣前往伊朗参观我们的工业、工厂和展览的商人提供商务旅行； 首次在伊朗12个城市进行健康旅游，适合您的口味和需求，在享受待遇的同时，您可以欣赏伊朗的各个景点，举办各种有吸引力的休闲旅游以及（自己旅行）计划， Enjoy Persia 为您第一次在伊朗提供这个机会。 所有旅游服务 包括领队、住宿、摄影、餐厅、选车以及根据您的需求和品味提供的各种套餐其他服务，充分享受您的伊朗之旅。",
+    "Link" : "链接",
+    "have_your_own_trip": "拥有自己的旅行",
+    "Tourism_tour":"旅游游览",
+    "Health_tour": "健康旅游",
+    "About_us": "关于我们",
+    "Medical_tour":"健康旅游",
+    "Persian_store": "伊朗商店",
+    "Our_Licenses" : "我们的许可证",
+    "Application": "APP",
+    "CopyRight" : "保留所有权利，包括本网站的网站和文件",
+    "Need_more_information"  : "需要更多信息吗？",
+    "Connect_with_WhatsApp" : "通过 Whatsapp 连接"
+
+  }
+}

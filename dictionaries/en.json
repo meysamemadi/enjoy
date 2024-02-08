@@ -1,11 +1,11 @@
 {
   "main-menu": {
-    "Travel_yourself": "Travel yourself",
-    "Tourist_tour": "Tourist tour",
-    "Health_tour": "Health tour",
-    "Business_tour": "Business tour",
+    "Travel_yourself": "Have Your Own Trip",
+    "Tourist_tour": "Tourist Tour",
+    "Health_tour": "Medical Tour",
+    "Business_tour": "Business Tour",
     "Persian_Store": "Persian Store",
-    "About_iran": "About iran",
+    "About_iran": "About Iran",
     "About_us": "About us",
     "Login": "Login",
     "Register": "Register"
@@ -17,10 +17,10 @@
   },
   "educational": {
     "universities" : "Universities",
-    "Educational_Tour": "Educational Tour",
-    "Educational_Tour_desc":"Studying in the land of extraordinary attractions and beauties!",
-    "What_is_Educational_Tour": "What is “Educational Tour”?",
-    "header_discription": "Whether you travel with your family or alone, do not worry about which places to visit, where to stay at night, where to go shopping and how to find a tour leader and interpreter. Ask anything from us:"
+    "Educational_Tour": "Educational Tourism",
+    "Educational_Tour_desc":"Studying in the land of science and civilization",
+    "What_is_Educational_Tour": "What is educational tourism?",
+    "header_discription": "For the first time, Enjoy Persia introduces a collection of the best Iranian universities for you to choose for your studies. You can see the facilities, features, and fields of study of each university and also get information about the scientific achievements of Iranian universities. Our colleagues will have been standing by your side in all stages of registration and studying in Iran and we hope you will experience the best memories of studying in Iran."
   },
   "medical":{
     "Medical_Tour": "Medical Tour",
@@ -29,20 +29,20 @@
     "Medical_Tourism_description": "Iran is one of the best choices for providing health and care services in the world due to its advnaced technology of medicine and drugs, qualified doctors and nurses, effective health system and high position of medical ethical codes and Iranian hospitals provide all care process in all branches with reasonable costs for you. Enjoy Persia is a professional company in industry of health tourist that works with specialists and well-equipped hospitals in different cities of Iran. In addition to tourism capacities of our country, our team can provide desirable tourism, residential and naturopathy services with the highest quality and reasonable prices so that you can enjoy tourism and recreation attractions of Iran while having your health trip. Enjoy Persia also provides 24/7 services of private nurses and interpreters in order to enhance quality of services and preserve your comfort.We are honored to announce that our experts will be your advisors and guides 24/7 free of charge.",
     "Special_Services": "Special Services",
     "Free_consultation": "Free consultation",
-    "Free_consultation_description": "Enjoy pershia can provide your medical services in any city you like. You can even get advice from us and it will be completely free.",
-    "Enjoy_Persia_health_care_global_network": "Enjoy Persia health care global network",
-    "Enjoy_Persia_health_care_global_network_description": "Enjoy Persia is a pioneer that provides the best health care,medical and tourism services in Iran by its excellent doctors,clinics and care specialty hospitals in different cities of Iran,and also by its representatives and experts in different parts of the world.",
+    "Free_consultation_description": "Enjoy Persia can provide your medical services in any city you like. You can even get advice from us for free.",
+    "Enjoy_Persia_health_care_global_network": "Global Health Services Network of Enjoy Persia",
+    "Enjoy_Persia_health_care_global_network_description": "Enjoy Persia is a pioneer that provides the best health care, medical and tourism services in Iran by its excellent doctors, clinics and care specialty hospitals in different cities of Iran, and also by its representatives and experts in different parts of the world.",
     "Doctors": "Doctors",
     "Hospitals" : "Hospitals",
     "Clinics": "Clinics",
     "Pharmacies": "Pharmacies",
     "Employees" : "Employees",
     "Cities": "Cities",
-    "Cities_health_services":"Cities health services",
+    "Cities_health_services":"Urban Health Services",
     "Facilities_with_treatment":"Facilities with treatment",
     "naturopathy": "naturopathy",
-    "naturopathy_description":"Besides treatment with modern medical science, you can experience attractions of naturopathy such as hot water, treatment with salt, traditional medicine and other treatment facilities in Iran.",
-    "Our_doctors_success":"Our doctors’ success"
+    "naturopathy_description":"Besides treatment with modern medical science, you can experience attractions of naturopathy such as hot springs, salt treatment, traditional medicine and other treatment facilities in Iran.",
+    "Our_doctors_success":"Achievements of our Doctors"
   },
   "tourism":{
     "Tourism" : "Tourism",
@@ -61,17 +61,17 @@
   },
   "footer": {
     "About_Enjoy_Persia": "About Enjoy Persia",
-    "about_us_text" : "Enjoy Persia as a sub-branch of Raha commercial group (rahabusiness.com) is a tourism company that delivers the most diverse amusement and traveling services with cooperation of big community of Iran tourism. By such services that are delivered to tourists for the first time in Iran, we enable you to travel based on your own taste and have attractive and memorable experiences.",
+    "about_us_text" : "Enjoy Persia is a tourism company that provides you with all types of travel services in close cooperation with a variety of organizations and providers. To make your trip memorable and enjoyable, we offer various efficient tourism services and customized tours based on your preferences. Our services include Business Tours, Health Tours, and various sightseeing tours. We also offer customized tours in case you are interested in something different fully based on your own preferences. All information related to sightseeing, transportation, accommodations, restaurants, tour guides, and even photographers is here to help you choose your perfect tour package. Our mission here is to help people have a memorable pleasant experience in Iran.",
     "Link" : "Link",
     "have_your_own_trip": "Have your own trip",
     "Tourism_tour":"Tourism tour",
-    "Health_tour": "Health tour",
+    "Health_tour": "Medical Tour",
     "About_us": "About us",
     "Medical_tour":"Medical tour",
     "Persian_store": "Persian store",
     "Our_Licenses" : "Our Licenses",
     "Application": "Application",
-    "CopyRight" : "© 2021 All rights reserved, including site and documentation, with this website.",
+    "CopyRight" : "All rights reserved, including the website and documentation of this website.",
     "Need_more_information"  : "Need more information?",
     "Connect_with_WhatsApp" : "Connect with WhatsApp"
 
