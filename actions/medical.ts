@@ -32,7 +32,10 @@ export const getService = async (lang: string , id: number) => {
 export const getCities = async (lang: string) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}medical/city/index?lang=${lang}`
+      `${process.env.NEXT_PUBLIC_API_URL}medical/city/index?lang=${lang}`,
+      {
+        cache: "no-store",
+      }
     );
 
     const response = await res.json();
