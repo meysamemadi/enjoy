@@ -18,7 +18,16 @@ id:number,    name:string,image:string
         onClick={() => router.push(`/${params.lang}/medical/city/${id}`)}
         className=" cursor-pointer h-[132px] md:h-[240px] flex flex-col items-center justify-center gap-[8px] md:gap-5"
       >
-        <Image width={300} height={200} alt={name} src={image} />
+        <div className=" relative h-full max-h-[170px] w-full">
+          <Image
+
+            sizes="100vw"
+            fill
+          
+            alt={name}
+            src={image}
+          />
+        </div>
 
         <h3
           className={cn(
