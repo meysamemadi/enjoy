@@ -36,3 +36,10 @@
   border-radius: 0%;
   background: #fff;
 }
+
+
+.login_image {
+        background-image: url('./img/signup-bg.png');
+        background-size: cover;
+        background-position: center;
+    }

@@ -35,8 +35,8 @@ const Header = ({
   }
 
   return (
-    <header>
-      <div className="container mx-auto  ">
+    <header className="bg-inherit">
+      <div className="container mx-auto   ">
         <div className="relative  flex items-center justify-between h-[72px] border-0 md:border-b md:border-[#A07E621A] md:h-[114px]">
           <div
             className={cn(

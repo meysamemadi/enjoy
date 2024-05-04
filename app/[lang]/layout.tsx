@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google'
 import {montserrat} from "./font"
 import { i18n } from "../../i18n-config";
 
-
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
@@ -29,7 +28,9 @@ export default function RootLayout({
       lang={params.lang}
       dir={params.lang === "fa" || params.lang === "ar" ? "rtl" : "ltr"}
     >
-      <body className='h-full'>{children}</body>
+      <body className="h-full">
+        {children}
+      </body>
     </html>
   );
 }
