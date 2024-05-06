@@ -55,8 +55,9 @@ const Header = ({
             <Button
               variant={"outline"}
               className=" bg-inherit border-[#A07E6280] text-[11px] text-[#594636] rounded-none"
+              asChild
             >
-              {dictionary.Register}
+              <Link href={`/${lang}/auth/signup`}>{dictionary.Register}</Link>
             </Button>
           </div>
           <div className="flex  flex-1  space-x-[30px] items-center justify-center md:justify-start ">
@@ -115,14 +116,16 @@ const Header = ({
             <Button
               variant={"outline"}
               className=" bg-inherit border-none text-[11px] text-[#594636] rounded-none"
+              asChild
             >
-              {dictionary.Login}
+              <Link href={`/${lang}/auth/login`}>{dictionary.Login}</Link>
             </Button>
             <Button
               variant={"outline"}
               className=" bg-inherit border-[#A07E6280] text-[11px] text-[#594636] rounded-none"
+              asChild
             >
-              {dictionary.Register}
+              <Link href={`/${lang}/auth/signup`}>{dictionary.Register}</Link>
             </Button>
           </div>
         </div>

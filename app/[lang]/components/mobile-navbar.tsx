@@ -40,13 +40,13 @@ const MobileNavbar = ({
         <div className="flex justify-between items-center py-4 ">
           <Link
             className=" text-black font-medium text-[13px]"
-            href={`${lang}/login`}
+            href={`${lang}/auth/login`}
           >
             Login
           </Link>
           <Link
             className=" text-black font-medium text-[13px]"
-            href={`${lang}/register`}
+            href={`${lang}/auth/signup`}
           >
             Register
           </Link>
