@@ -17,6 +17,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { FormInput } from "@/components/form/form-input";
+import { signIn } from "@/auth";
+import { startTransition } from "react";
+import { login } from "@/actions/auth/login";
 
 const FormSchema = z.object({
   email: z.string().min(2, {
@@ -36,16 +39,11 @@ export function LoginForm() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    startTransition(() => {
+      login(data).then(res => console.log("rr",res)).catch((err) => console.log("ee" , err))
     });
+  
   }
 
   return (

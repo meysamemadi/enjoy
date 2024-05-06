@@ -62,3 +62,6 @@ export const config = {
   // Matcher ignoring `/_next/` and `/api/`
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
+
+
+export { auth as middleware1 } from "@/auth";

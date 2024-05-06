@@ -8,6 +8,7 @@ import MobileNavbar from "./mobile-navbar"
 import { useParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
 
 const Header = ({
   dictionary,
@@ -29,6 +30,8 @@ const Header = ({
   const params = useParams();
   const lang = params.lang;
   let right = false;
+
+  const { data:session } = useSession();
 
   if (lang === "ar") {
     right = true;
@@ -113,20 +116,37 @@ const Header = ({
           </div>
           <div className="hidden md:flex space-x-[30px]">
             <LocaleSwitcher />
-            <Button
-              variant={"outline"}
-              className=" bg-inherit border-none text-[11px] text-[#594636] rounded-none"
-              asChild
-            >
-              <Link href={`/${lang}/auth/login`}>{dictionary.Login}</Link>
-            </Button>
-            <Button
-              variant={"outline"}
-              className=" bg-inherit border-[#A07E6280] text-[11px] text-[#594636] rounded-none"
-              asChild
-            >
-              <Link href={`/${lang}/auth/signup`}>{dictionary.Register}</Link>
-            </Button>
+
+            {session?.user ? (
+              <>
+                <Button
+                  variant={"outline"}
+                  className=" capitalize bg-inherit border-none text-[11px] text-[#594636] rounded-none"
+                  asChild
+                >
+                  <Link href={`/${lang}/panel`}>dashboard</Link>
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  variant={"outline"}
+                  className=" bg-inherit border-none text-[11px] text-[#594636] rounded-none"
+                  asChild
+                >
+                  <Link href={`/${lang}/auth/login`}>{dictionary.Login}</Link>
+                </Button>
+                <Button
+                  variant={"outline"}
+                  className=" bg-inherit border-[#A07E6280] text-[11px] text-[#594636] rounded-none"
+                  asChild
+                >
+                  <Link href={`/${lang}/auth/signup`}>
+                    {dictionary.Register}
+                  </Link>
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>
