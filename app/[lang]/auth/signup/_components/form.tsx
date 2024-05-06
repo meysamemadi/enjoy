@@ -32,51 +32,19 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { Check, ChevronsUpDown } from "lucide-react";
+import { startTransition } from "react";
+import { signup } from "@/actions/auth/signup";
+import { SignUpSchema } from "@/schema/user";
+import { countries } from "@/lib/country";
+import { useSignupConfirmationModal } from "@/hooks/use-signup-confirmation-modal";
 
-const FormSchema = z.object({
-  fullname: z.string().min(2, {
-    message: "fullname must be at least 2 characters.",
-  }),
-  country: z.string({
-    required_error: "Please select a country.",
-  }),
-  mobile: z.string({
-    required_error: "Please enter mobile.",
-  }),
-  email: z.string({
-    required_error: "Please enter email.",
-  }),
-  identifier_code: z.string({
-    required_error: "Please enter a identifier code.",
-  }),
-  username: z.string({
-    required_error: "Please enter a username.",
-  }),
-  password: z.string({
-    required_error: "Please enter a password.",
-  }),
-  password_repeat: z.string({
-    required_error: "Please enter a password repeat.",
-  }),
-});
-
-
-const languages = [
-  { label: "English", value: "en" },
-  { label: "French", value: "fr" },
-  { label: "German", value: "de" },
-  { label: "Spanish", value: "es" },
-  { label: "Portuguese", value: "pt" },
-  { label: "Russian", value: "ru" },
-  { label: "Japanese", value: "ja" },
-  { label: "Korean", value: "ko" },
-  { label: "Chinese", value: "zh" },
-] as const;
 
 export function SignupForm() {
 
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
+  const signupConfirmationModal = useSignupConfirmationModal();
+
+  const form = useForm<z.infer<typeof SignUpSchema>>({
+    resolver: zodResolver(SignUpSchema),
     defaultValues: {
       fullname: "",
       country: "",
@@ -85,11 +53,25 @@ export function SignupForm() {
       identifier_code: "",
       username: "",
       password: "",
-      password_repeat:"",
+      password_repeat: "",
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  function onSubmit(data: z.infer<typeof SignUpSchema>) {
+
+    startTransition(() => {
+        signup(data)
+        .then(res => {
+          if(res?.success)
+            {
+              signupConfirmationModal.onOpen();
+            }
+
+          console.log(res)
+        }).catch((erro)=> {
+            console.log(erro)
+        });
+    })
     console.log(data);
  
   }
@@ -137,9 +119,9 @@ export function SignupForm() {
                       )}
                     >
                       {field.value
-                        ? languages.find(
-                            (language) => language.value === field.value
-                          )?.label
+                        ? countries.find(
+                            (country) => country.code === field.value
+                          )?.en
                         : "choose your country"}
                       <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
@@ -151,23 +133,23 @@ export function SignupForm() {
                     <CommandList>
                       <CommandEmpty>No language found.</CommandEmpty>
                       <CommandGroup>
-                        {languages.map((language) => (
+                        {countries.map((country) => (
                           <CommandItem
-                            value={language.label}
-                            key={language.value}
+                            value={country.en}
+                            key={country.code}
                             onSelect={() => {
-                              form.setValue("country", language.value);
+                              form.setValue("country", country.code);
                             }}
                           >
                             <Check
                               className={cn(
                                 "mr-2 h-4 w-4",
-                                language.value === field.value
+                                country.code === field.value
                                   ? "opacity-100"
                                   : "opacity-0"
                               )}
                             />
-                            {language.label}
+                            {country.en}
                           </CommandItem>
                         ))}
                       </CommandGroup>

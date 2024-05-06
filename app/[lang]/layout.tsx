@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import {montserrat} from "./font"
 import { i18n } from "../../i18n-config";
+import { ModalProvider } from '@/providers/modal-provider';
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -29,6 +30,7 @@ export default function RootLayout({
       dir={params.lang === "fa" || params.lang === "ar" ? "rtl" : "ltr"}
     >
       <body className="h-full">
+        <ModalProvider />
         {children}
       </body>
     </html>
