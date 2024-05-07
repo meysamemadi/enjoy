@@ -11,6 +11,7 @@ import EducationalTour from "./_components/educational-tour";
 import WorksInIran from "./_components/works-in-iran";
 import { UniversitiesSuccess } from "./_components/universities-success/universities-success";
 import { OurConnections } from "../our-connections";
+import { Comment } from "../../components/comment/comment";
 
 
 const IndexEducational = async ({
@@ -36,6 +37,8 @@ const IndexEducational = async ({
       <WorksInIran />
       <UniversitiesSuccess lang={lang} />
       <OurConnections />
+
+      <Comment />
     </div>
   );
 };

@@ -7,7 +7,6 @@ export const getCategories = async (lang: string) => {
     );
 
     const response = await res.json();
-    console.log(response)
     return response;
   } catch (error) {
     console.log("[getCategories]", error);
@@ -19,9 +18,7 @@ export const getUniversities = async (lang: string | string[]) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}university/index?lang=${lang}`,
-      {
-        cache: "no-cache",
-      }
+     
     );
 
     const response = await res.json();
@@ -39,9 +36,7 @@ export const getUniversitiesByCategory = async (
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}university/index-by-category?lang=${lang}&category=${category}`,
-      {
-        cache: "no-cache",
-      }
+   
     );
 
     const response = await res.json();
@@ -56,9 +51,7 @@ export const getUniversity = async (lang: string | string[], id: number) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}university/single?lang=${lang}&id=${id}`,
-      {
-        cache: "no-cache",
-      }
+   
     );
 
     const response = await res.json();
