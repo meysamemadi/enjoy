@@ -23,6 +23,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { createComment } from "@/actions/comment";
+import { useCommentConfirmationModal } from "@/hooks/use-comment-confirmation-modal";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -40,6 +41,16 @@ const formSchema = z.object({
 });
 
 export function CommentForm() {
+
+  const commentModal = useCommentConfirmationModal();
+
+
+
+
+  
+
+
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -52,7 +63,13 @@ export function CommentForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
 
     createComment(values)
-      .then((res) => console.log("client", res))
+      .then((res) => {
+
+        if(res.success)
+          {
+            commentModal.onOpen();
+          }
+      })
       .catch((err) => console.log("client err", err));
     // Do something with the form values.
     // ✅ This will be type-safe and validated.

@@ -3,12 +3,13 @@ import Image from "next/image";
 import Logo from "@/public/img/Logo.svg";
 import Link from "next/link";
 import { IR } from "country-flag-icons/react/3x2";
-import LocaleSwitcher from "./locale-switcher";
-import MobileNavbar from "./mobile-navbar"
+import LocaleSwitcher from "../locale-switcher";
+import MobileNavbar from "../mobile-navbar"
 import { useParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
+import { UserButton } from "./user-button";
 
 const Header = ({
   dictionary,
@@ -31,11 +32,10 @@ const Header = ({
   const lang = params.lang;
   let right = false;
 
-  const { data:session } = useSession();
-
   if (lang === "ar") {
     right = true;
   }
+
 
   return (
     <header className="bg-inherit">
@@ -116,37 +116,7 @@ const Header = ({
           </div>
           <div className="hidden md:flex space-x-[30px]">
             <LocaleSwitcher />
-
-            {session?.user ? (
-              <>
-                <Button
-                  variant={"outline"}
-                  className=" capitalize bg-inherit border-none text-[11px] text-[#594636] rounded-none"
-                  asChild
-                >
-                  <Link href={`/${lang}/panel`}>dashboard</Link>
-                </Button>
-              </>
-            ) : (
-              <>
-                <Button
-                  variant={"outline"}
-                  className=" bg-inherit border-none text-[11px] text-[#594636] rounded-none"
-                  asChild
-                >
-                  <Link href={`/${lang}/auth/login`}>{dictionary.Login}</Link>
-                </Button>
-                <Button
-                  variant={"outline"}
-                  className=" bg-inherit border-[#A07E6280] text-[11px] text-[#594636] rounded-none"
-                  asChild
-                >
-                  <Link href={`/${lang}/auth/signup`}>
-                    {dictionary.Register}
-                  </Link>
-                </Button>
-              </>
-            )}
+            <UserButton dictionary={dictionary} />
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ import { OurServices } from "./_components/our-service/our-services";
 import { LastBlogPosts } from "./_components/last-blog/last-blog-posts";
 import { IranProvince } from "./_components/iran-province/iran-province";
 import { OurColleagues } from "./_components/our-colleagues/our-colleagues";
+import { Comment } from "../components/comment/comment";
 
 export default async function IndexPage({
   params: { lang },
@@ -65,6 +66,7 @@ export default async function IndexPage({
       <LastBlogPosts />
       <IranProvince />
       <OurColleagues />
+      <Comment />
     </div>
   );
 }

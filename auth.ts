@@ -33,8 +33,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           console.log("user not found", user);
           // throw new Error("User not found.");
         }
-
-        console.log("user is ", user);
         // return user object with the their profile data
         return user;
       },
@@ -45,14 +43,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (user) {
         token.role = user.role;
         token.username = user.username;
-        //@ts-ignore
         token.fullname = user.fullname;
         token.mobile = user.mobile;
-        //@ts-ignore
         token.token = user.access_token;
       }
-
-   
 
       return token;
     },
@@ -71,6 +65,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return session;
     },
   },
+
+ 
+  // trustHost: true,
+  secret: process.env.AUTH_SECRET,
+  debug: true,
+  // adapter: PrismaAdapter(db),
+  session: { strategy: "jwt" },
 });
 
 

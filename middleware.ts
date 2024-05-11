@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -24,19 +25,21 @@ function getLocale(request: NextRequest): string | undefined {
   return locale;
 }
 
-export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+export default auth(async (request) => {
+  const { nextUrl } = request;
+  const locale = getLocale(request);
+
+  const pathname = nextUrl.pathname;
+
+  const isLoggedIn = !!request.auth;
 
   // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
   // // If you have one
-  // if (
-  //   [
-  //     '/manifest.json',
-  //     '/favicon.ico',
-  //     // Your other files in `public`
-  //   ].includes(pathname)
-  // )
-  //   return
+
+  // Ignore requests to /api and static assets in public directory
+  if (pathname.startsWith("/api/")) {
+    return NextResponse.next(); // Pass through these requests
+  }
 
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -45,8 +48,6 @@ export function middleware(request: NextRequest) {
 
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
-    const locale = getLocale(request);
-
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
     return NextResponse.redirect(
@@ -56,12 +57,35 @@ export function middleware(request: NextRequest) {
       )
     );
   }
-}
+
+  if (nextUrl.pathname.startsWith(`/${locale}/panel`) && !isLoggedIn) {
+    return NextResponse.redirect(new URL("/auth/login", nextUrl));
+  }
+
+
+  if (
+    (nextUrl.pathname.startsWith(`/${locale}/auth/signup`) && isLoggedIn) ||
+    (nextUrl.pathname.startsWith(`/${locale}/auth/login`) && isLoggedIn)
+  ) {
+
+     return NextResponse.redirect(new URL(`/${locale}/panel`, nextUrl));
+  }
+});
+
+// export const config = {
+//   // Matcher ignoring `/_next/` and `/api/`
+//   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+// };
+
+// export default auth(async (req) => {
+//   const { nextUrl } = req;
+
+//   const isLoggedIn = !!req.auth;
+
+//   console.log("status : ",isLoggedIn)
+
+// });
 
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
-
-
-export { auth as middleware1 } from "@/auth";

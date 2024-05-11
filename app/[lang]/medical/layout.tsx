@@ -1,7 +1,7 @@
 import { Locale } from "@/i18n-config";
 import { getDictionary } from "@/get-dictionary";
 
-import Header from "@/app/[lang]/components/header";
+import Header from "@/app/[lang]/components/header/header";
 import Footer from "../components/footer/footer";
 
 const MedicalLayout = async ({ children , params }:{children:React.ReactNode,params:{lang:Locale}}) => {

@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import SignupConfirmationModal from "@/components/modals/signup-confirmation-modal";
+import CommentConfirmationModal from "@/components/modals/comment-confirmation-modal";
 
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -24,6 +25,8 @@ export const ModalProvider = () => {
   return (
     <>
       <SignupConfirmationModal />
+
+      <CommentConfirmationModal />
   
       <Toaster />
   

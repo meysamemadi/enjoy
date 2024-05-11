@@ -20,6 +20,7 @@ import { FormInput } from "@/components/form/form-input";
 import { signIn } from "@/auth";
 import { startTransition } from "react";
 import { login } from "@/actions/auth/login";
+import { revalidatePath } from "next/cache";
 
 const FormSchema = z.object({
   email: z.string().min(2, {
@@ -40,10 +41,7 @@ export function LoginForm() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    startTransition(() => {
-      login(data).then(res => console.log("rr",res)).catch((err) => console.log("ee" , err))
-    });
-  
+    login(data);
   }
 
   return (
