@@ -67,7 +67,7 @@ export function SignupForm() {
               signupConfirmationModal.onOpen();
             }
 
-          console.log(res)
+    
         }).catch((erro)=> {
             console.log(erro)
         });
