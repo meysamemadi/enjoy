@@ -48,7 +48,14 @@ export const Profile = () => {
             </div>
           </div>
         </div>
-        <div></div>
+        <div className="bg-[#43B8A2] text-white flex flex-col items-center justify-center px-6">
+          <RiMedal2Fill className="w-[40px] h-[40px]" />
+
+          <span className=" text-[14px] capitalize leading-[200%] font-semibold ">
+            your points
+          </span>
+          <span className=" leading-[100%] font-bold  text-[32px]">9482</span>
+        </div>
       </div>
 
       <div className=" flex flex-col lg:hidden">
@@ -88,10 +95,12 @@ export const Profile = () => {
         </div>
 
         <div className=" mt-4 gap-1 py-6 text-white bg-[#43B8A2] text-center flex items-center justify-center">
-            <RiMedal2Fill className='w-[32px] h-[32px]' /> 
+          <RiMedal2Fill className="w-[32px] h-[32px]" />
 
-            <span className=' capitalize leading-[200%] font-semibold '>your points:</span>
-            <span className=' leading-[200%] font-bold '>9482</span>
+          <span className=" capitalize leading-[200%] font-semibold ">
+            your points:
+          </span>
+          <span className=" leading-[200%] font-bold ">9482</span>
         </div>
       </div>
     </div>
