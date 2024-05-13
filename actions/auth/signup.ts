@@ -1,17 +1,14 @@
-"use server"
+"use server";
 import * as z from "zod";
 import { SignUpSchema } from "@/schema/user";
 import axios from "axios";
 
-
 export const signup = async (values: z.infer<typeof SignUpSchema>) => {
+  const validatedFields = SignUpSchema.safeParse(values);
 
-     const validatedFields = SignUpSchema.safeParse(values);
-
-     if (!validatedFields.success) {
-       return { error: "خطا در ورود اطلاعات" };
-     }
-
+  if (!validatedFields.success) {
+    return { error: "خطا در ورود اطلاعات" };
+  }
 
   try {
     return axios
@@ -25,6 +22,7 @@ export const signup = async (values: z.infer<typeof SignUpSchema>) => {
       })
       .catch(function (error) {
         console.log("eeeeeeeee", error);
+        
       });
   } catch (error) {
     throw error;

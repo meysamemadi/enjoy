@@ -3,6 +3,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { cn } from "@/lib/utils";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { startTransition } from "react";
+import { signup } from "@/actions/auth/signup";
+import { SignUpSchema } from "@/schema/user";
+import { countries } from "@/lib/country";
+
 
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +21,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+
 
 import {
   Command,
@@ -30,17 +37,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import { Check, ChevronsUpDown } from "lucide-react";
-import { startTransition } from "react";
-import { signup } from "@/actions/auth/signup";
-import { SignUpSchema } from "@/schema/user";
-import { countries } from "@/lib/country";
+import { Input } from "@/components/ui/input";
+
+
 import { useSignupConfirmationModal } from "@/hooks/use-signup-confirmation-modal";
 
-
 export function SignupForm() {
-
   const signupConfirmationModal = useSignupConfirmationModal();
 
   const form = useForm<z.infer<typeof SignUpSchema>>({
@@ -58,22 +60,28 @@ export function SignupForm() {
   });
 
   function onSubmit(data: z.infer<typeof SignUpSchema>) {
-
     startTransition(() => {
-        signup(data)
-        .then(res => {
-          if(res?.success)
-            {
-              signupConfirmationModal.onOpen();
-            }
-
-    
-        }).catch((erro)=> {
-            console.log(erro)
+      signup(data)
+        .then((res) => {
+          if (res?.success) {
+            signupConfirmationModal.onOpen();
+          }else{
+                  Object.keys(data).forEach((fieldName:any) => {
+                    // Check if there are errors related to the current field
+                    if (res?.errors && res.errors[fieldName]) {
+                      // Set the error for the current field
+                      form.setError(fieldName, {
+                        message: res.errors[fieldName][0],
+                      });
+                    }
+                  });
+          }
+        })
+        .catch((erro) => {
+          console.log(erro);
         });
-    })
+    });
     console.log(data);
- 
   }
 
   return (
