@@ -14,7 +14,7 @@ import { PhotographerItem } from "./photographer-item";
 import { Button } from "@/components/ui/button";
 
 
-export const PhotographerCarousel = () => {
+export const PhotographerCarousel = ({ isFormValid , photographers , handleOptionToggle , selectedOptionIds , handleSubmit }: any) => {
 
       const pagination = {
         el: ".containerForBulletsTourism",
@@ -55,52 +55,21 @@ export const PhotographerCarousel = () => {
         }}
         className="mySwiper max-w-[1440px] mx-auto px-4 md:px-6 "
       >
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
 
-        <SwiperSlide>
-          <PhotographerItem />
+        {photographers.map((photographers:any) => (
+          <SwiperSlide key={photographers.id}>
+          <PhotographerItem handleOptionToggle={handleOptionToggle} selectedOptionIds={selectedOptionIds}  {...photographers} />
         </SwiperSlide>
-
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <PhotographerItem />
-        </SwiperSlide>
+        ))}
+        
+       
       </Swiper>
 
       <div className="flex container justify-between items-center mt-[14px] md:mt-[30px]">
         <div className="flex containerForBulletsTourism  space-x-[10px]"></div>
-        <Button className="text-base px-[48px] py-4 rounded-none font-bold capitalize leading-[85.2%] text-[#FAF7F5] bg-[#F07148]">
+        <Button
+        onClick={handleSubmit}
+        disabled={!isFormValid} className="text-base px-[48px] py-4 rounded-none font-bold capitalize leading-[85.2%] text-[#FAF7F5] bg-[#F07148]">
           submit
         </Button>
       </div>

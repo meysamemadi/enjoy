@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { useParams } from "next/navigation";
 
 interface CityItemProps {
-  id: string;
+  id: number;
   name: string;
   image: string;
 }
@@ -19,7 +19,8 @@ const CityItem = ({id,name,image}: CityItemProps) => {
       <Link href={`/${params.lang}/medical/city/${id}`} title={name}>
         <div
           className={cn(
-            "bg-white items-center  h-[175px] md:h-[230px] flex flex-col gap-3 mb-2  ",
+            "bg-white items-center  h-[175px] md:h-[230px] flex flex-col gap-3 mb-2 ",
+            //@ts-ignore
             params.id === id &&
               "opacity-50 city-container border-b-8 border-[#43B8A2]"
           )}

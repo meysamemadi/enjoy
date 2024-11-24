@@ -1,11 +1,14 @@
 import Image from 'next/image'
 import React from 'react'
 import pic from "@/public/img/user1.png"
-import { RiCamera3Fill , RiFilmFill  , RiAddBoxLine } from 'react-icons/ri'
+import { RiCamera3Fill, RiFilmFill, RiAddBoxLine } from 'react-icons/ri'
+import { cn } from '@/lib/utils'
 
-export const PhotographerItem = () => {
+export const PhotographerItem = ({ handleOptionToggle, selectedOptionIds, id }: any) => {
   return (
-    <div className=" aspect-square  md:aspect-[2/1] w-full max-h-[245px]   border border-[#A07E6280] p-3 ">
+    <div className={cn(" aspect-square  md:aspect-[2/1] w-full max-h-[245px]  transition-all   border border-[#A07E6280] p-3 ",
+      selectedOptionIds.includes(id) && " border-rose-500 border-2 bg-rose-200/40"
+    )}>
       <div className="h-full hidden md:flex gap-2 ">
         <div className=" relative h-full w-1/3">
           <Image fill className=" w-full h-full object-contain" src={pic} alt="user" />
@@ -24,7 +27,9 @@ export const PhotographerItem = () => {
               <RiFilmFill className={"w-4 h-4"} />
             </div>
 
-            <RiAddBoxLine className={"w-4 h-4"} />
+            <RiAddBoxLine
+              onClick={() => handleOptionToggle(id)}
+              className={"w-4 h-4 cursor-pointer"} />
           </div>
         </div>
       </div>
@@ -39,8 +44,12 @@ export const PhotographerItem = () => {
             />
           </div>
           <div className="flex flex-col justify-between w-1/2">
-            <div className="ml-auto">
-              <RiAddBoxLine className={"w-4 h-4"} />
+            <div
+              onClick={() => handleOptionToggle(id)}
+              className="ml-auto cursor-pointer">
+              <RiAddBoxLine
+
+                className={"w-4 h-4 "} />
             </div>
             <div className="mr-auto flex space-x-1 ">
               <RiCamera3Fill className={"w-4 h-4"} />

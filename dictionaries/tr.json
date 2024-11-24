@@ -49,11 +49,14 @@
     "Tour" : "turu",
     "Touch_your_dreams_in_Persia":"İran'da hayallerinize dokunun"
 
+
   },
   "have_your_own_trip":{
     "Have_your" : "rotanı belirle",
     "own_trip" : "Kendi gezi",
-    "Endless_adventure_in_Persia":"İran'da sonsuz macera"
+    "Endless_adventure_in_Persia":"İran'da sonsuz macera",
+    "vip plus": "Vip Plus"
+
 
   },
   "server-component": {

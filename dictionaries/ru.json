@@ -49,11 +49,14 @@
     "Tour" : "тур",
     "Touch_your_dreams_in_Persia":"Прикоснись к своим мечтам в Иране"
 
+
   },
   "have_your_own_trip":{
     "Have_your" : "Путешествуй сам",
     "own_trip" : "",
-    "Endless_adventure_in_Persia":"Бесконечное приключение в Иране"
+    "Endless_adventure_in_Persia":"Бесконечное приключение в Иране",
+    "vip plus": "Vip Plus"
+
 
   },
   "server-component": {

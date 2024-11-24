@@ -53,7 +53,8 @@
   "have_your_own_trip":{
     "Have_your" : "سافر",
     "own_trip" : "بنفسك",
-    "Endless_adventure_in_Persia":"مغامرة لا نهاية لها في إيران"
+    "Endless_adventure_in_Persia":"مغامرة لا نهاية لها في إيران",
+    "vip plus": "Vip Plus"
 
   },
   "server-component": {

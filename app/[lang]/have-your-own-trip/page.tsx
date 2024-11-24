@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 
-import { RiUser2Fill , RiCamera2Fill , RiCarFill , RiHotelFill , RiRestaurantFill  , RiShoppingCart2Fill} from "react-icons/ri";
+import { RiUser2Fill, RiCamera2Fill, RiCarFill, RiHotelFill, RiRestaurantFill, RiShoppingCart2Fill } from "react-icons/ri";
 import { Category } from "./_components/category";
 import cta1 from "@/public/img/haveyorowntrip/c1.jpg";
 import cta2 from "@/public/img/haveyorowntrip/c2.jpg";
@@ -32,8 +32,10 @@ import { TouristSay } from "./_components/tourists-say/tourist-say";
 
 const HaveYourOwnTrip = async ({
   params: { lang },
+  searchParams
 }: {
-  params: { lang: Locale};
+  params: { lang: Locale };
+  searchParams: { [key: string]: string | string[] | undefined }
 }) => {
 
   const pages = [{ name: "Have Your Own Trip", href: "", current: true }];
@@ -68,7 +70,7 @@ const HaveYourOwnTrip = async ({
               className=" bg-inherit border border-white rounded-none mt-2 md:mt-6"
               asChild
             >
-              <Link href={""}>tell us</Link>
+              <Link href={`/${lang}/have-your-own-trip/vip-plus`}>tell us</Link>
             </Button>
           </div>
           <div className=" hidden md:block md:w-[40%]"></div>
@@ -112,8 +114,8 @@ const HaveYourOwnTrip = async ({
           />
         </div>
       </div>
-      <Photographer />
-      <Accommodations />
+      <Photographer lang={lang} searchParams={searchParams} />
+      <Accommodations lang={lang} searchParams={searchParams} />
       <div className="container my-[48px] lg:my-[80px]">
         <div
           className={cn(
@@ -144,10 +146,10 @@ const HaveYourOwnTrip = async ({
           </div>
         </div>
       </div>
-      <RestaurantAndCafe />
+      <RestaurantAndCafe lang={lang} searchParams={searchParams} />
       <State />
       <TravelCheap />
-      <Locations />
+      <Locations lang={lang} searchParams={searchParams} />
       <Music />
       <div className=" my-12 md:mt-[80px] md:mb-8 flex flex-col gap-6 items-center justify-center text-center">
         <h4
@@ -164,16 +166,18 @@ const HaveYourOwnTrip = async ({
           the bottom of the page.
         </p>
 
-        <Button className="bg-[#F07148] py-4 px-[48px] font-bold rounded-none text-base text-[#FAF7F5] capitalize leading-[85.2%]">
-          Get in touch
+        <Button asChild className="bg-[#F07148] py-4 px-[48px] font-bold rounded-none text-base text-[#FAF7F5] capitalize leading-[85.2%]">
+          <Link title="rent equipment" href={`/${lang}/have-your-own-trip/rent-equipment`}>
+            Get in touch
+          </Link>
         </Button>
       </div>
-      <Stores />
+      <Stores lang={lang} />
       <Companion />
       <TouristSay />
 
     </div>
   );
 };
- 
+
 export default HaveYourOwnTrip;

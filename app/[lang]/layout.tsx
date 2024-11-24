@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import {montserrat} from "./font"
+import { montserrat } from "./font"
 import { i18n } from "../../i18n-config";
 import { ModalProvider } from '@/providers/modal-provider';
 import { auth } from '@/auth';
@@ -26,7 +26,7 @@ export default async function RootLayout({
   params: { lang: string };
 }) {
 
-    const session = await auth();
+  const session = await auth();
   return (
     <SessionProvider session={session}>
       <html

@@ -53,7 +53,9 @@
   "have_your_own_trip":{
     "Have_your" : "بە تەنیا گەشت بکە",
     "own_trip" : "",
-    "Endless_adventure_in_Persia":"مغامرة لا نهاية لها في إيران"
+    "Endless_adventure_in_Persia":"مغامرة لا نهاية لها في إيران",
+    "vip plus": "Vip Plus"
+
 
   },
   "server-component": {

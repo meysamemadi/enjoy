@@ -9,10 +9,11 @@ interface TitleProps {
   title: string;
   link?: string;
   linkeText?: string;
-  className? : string
+  className? : string;
+  fontClass ?: string;
 }
 
-const Title = ({ title, link, linkeText, className }: TitleProps) => {
+const Title = ({ title, link, linkeText, className , fontClass }: TitleProps) => {
 
   const params = useParams();
   const router = useRouter();
@@ -28,15 +29,16 @@ const Title = ({ title, link, linkeText, className }: TitleProps) => {
         <span
           className={cn(
             Messina_Serif.className,
-            "text-lg md:text-[32px] font-semibold text-[#A07E62] capitalize "
+            "text-lg md:text-[32px] font-semibold text-[#A07E62] capitalize ",
+            fontClass
           )}
         >
           {title}
         </span>
         {linkeText && (
           <span
-            onClick={() => router.push(`${params.lang}/${link}`)}
-            className="text-[13px] md:text-[14px] text-[#594636] font-medium leading-[normal] bg-inherit self-end capitalize flex items-center"
+            onClick={() => router.push(`/${params.lang}/${link}`)}
+            className="text-[13px] md:text-[14px] text-[#594636] font-medium leading-[normal] bg-inherit self-end capitalize flex items-center cursor-pointer"
           >
             {linkeText}
             <RiArrowRightSLine className=" w-4 md:w-5 h-4 md:h-5" />

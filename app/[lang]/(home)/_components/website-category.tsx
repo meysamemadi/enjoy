@@ -44,7 +44,7 @@ export const WebsiteCategory = () => {
           </div>
         </div>
 
-        <div className="flex mt-2 gap-2">
+        <div className="flex h-full self-stretch mt-2 gap-2">
           <div
             onClick={() => router.push(`${params.lang}/educational`)}
             className="w-[50%] relative m-1 md:m-2 cursor-pointer"
@@ -91,7 +91,7 @@ export const WebsiteCategory = () => {
               </p>
             </div>
           </div>
-          <div className="w-[50%] hidden md:flex md:flex-col">
+          <div className="w-[50%] hidden md:flex md:flex-col h-full self-stretch">
             <div
               onClick={() => router.push(`${params.lang}/medical`)}
               className="relative m-1 md:m-2 cursor-pointer"
@@ -140,7 +140,9 @@ export const WebsiteCategory = () => {
             </div>
           </div>
         </div>
-        <div className=" md:hidden relative m-1 md:m-2">
+        <div 
+        onClick={() => router.push(`${params.lang}/medical`)}
+        className=" md:hidden relative m-1 md:m-2">
           <Image
             alt=""
             src={healthTourImgMobile}
@@ -152,7 +154,7 @@ export const WebsiteCategory = () => {
               " absolute bottom-2  text-white text-base md:text-[48px] font-bold  bg-[#47B9A4E5] -left-2 md:-left-3 w-fit"
             )}
           >
-            <p className="px-3 py-2 leading-[85.2%] ">Have your own trip</p>
+            <p className="px-3 py-2 leading-[85.2%] ">Health Tour</p>
           </div>
         </div>
       </div>

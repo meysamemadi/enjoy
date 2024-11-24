@@ -53,8 +53,8 @@
   "have_your_own_trip":{
     "Have_your" : "拥有自己的旅行",
     "own_trip" : "",
-    "Endless_adventure_in_Persia":"伊朗在调查的结束"
-
+    "Endless_adventure_in_Persia":"伊朗在调查的结束",
+    "vip plus": "Vip Plus"
   },
   "server-component": {
     "welcome": "欢迎光临"

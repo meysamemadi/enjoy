@@ -13,6 +13,8 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "edcational-form": "url('../../public/img/bg-edcational-form.png')",
+        'custom-gradient': 'linear-gradient(0deg, #FAF5EF 33.04%, rgba(250, 245, 239, 0.00) 185.85%)',
+        
       },
       container: {
         padding: {

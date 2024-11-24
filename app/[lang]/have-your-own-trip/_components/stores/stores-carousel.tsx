@@ -19,7 +19,7 @@ import { StoreItem } from "./store-item";
 import { Button } from "@/components/ui/button";
 import { useCallback, useRef } from "react";
 
-export const StoresCarousel = () => {
+export const StoresCarousel = ({ stores }: any) => {
     const navigationNextRef = useRef(null);
     const navigationPrevRef = useRef(null);
     const sliderRef = useRef(null);
@@ -82,101 +82,17 @@ export const StoresCarousel = () => {
          }}
          className="mySwiper max-w-[1440px] mx-auto px-4 md:px-6 lg:px-[200px]"
        >
-         <SwiperSlide>
-           <StoreItem
-             id={1}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
 
-         <SwiperSlide>
+        {stores.map((item:any) => 
+        <SwiperSlide key={item.id}>
            <StoreItem
-             id={2}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
+             {...item}
            />
          </SwiperSlide>
+        )}
+         
 
-         <SwiperSlide>
-           <StoreItem
-             id={3}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <StoreItem
-             id={4}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <StoreItem
-             id={5}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <StoreItem
-             id={6}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <StoreItem
-             id={7}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <StoreItem
-             id={8}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <StoreItem
-             id={9}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <StoreItem
-             id={10}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <StoreItem
-             id={11}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <StoreItem
-             id={12}
-             title="Sheikh Lotfollah Mosque"
-             images={[t1.src, t2.src, t3.src]}
-           />
-         </SwiperSlide>
+       
        </Swiper>
 
        <div

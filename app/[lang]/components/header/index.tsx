@@ -5,12 +5,12 @@ import Header from './header';
 import { getDictionary } from '@/get-dictionary';
 import { Locale } from '@/i18n-config';
 
-export const HeaderContainer = async ({ lang }: { lang: Locale }) => {
+export const HeaderContainer = async ({ lang , bgNone }: { lang: Locale , bgNone?:boolean }) => {
   const dictionary = await getDictionary(lang);
 
   return (
    
-      <Header dictionary={dictionary["main-menu"]} />
+      <Header bgNone dictionary={dictionary["main-menu"]} />
 
   );
 };

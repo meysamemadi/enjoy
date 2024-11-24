@@ -1,14 +1,22 @@
-import { CityItem } from "./city-item";
+"use client"
 
-export const Cities = () => {
+import { useState } from "react";
+import { CityItem } from "./city-item";
+import { Locale } from "@/i18n-config";
+
+export const Cities = ({ lang, cities }: { lang: Locale, cities: any }) => {
+
+
+  const [selectedValue, setSelectedValue] = useState<number | null>(null); // Manage selected value state here
+
   return (
     <div className=" container flex flex-wrap md:justify-between gap-2 md:gap-4 lg:gap-6">
-      <CityItem id={1} name="tehran" />
-      <CityItem id={1} name="esfehan" />
-      <CityItem id={1} name="rasht" active />
-      <CityItem id={1} name="shiraz" />
-      <CityItem id={1} name="ahvaz" />
-      <CityItem id={1} name="other" />
+      {cities.map((city: any) => <CityItem 
+      key={city.id} 
+      id={city.id} 
+      name={city.name} 
+      selectedValue={selectedValue}
+      setSelectedValue={setSelectedValue} />)}
     </div>
   );
 }

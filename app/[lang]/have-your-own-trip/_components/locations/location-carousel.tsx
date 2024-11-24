@@ -15,10 +15,10 @@ import style from "@/app/[lang]/medicalService.module.css";
 import t1 from "@/public/image/t1.png";
 import t2 from "@/public/image/t2.png";
 import t3 from "@/public/image/t3.png";
-import {LocationItem} from "./location-item";
+import { LocationItem } from "./location-item";
 import { Button } from "@/components/ui/button";
 import { useCallback, useRef } from "react";
-export const LocationCarousel = () => {
+export const LocationCarousel = ({ locations }: { locations: any }) => {
   const navigationNextRef = useRef(null);
   const navigationPrevRef = useRef(null);
   const sliderRef = useRef(null);
@@ -80,101 +80,17 @@ export const LocationCarousel = () => {
           }}
           className="mySwiper max-w-[1440px] mx-auto px-4 md:px-6 lg:px-[200px]"
         >
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t2.src}
-            />
-          </SwiperSlide>
 
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t2.src}
-            />
-          </SwiperSlide>
+          {locations.map((location: any) => (
+            <SwiperSlide key={location.id}>
+              <LocationItem
+                id={location.id}
+                title={location.title}
+                image={location.image}
+              />
+            </SwiperSlide>
+          ))}
 
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t3.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t1.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t2.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t3.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t1.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t2.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t3.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t1.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t2.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <LocationItem
-              id={1}
-              title="Sheikh Lotfollah Mosque"
-              image={t3.src}
-            />
-          </SwiperSlide>
         </Swiper>
       </div>
 
