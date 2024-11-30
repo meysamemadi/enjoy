@@ -17,7 +17,6 @@ export const PhotographerForm = ({ cities , photographers }: any) => {
     const handleCitySelect = (cityId: number) => {
         setSelectedCityId((prevCityId) => (prevCityId === cityId ? null : cityId))
         setSelectedOptionIds([])
-
     }
 
     const handleOptionToggle = (optionId: number) => {
@@ -34,7 +33,7 @@ export const PhotographerForm = ({ cities , photographers }: any) => {
     const handleSubmit = () => {
         if (selectedCityId && selectedOptionIds.length >= 1 && selectedOptionIds.length <= 3) {
             const selectedCity = cities.find((city:any) => city.id === selectedCityId)
-            //@ts-ignore
+           
             const selectedOptions = photographers.filter((option:any) => selectedOptionIds.includes(option.id))
            
              // Create the query string

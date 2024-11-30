@@ -15,25 +15,21 @@ import { Navigation } from "swiper/modules";
 import { MotionDiv } from "@/app/[lang]/components/motion";
 
 interface UniversityItemCarouselProps {
-    categories: Category[]
+  categories: Category[]
 }
 
-export const Item = ({ category , index}:{category:Category,index:number}) => {
+export const Item = ({ category, index }: { category: Category, index: number }) => {
 
   return (
-    <MotionDiv
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ delay: 0.1 * index }}
-      viewport={{ once: true }}
-      className=" text-xs md:text-sm leading-[200%] h-11 line-clamp-2"
+    <p
+      className=" text-xs md:text-sm leading-[200%] line-clamp-2 w-full h-full "
     >
       {category.title}
-    </MotionDiv>
+    </p>
   );
 }
 
-export const UniversityItemCarousel = ({categories}:UniversityItemCarouselProps) => {
+export const UniversityItemCarousel = ({ categories }: UniversityItemCarouselProps) => {
   const sliderRef = useRef(null);
 
   const navigationNextRef = useRef(null);
@@ -58,6 +54,7 @@ export const UniversityItemCarousel = ({categories}:UniversityItemCarouselProps)
         ref={sliderRef}
         direction={"vertical"}
         slidesPerView={3}
+        spaceBetween={8}
         loop={true}
         pagination={{
           clickable: true,

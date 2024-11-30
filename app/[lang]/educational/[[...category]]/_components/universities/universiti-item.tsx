@@ -34,7 +34,7 @@ export const UniversityItem = ({
   return (
     <div
 
-      className=" p-2 md:p-4 bg-white aspect-[1/2] md:aspect-[1.5/1] flex flex-col h-full max-h-[700px]"
+      className=" p-2 md:p-4 bg-white aspect-[0.575/1] md:aspect-[0.787/1] flex flex-col h-full max-h-[700px]"
     >
       <div className="relative aspect-[1.5/1] max-h-[320px]">
         <Image

@@ -1,6 +1,3 @@
-import { City } from './../app/[lang]/have-your-own-trip/_components/photographer/city';
-import { title } from "process";
-import { FreeConsultation } from "./../app/[lang]/educational/[[...category]]/_components/free-consultation";
 
 export interface University {
   id: number;
@@ -104,4 +101,25 @@ export interface City {
   description: string;
   image_one: string;
   image_two: string;
+}
+
+
+export interface Photographer {
+
+  id: number;
+  fullname: string;
+  style: string;
+  cost : string;
+  language: string
+  free_days: string
+  camera: string
+  video_camera: string;
+  quadcopter:boolean
+  avatar: string;
+  images: string[];
+  cities:{
+    id: number;
+    name: string;
+  }[]
+
 }

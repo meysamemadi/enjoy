@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import { format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
+import { CalendarIcon, CheckCircle2 } from "lucide-react"
 import {
     Form,
     FormControl,
@@ -24,6 +24,10 @@ import {
 } from "@/components/ui/popover"
 import { cn } from '@/lib/utils'
 import { Textarea } from '@/components/ui/textarea'
+import { reservationOfTourLeader } from '@/actions/have-your-own-trip/form'
+import Link from 'next/link'
+import { useState } from 'react'
+import { useParams } from 'next/navigation'
 
 const formSchema = z.object({
     start_date: z.date({
@@ -62,10 +66,19 @@ const formSchema = z.object({
     description: z.string({
         required_error: "description is required.",
     }),
+    city_id: z.string().optional(), // Optional, as it might be null
+    photographers: z.string().optional(), // Optional
 
 })
 
 export const FormComponent = ({ data }: any) => {
+
+
+    const [isSuccessful, setIsSuccessful] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [code ,setCode] = useState(null)
+    const params = useParams();
+
 
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
@@ -82,16 +95,65 @@ export const FormComponent = ({ data }: any) => {
             phone_number: "",
             email: "",
             languages: "",
-            description: ""
+            description: "",
+            city_id: data?.city?.id?.toString() || "", // Convert to string or provide empty default
+            photographers: data?.photographers?.map((p: any) => p.id).join(", ") || "", // Convert to string
         },
     })
 
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+
+
+        const ids = data.photographers.length
+            ? data.photographers.map((photographer: any) => photographer.id).join(", ")
+            : "";
+
+        const formattedValues = {
+            ...values,
+            city_id: data.city.id.toString(), // Ensure it's a string
+            photographers: ids,
+        };
+
+        setLoading(true)
+
+        reservationOfTourLeader(formattedValues).then((response) => {
+            setIsSuccessful(true)
+            setCode(response)
+        }).catch((error) => console.log(error)).finally(() => setLoading(false))
     }
+
+
+      if (isSuccessful) {
+    return (
+      <div className="flex flex-col items-center gap-4">
+        <CheckCircle2 className="text-[#497D59]" size={64} />
+        <div className="bg-[#F8F3EF] p-2 md:p-3 flex  justify-between items-center">
+          <span className="text-[#594636] text-sm font-medium">
+            Tracking Code :
+          </span>
+
+          <span className="text-[#594636] text-sm font-bold">
+            {
+              code
+            }
+          </span>
+        </div>
+        <p className="text-[#594636] font-medium text-lg text-center">
+          Thanks for registering your information, we will contact you soon.
+        </p>
+
+        <Button
+          className="bg-[#497D59] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+          asChild
+        >
+          <Link href={`/${params.lang}/have-your-own-trip`}>
+            Back to Have Your Own Trip
+          </Link>
+        </Button>
+      </div>
+    );
+  }
 
 
     return (
@@ -370,7 +432,7 @@ export const FormComponent = ({ data }: any) => {
 
                     <div className='flex items-center justify-center'>
 
-                        <Button className='w-full max-w-[435px] rounded-none bg-[#F07148]' type="submit">send</Button>
+                        <Button disabled={loading} className='w-full max-w-[435px] rounded-none bg-[#F07148]' type="submit">send</Button>
                     </div>
                 </form>
             </Form>

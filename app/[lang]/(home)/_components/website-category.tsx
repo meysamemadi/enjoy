@@ -107,7 +107,7 @@ export const WebsiteCategory = () => {
               <div
                 className={cn(
                   Messina_Serif.className,
-                  " absolute bottom-2  text-white text-base md:text-[38px] font-bold  bg-[#47B9A4] -left-2 md:-left-3 w-fit"
+                  " absolute bottom-2 cursor-pointer  text-white text-base md:text-[38px] font-bold  bg-[#47B9A4] -left-2 md:-left-3 w-fit"
                 )}
               >
                 <p className="px-3 py-2 leading-[85.2%] capitalize ">
