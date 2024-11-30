@@ -9,7 +9,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import { CalendarIcon } from "lucide-react"
+import { CalendarIcon, CheckCircle2 } from "lucide-react"
 import { format } from "date-fns"
 import { Button } from "@/components/ui/button"
 import {
@@ -24,6 +24,10 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
+import { useParams } from "next/navigation"
+import { residenceReservationsForm } from "@/actions/have-your-own-trip/form"
+import Link from "next/link"
 
 const formSchema = z.object({
     first_name: z.string().min(2).max(155),
@@ -44,9 +48,16 @@ const formSchema = z.object({
         required_error: "A end_date is required.",
     }),
     description: z.string().min(2).max(150),
+    accommodation_id: z.number().optional(),
+
 })
 
-export const VipForm = () => {
+export const VipForm = ({ id }: { id: number }) => {
+
+    const [isSuccessful, setIsSuccessful] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [code ,setCode] = useState(null)
+    const params = useParams();
 
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
@@ -66,13 +77,55 @@ export const VipForm = () => {
             from_age: "",
             to_age: "",
             description: "",
+            accommodation_id:id ? Number(id) : undefined
         },
     })
 
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values)
+        setLoading(true)
+
+        const formattedValues = {
+            ...values,
+            accommodation_id: id ? Number(id) : undefined, // Ensure it's a number
+          };
+
+        residenceReservationsForm(formattedValues).then((response) => {
+            setIsSuccessful(true)
+            setCode(response)
+        }).catch((error) => console.log(error)).finally(() => setLoading(false))
     }
+
+    if (isSuccessful) {
+        return (
+          <div className="flex flex-col items-center gap-4 mt-4 md:mt-8">
+            <CheckCircle2 className="text-[#43B8A2]" size={64} />
+            <div className="bg-[#F8F3EF] p-2 md:p-3 flex  justify-between items-center h-[56px] w-full max-w-[450px]">
+              <span className="text-[#594636] text-sm font-medium">
+                Tracking Code :
+              </span>
+    
+              <span className="text-[#594636] text-sm font-bold">
+                {
+                  code
+                }
+              </span>
+            </div>
+            <p className="text-[#594636] font-medium text-lg text-center">
+              Thanks for registering your information, we will contact you soon.
+            </p>
+    
+            <Button
+              className="bg-[#F07148] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+              asChild
+            >
+              <Link href={`/${params.lang}/have-your-own-trip`}>
+                Back to Have Your Own Trip
+              </Link>
+            </Button>
+          </div>
+        );
+      }
 
 
     return (
@@ -468,7 +521,7 @@ export const VipForm = () => {
 
 
 
-                <Button className=" rounded-none w-full bg-[#F07148] text-white" type="submit">Send</Button>
+                <Button disabled={loading} className=" rounded-none w-full bg-[#F07148] text-white" type="submit">Send</Button>
             </form>
         </Form>
     )

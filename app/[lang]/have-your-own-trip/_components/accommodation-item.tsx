@@ -14,6 +14,7 @@ interface AccommodationItemProps {
   city: string;
   area: string;
   type_of_accommodation: string;
+  type: string;
   rooms: string;
   person: string;
   price: string;
@@ -26,6 +27,7 @@ export const AccommodationItem = ({
   city,
   area,
   type_of_accommodation,
+  type,
   rooms,
   person,
   price,
@@ -91,7 +93,7 @@ export const AccommodationItem = ({
             </span>
             <span className="flex items-center gap-1 text-[12px] font-semibold text-[#33281F]">
               <RiLeafLine className="w-4 h-4 text-[#A07E62]" />
-              wild
+              {area}
             </span>
           </div>
 
@@ -101,7 +103,7 @@ export const AccommodationItem = ({
             </span>
             <span className="flex items-center gap-1 text-[12px] font-semibold text-[#33281F]">
               <RiHotelLine className="w-4 h-4 text-[#A07E62]" />
-              Urban
+              {type}
             </span>
           </div>
         </div>

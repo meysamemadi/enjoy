@@ -15,6 +15,11 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { vipPlusForm } from "@/actions/have-your-own-trip/form"
+import { useState } from "react"
+import { useParams } from "next/navigation"
+import Link from "next/link"
+import { CheckCircle2 } from "lucide-react"
 
 const formSchema = z.object({
     first_name: z.string().min(2).max(155),
@@ -33,6 +38,11 @@ const formSchema = z.object({
 })
 
 export const VipForm = () => {
+
+    const [isSuccessful, setIsSuccessful] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [code, setCode] = useState(null)
+    const params = useParams();
 
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
@@ -56,9 +66,46 @@ export const VipForm = () => {
 
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+
+        setLoading(true)
+
+        vipPlusForm(values).then((response) => {
+            setIsSuccessful(true)
+            setCode(response)
+        }).catch((error) => console.log(error)).finally(() => setLoading(false))
+
+    }
+
+
+    if (isSuccessful) {
+        return (
+            <div className="flex flex-col items-center gap-4 pt-4 md:pt-8">
+                <CheckCircle2 className="text-[#43B8A2]" size={64} />
+                <div className="bg-[#F8F3EF] p-2 h-[56px] md:p-3 flex  justify-between items-center w-full">
+                    <span className="text-[#594636] text-sm font-medium">
+                        Tracking Code :
+                    </span>
+
+                    <span className="text-[#594636] text-sm font-bold">
+                        {
+                            code
+                        }
+                    </span>
+                </div>
+                <p className="text-[#594636] font-medium text-lg text-center">
+                    Thanks for registering your information, we will contact you soon.
+                </p>
+
+                <Button
+                    className="bg-[#F07148] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+                    asChild
+                >
+                    <Link href={`/${params.lang}/have-your-own-trip`}>
+                        Back to Have Your Own Trip
+                    </Link>
+                </Button>
+            </div>
+        );
     }
 
 
@@ -68,51 +115,51 @@ export const VipForm = () => {
 
                 <div className="grid md:grid-cols-2 gap-4">
 
-                <FormField
-                    control={form.control}
-                    name="first_name"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel
-                                className=" font-semibold capitalize text-[#594636]"
-                            >frist name</FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="frist name"
-                                    {...field}
-                                    className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                    <FormField
+                        control={form.control}
+                        name="first_name"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel
+                                    className=" font-semibold capitalize text-[#594636]"
+                                >frist name</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        placeholder="frist name"
+                                        {...field}
+                                        className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
 
 
-                <FormField
-                    control={form.control}
-                    name="last_name"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel
-                                className=" font-semibold capitalize text-[#594636]"
-                            >
-                                last name
-                            </FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="last name"
-                                    {...field}
-                                    className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                    <FormField
+                        control={form.control}
+                        name="last_name"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel
+                                    className=" font-semibold capitalize text-[#594636]"
+                                >
+                                    last name
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        placeholder="last name"
+                                        {...field}
+                                        className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
 
                 </div>
-               
+
 
                 <FormField
                     control={form.control}
@@ -226,50 +273,50 @@ export const VipForm = () => {
 
                 <div className="grid md:grid-cols-2 gap-4">
 
-                <FormField
-                    control={form.control}
-                    name="number_of_women"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel
-                                className=" font-semibold capitalize text-[#594636]"
-                            >
-                                number of women
-                            </FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="number of women"
-                                    {...field}
-                                    className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                    <FormField
+                        control={form.control}
+                        name="number_of_women"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel
+                                    className=" font-semibold capitalize text-[#594636]"
+                                >
+                                    number of women
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        placeholder="number of women"
+                                        {...field}
+                                        className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
 
 
-                <FormField
-                    control={form.control}
-                    name="number_of_men"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel
-                                className=" font-semibold capitalize text-[#594636]"
-                            >
-                                number of men
-                            </FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="number of men"
-                                    {...field}
-                                    className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                    <FormField
+                        control={form.control}
+                        name="number_of_men"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel
+                                    className=" font-semibold capitalize text-[#594636]"
+                                >
+                                    number of men
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        placeholder="number of men"
+                                        {...field}
+                                        className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
                 </div>
 
 
@@ -299,70 +346,70 @@ export const VipForm = () => {
 
                 <div className="grid md:grid-cols-2 gap-4">
 
-                <FormField
-                    control={form.control}
-                    name="start_date"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel
-                                className=" font-semibold capitalize text-[#594636]"
-                            >
-                                start date
-                            </FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="start date"
-                                    {...field}
-                                    className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                    <FormField
+                        control={form.control}
+                        name="start_date"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel
+                                    className=" font-semibold capitalize text-[#594636]"
+                                >
+                                    start date
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        placeholder="start date"
+                                        {...field}
+                                        className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
 
-<FormField
-                    control={form.control}
-                    name="end_date"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel
-                                className=" font-semibold capitalize text-[#594636]"
-                            >
-                                end date
-                            </FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="end date"
-                                    {...field}
-                                    className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                    <FormField
+                        control={form.control}
+                        name="end_date"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel
+                                    className=" font-semibold capitalize text-[#594636]"
+                                >
+                                    end date
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        placeholder="end date"
+                                        {...field}
+                                        className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
 
                 </div>
 
-              
 
-                
+
+
 
 
                 <FormField
                     control={form.control}
-                    name="number_of_childeren"
+                    name="description"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel
                                 className=" font-semibold capitalize text-[#594636]"
                             >
-                                number of childeren
+                                description
                             </FormLabel>
                             <FormControl>
                                 <Input
-                                    placeholder="number of childeren"
+                                    placeholder="description"
                                     {...field}
                                     className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
                                 />
@@ -375,7 +422,7 @@ export const VipForm = () => {
 
 
 
-                <Button className=" rounded-none w-full md:w-fit bg-[#F07148] text-white" type="submit">Send</Button>
+                <Button disabled={loading} className=" rounded-none w-full md:w-fit bg-[#F07148] text-white" type="submit">Send</Button>
             </form>
         </Form>
     )

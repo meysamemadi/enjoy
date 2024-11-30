@@ -10,7 +10,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import { CalendarIcon } from "lucide-react"
+import { CalendarIcon, CheckCircle2 } from "lucide-react"
 import { format } from "date-fns"
 import { Button } from "@/components/ui/button"
 import {
@@ -25,7 +25,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { createRestaurantReservation } from "@/actions/have-your-own-trip/form"
+import { restuarantReservationsForm } from "@/actions/have-your-own-trip/form"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
@@ -48,14 +48,16 @@ const formSchema = z.object({
         required_error: "A end_date is required.",
     }),
     description: z.string().min(2).max(150),
+    restaurant_id: z.number().optional(),
 })
 
-export const VipForm = () => {
+export const VipForm = ({ id }: { id: number }) => {
 
-    const { lang } = useParams();
+    const { lang  } = useParams();
 
-    const [formSuccess, setFormSuccess] = useState(false);
-    const [formId , setFormId] = useState(null)
+    const [isSuccessful, setIsSuccessful] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [code ,setCode] = useState(null)
 
 
     // 1. Define your form.
@@ -72,43 +74,60 @@ export const VipForm = () => {
             number_of_childeren: "",
             start_date: undefined,
             end_date: undefined,
+            restaurant_id: id ? Number(id) : undefined,
 
             description: "",
         },
     })
 
+    
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        createRestaurantReservation(values).then((res: any) => {
-            setFormSuccess(res.status)
-            setFormId(res.message)
-        }).catch((error) => console.log(error))
+        
+
+        setLoading(true)
+
+        const formattedValues = {
+            ...values,
+            restaurant_id: id ? Number(id) : undefined, // Ensure it's a number
+          };
+
+        restuarantReservationsForm(formattedValues).then((response) => {
+            setIsSuccessful(true)
+            setCode(response)
+        }).catch((error) => console.log(error)).finally(() => setLoading(false))
     }
 
 
-    if (formSuccess) {
+    if (isSuccessful) {
         return (
-            <div className="flex h-full flex-col items-center justify-center mt-6 gap-6 max-w-[352px] mx-auto">
+            <div className="flex flex-col items-center gap-4 mt-4 md:mt-8">
+                <CheckCircle2 className="text-[#43B8A2]" size={64} />
+                <div className="bg-[#F8F3EF] p-2 md:p-3 flex  justify-between items-center h-[56px] w-full max-w-[450px]">
+                    <span className="text-[#594636] text-sm font-medium">
+                        Tracking Code :
+                    </span>
 
-                <Image alt="" src={checkImg} />
-
-                <div className=" py-3 md:py-[14px] px-4 md:px-6 flex justify-between bg-[#F8F3EF] text-[#594636] w-full items-center">
-                    <span>Tracking Code : </span>
-                    <span className=" font-bold text-sm "> {formId} </span>
+                    <span className="text-[#594636] text-sm font-bold">
+                        {
+                            code
+                        }
+                    </span>
                 </div>
-
-                <p className=" text-center font-medium text-[#594636] ">
+                <p className="text-[#594636] font-medium text-lg text-center">
                     Thanks for registering your information, we will contact you soon.
                 </p>
 
-                <Link className="bg-[#F07148] text-[#FAF7F5] capitalize py-4 px-10 md:px-12 font-bold" href={`/${lang}/have-your-own-trip`}>
-                    back to have your own trip
-                </Link>
-
+                <Button
+                    className="bg-[#F07148] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+                    asChild
+                >
+                    <Link href={`/${lang}/have-your-own-trip`}>
+                        Back to Have Your Own Trip
+                    </Link>
+                </Button>
             </div>
-        )
+        );
     }
 
 

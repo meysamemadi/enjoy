@@ -76,7 +76,7 @@ export const FormComponent = ({ data }: any) => {
 
     const [isSuccessful, setIsSuccessful] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [code ,setCode] = useState(null)
+    const [code, setCode] = useState(null)
     const params = useParams();
 
 
@@ -124,36 +124,36 @@ export const FormComponent = ({ data }: any) => {
     }
 
 
-      if (isSuccessful) {
-    return (
-      <div className="flex flex-col items-center gap-4">
-        <CheckCircle2 className="text-[#497D59]" size={64} />
-        <div className="bg-[#F8F3EF] p-2 md:p-3 flex  justify-between items-center">
-          <span className="text-[#594636] text-sm font-medium">
-            Tracking Code :
-          </span>
+    if (isSuccessful) {
+        return (
+            <div className="flex flex-col items-center gap-4 mt-4 md:mt-8">
+                <CheckCircle2 className="text-[#43B8A2]" size={64} />
+                <div className="bg-[#F8F3EF] p-2 md:p-3 flex  justify-between items-center h-[56px] w-full max-w-[450px]">
+                    <span className="text-[#594636] text-sm font-medium">
+                        Tracking Code :
+                    </span>
 
-          <span className="text-[#594636] text-sm font-bold">
-            {
-              code
-            }
-          </span>
-        </div>
-        <p className="text-[#594636] font-medium text-lg text-center">
-          Thanks for registering your information, we will contact you soon.
-        </p>
+                    <span className="text-[#594636] text-sm font-bold">
+                        {
+                            code
+                        }
+                    </span>
+                </div>
+                <p className="text-[#594636] font-medium text-lg text-center">
+                    Thanks for registering your information, we will contact you soon.
+                </p>
 
-        <Button
-          className="bg-[#497D59] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
-          asChild
-        >
-          <Link href={`/${params.lang}/have-your-own-trip`}>
-            Back to Have Your Own Trip
-          </Link>
-        </Button>
-      </div>
-    );
-  }
+                <Button
+                    className="bg-[#F07148] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+                    asChild
+                >
+                    <Link href={`/${params.lang}/have-your-own-trip`}>
+                        Back to Have Your Own Trip
+                    </Link>
+                </Button>
+            </div>
+        );
+    }
 
 
     return (

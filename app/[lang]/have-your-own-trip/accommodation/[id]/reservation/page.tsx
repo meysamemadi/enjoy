@@ -45,7 +45,7 @@ const Page = async ({
               </div>
              <div className='flex flex-col md:flex-row gap-4'>
               <div className='order-2 md:order-1 w-full md:w-[40%]'>
-              <VipForm />
+              <VipForm id={id}/>
               </div>
               <div className='order-1 md:order-2 w-full md:w-[60%]'>
                <ImageComponent image={accommodation?.images[0]} />

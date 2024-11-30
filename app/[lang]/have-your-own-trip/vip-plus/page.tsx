@@ -30,15 +30,14 @@ const VipPlusPage = async ({
 
               <div className=' hidden md:block bg-[#F8F3EF] p-4 xl:px-6 py-3 opacity-80'>
                <p className='text-[#594636] leading-[200%] text-sm  font-medium '>
-                
                 The following form is for announcing your VIP+ and we will contact you after registering the form.
                 </p>
               </div>
-             <div className='flex flex-col md:flex-row gap-4'>
+             <div className='flex flex-col md:flex-row h-full gap-4'>
               <div className='order-2 md:order-1 w-full md:w-[40%]'>
               <VipForm />
               </div>
-              <div className='order-1 md:order-2 w-full md:w-[60%]'>
+              <div className='order-1 md:order-2 w-full md:w-[60%] h-full'>
                <ImageComponent />
               </div>
               
