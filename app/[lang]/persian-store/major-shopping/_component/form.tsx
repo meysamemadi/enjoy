@@ -24,28 +24,27 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { useCartStore } from "@/hooks/use-cart-store"
-import { createOrder } from "@/actions/persian-store"
 import { useState } from "react"
 import { useParams } from "next/navigation"
+import { residenceReservationsForm } from "@/actions/have-your-own-trip/form"
 import Link from "next/link"
 
 const formSchema = z.object({
     first_name: z.string().min(2).max(155),
     last_name: z.string().min(2).max(155),
+    company_name: z.string().min(2).max(155),
     country: z.string().min(2).max(150),
-
     phone_number: z.string().min(2).max(150),
     email: z.string().min(2).max(150),
-   
+    description: z.string().min(2).max(150),
+
 })
 
-export const CartForm = () => {
+export const MyForm = () => {
 
-    const { items, updateQuantity, removeItem, total } = useCartStore()
     const [isSuccessful, setIsSuccessful] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [code ,setCode] = useState(null)
+    const [code, setCode] = useState(null)
     const params = useParams();
 
     // 1. Define your form.
@@ -55,62 +54,58 @@ export const CartForm = () => {
             first_name: "",
             last_name: "",
             country: "",
+            company_name: "",
             phone_number: "",
             email: "",
-           
+            description: "",
         },
     })
 
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof formSchema>) {
-        const formData = {
-            ...values,
-            items: items,
-            total: total(),
-        }
-        createOrder(formData).then((response) => {
+        setLoading(true)
+
+        residenceReservationsForm(values).then((response) => {
             setIsSuccessful(true)
             setCode(response)
         }).catch((error) => console.log(error)).finally(() => setLoading(false))
     }
 
-
-
     if (isSuccessful) {
         return (
-          <div className="flex flex-col items-center gap-4 mt-4 md:mt-8">
-            <CheckCircle2 className="text-[#43B8A2]" size={64} />
-            <div className="bg-[#F8F3EF] p-2 md:p-3 flex  justify-between items-center h-[56px] w-full max-w-[450px]">
-              <span className="text-[#594636] text-sm font-medium">
-                Tracking Code :
-              </span>
-    
-              <span className="text-[#594636] text-sm font-bold">
-                {
-                  code
-                }
-              </span>
+            <div className="flex flex-col items-center gap-4 mt-4 md:mt-8">
+                <CheckCircle2 className="text-[#43B8A2]" size={64} />
+                <div className="bg-[#F8F3EF] p-2 md:p-3 flex  justify-between items-center h-[56px] w-full max-w-[450px]">
+                    <span className="text-[#594636] text-sm font-medium">
+                        Tracking Code :
+                    </span>
+
+                    <span className="text-[#594636] text-sm font-bold">
+                        {
+                            code
+                        }
+                    </span>
+                </div>
+                <p className="text-[#594636] font-medium text-lg text-center">
+                    Thanks for registering your information, we will contact you soon.
+                </p>
+
+                <Button
+                    className="bg-[#F07148] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+                    asChild
+                >
+                    <Link href={`/${params.lang}/have-your-own-trip`}>
+                        Back to Have Your Own Trip
+                    </Link>
+                </Button>
             </div>
-            <p className="text-[#594636] font-medium text-lg text-center">
-            Thanks for your purchase. We will contact you on WhatsApp or email soon to complete more information.
-            </p>
-    
-            <Button
-              className="bg-[#A98D69] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
-              asChild
-            >
-              <Link href={`/${params.lang}/have-your-own-trip`}>
-                Back to Persian Shop
-              </Link>
-            </Button>
-          </div>
         );
-      }
+    }
 
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full mt-5 ">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-5 ">
 
                 <FormField
                     control={form.control}
@@ -145,6 +140,28 @@ export const CartForm = () => {
                             <FormControl>
                                 <Input
                                     placeholder="last name"
+                                    {...field}
+                                    className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="company_name"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel
+                                className=" font-semibold capitalize text-[#594636]"
+                            >
+                                country
+                            </FormLabel>
+                            <FormControl>
+                                <Input
+                                    placeholder="company name"
                                     {...field}
                                     className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
                                 />
@@ -226,10 +243,33 @@ export const CartForm = () => {
 
 
 
+                <FormField
+                    control={form.control}
+                    name="description"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel
+                                className=" font-semibold capitalize text-[#594636]"
+                            >
+                                description
+                            </FormLabel>
+                            <FormControl>
+                                <Textarea
+                                    placeholder="description"
+                                    {...field}
+                                    className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
 
 
 
-                <Button className=" rounded-none w-full bg-[#A98D69] text-white" type="submit">Send</Button>
+
+
+                <Button disabled={loading} className=" rounded-none w-full bg-[#F07148] text-white" type="submit">Send</Button>
             </form>
         </Form>
     )

@@ -1,5 +1,7 @@
 "use server"
 
+import axiosInstance from "@/lib/axios";
+
 export const getParentsCategories =  async (lang: string) => {
 
     try {
@@ -114,4 +116,19 @@ export const getHomeSpecial = async (lang:string) => {
     throw new Error("Failed to fetch getStoreList data");
   }
 
+}
+
+export const createOrder = async (data:any) => {
+  try {
+
+      const response = await axiosInstance.post('store/order/create',data)
+      return response.data
+      
+  } catch (error) {
+      console.log(error)
+      return {
+          status: false,
+          error
+      }
+  }
 }

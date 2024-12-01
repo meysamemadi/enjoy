@@ -1,11 +1,16 @@
+"use client"
 import React from 'react'
 import Title from '../../components/title'
 import Link from 'next/link'
 import image01 from "@/public/img/store/major_shopping.png"
 import image02 from "@/public/img/store/what_you_want.png"
 import Image from 'next/image'
+import { useParams } from 'next/navigation'
 
 export const WhatsHot = () => {
+
+    const { lang } = useParams();
+
   return (
     <div className=' mt-8 lg:mt-14'>
         <Title title='whats hot ... !' />
@@ -22,7 +27,7 @@ export const WhatsHot = () => {
                     </div>
                 </div>
                 <div className=' bg-[#DACAA0] py-5 lg:py-8 px-6 lg:px-12 '>
-                    <Link className=' underline underline-offset-4 leading-[85.2%] text-[#594636] text-[20px] lg:text-[33px] font-semibold' href={""}>
+                    <Link className=' underline underline-offset-4 leading-[85.2%] text-[#594636] text-[20px] lg:text-[33px] font-semibold' href={`/${lang}/persian-store/major-shopping`}>
                         Form registration
                     </Link>
                 </div>
@@ -42,7 +47,7 @@ export const WhatsHot = () => {
                     </div>
                 </div>
                 <div className=' bg-[#DACAA0] py-5 lg:py-8 px-6 lg:px-12 '>
-                    <Link className=' underline underline-offset-4 leading-[85.2%] text-[#594636] text-[20px] lg:text-[33px] font-semibold' href={""}>
+                    <Link className=' underline underline-offset-4 leading-[85.2%] text-[#594636] text-[20px] lg:text-[33px] font-semibold' href={`/${lang}/persian-store/you-want`}>
                         Form registration
                     </Link>
                 </div>
