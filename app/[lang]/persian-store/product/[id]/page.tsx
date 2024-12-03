@@ -9,6 +9,7 @@ import { Info } from './_components/info';
 import { RiAngularjsFill, RiCheckboxFill, RiCheckboxIndeterminateFill, RiExchangeBoxFill } from 'react-icons/ri';
 import { Attributes } from './_components/attributes';
 import { PopularProducts } from './_components/popular-products';
+import { getProductById } from '@/actions/persian-store';
 
 const Page = async ({
     params: { lang , id },
@@ -20,6 +21,11 @@ const Page = async ({
   
     const pages = [{ name: "Persian Store", href: "", current: true }];
     const dic = await getDictionary(lang);
+    const product = await getProductById(lang, id)
+
+
+    console.log(product)
+
     return (
       <div className="flex-1  bg-[#FAF5EF]">
         <BreadCrumb pages={pages} />
@@ -28,17 +34,12 @@ const Page = async ({
         <div className='md:bg-white container flex flex-col md:flex-row'>
 
 
-           <h2 className=' md:hidden text-[32px] font-semibold capitalize text-[#594636]'>Original Iranian dining cup</h2>
+           <h2 className=' md:hidden text-[32px] font-semibold capitalize text-[#594636]'>{product.name}</h2>
 
 
             <div className='w-full md:w-2/3'>
 
-                <ImageCarousel images={[
-                    'https://picsum.photos/1024',
-                    'https://picsum.photos/1024',
-                    'https://picsum.photos/1024',
-                    'https://picsum.photos/1024'
-                ]} />
+                <ImageCarousel images={product.images} />
 
             </div>
 
@@ -52,8 +53,8 @@ const Page = async ({
                
 
                 <div className='flex flex-col md:mt-6'>
-                    <span className=' text-sm md:text-[25px] text-[#A98D69] line-through font-semibold'>$446.61</span>
-                    <span className=' text-2xl md:text-[40px] font-semibold text-[#259F82]'>$169.43</span>
+                    <span className=' text-sm md:text-[25px] text-[#A98D69] line-through font-semibold'>${product.old_price}</span>
+                    <span className=' text-2xl md:text-[40px] font-semibold text-[#259F82]'>${product.price}</span>
                 </div>
 
                 <Button className=' font-bold text-[22px] leading-[85.2%] mt-4 capitalize rounded-none border-none w-full text-white  bg-[#A98D69]'>
@@ -107,7 +108,7 @@ const Page = async ({
 
         </div>
 
-        <Attributes />
+        <Attributes meta={product.meta} />
 
         <PopularProducts />
         

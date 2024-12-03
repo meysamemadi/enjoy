@@ -28,6 +28,7 @@ import { useState } from "react"
 import { useParams } from "next/navigation"
 import { residenceReservationsForm } from "@/actions/have-your-own-trip/form"
 import Link from "next/link"
+import { majorShopping } from "@/actions/persian-store"
 
 const formSchema = z.object({
     first_name: z.string().min(2).max(155),
@@ -37,7 +38,7 @@ const formSchema = z.object({
     phone_number: z.string().min(2).max(150),
     email: z.string().min(2).max(150),
     description: z.string().min(2).max(150),
-
+    file: z.instanceof(File).optional(),
 })
 
 export const MyForm = () => {
@@ -65,7 +66,16 @@ export const MyForm = () => {
     function onSubmit(values: z.infer<typeof formSchema>) {
         setLoading(true)
 
-        residenceReservationsForm(values).then((response) => {
+        const formData = new FormData();
+        Object.entries(values).forEach(([key, value]) => {
+          if (key === 'file' && value instanceof File) {
+            formData.append(key, value);
+          } else if (typeof value === 'string') {
+            formData.append(key, value);
+          }
+        });
+
+        majorShopping(formData).then((response) => {
             setIsSuccessful(true)
             setCode(response)
         }).catch((error) => console.log(error)).finally(() => setLoading(false))
@@ -91,11 +101,11 @@ export const MyForm = () => {
                 </p>
 
                 <Button
-                    className="bg-[#F07148] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
+                    className="bg-[#A98D69] rounded-none capitalize text-[#FAF7F5] w-full font-bold"
                     asChild
                 >
-                    <Link href={`/${params.lang}/have-your-own-trip`}>
-                        Back to Have Your Own Trip
+                    <Link href={`/${params.lang}/persian-store`}>
+                        Back to Persian Store
                     </Link>
                 </Button>
             </div>
@@ -265,11 +275,31 @@ export const MyForm = () => {
                     )}
                 />
 
+                <FormField
+                    control={form.control}
+                    name="file"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className="font-semibold capitalize text-[#594636]">
+                                Upload File
+                            </FormLabel>
+                            <FormControl>
+                                <Input
+                                    type="file"
+                                    onChange={(e) => field.onChange(e.target.files?.[0])}
+                                    className="focus-visible:ring-0 rounded-none capitalize border-[#A07E62] placeholder:text-[#A07E62] h-10 md:h-12"
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
 
 
 
 
-                <Button disabled={loading} className=" rounded-none w-full bg-[#F07148] text-white" type="submit">Send</Button>
+
+                <Button disabled={loading} className=" rounded-none w-full bg-[#A98D69] text-white" type="submit">Send</Button>
             </form>
         </Form>
     )

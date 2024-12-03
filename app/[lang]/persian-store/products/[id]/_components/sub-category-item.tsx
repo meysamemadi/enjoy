@@ -10,7 +10,7 @@ interface SubCategoryItemProps {
 export const SubCategoryItem = ({ id, title }: SubCategoryItemProps) => {
 
   const router = useRouter();
-  const { lang } = useParams();
+  const { lang , id:CategoryID } = useParams();
   return (
     <div 
     onClick={() => router.push(`/${lang}/persian-store/products/${id}`)}
@@ -18,13 +18,13 @@ export const SubCategoryItem = ({ id, title }: SubCategoryItemProps) => {
       cn(
         'bg-white p-2 lg:p-3 min-w-[91px]  md:min-w-[122px] text-center group   transition cursor-pointer',
         ' hover:bg-[#F1E7DA]',
-        false && 'bg-[#A07E62]'
+        Number(CategoryID) === id && 'bg-[#A07E62] '
 
       )
     }>
       <p className={cn(
         'text-[#594636] group-hover:text-black text-sm font-semibold capitalize',
-        false && 'text-white'
+        Number(CategoryID) === id && 'text-white'
       )}>{title}</p>
     </div>
   )

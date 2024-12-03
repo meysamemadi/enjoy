@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -16,7 +16,7 @@ import img01 from "@/public/image/c1.png"
 
 
 
-const CategoryCarousel = () => {
+const CategoryCarousel = ({ categories , setChildren , setSelectedCategory ,selectedCategory ,handleCategorySelect}: any) => {
 
   const sliderRef = useRef(null);
 
@@ -69,71 +69,22 @@ const CategoryCarousel = () => {
         }}
         className="container mySwiper "
       >
-        
-          <SwiperSlide >
-            <CategoryItem 
-              id={1}
-              name="Weaving original Iranian carpets"
-              image={img01.src}
+        {categories.map((category:any) => (
+          <SwiperSlide key={category.id} >
+            <CategoryItem
+              id={category.id}
+              title={category.title}
+              image={category.image}
+              child={category.children}
+              setChildren={setChildren}
+              onSelect={handleCategorySelect}
+              selectedCategory={selectedCategory}
             />
           </SwiperSlide>
+        ))}
 
-          <SwiperSlide >
-            <CategoryItem 
-              id={1}
-              name="Weaving original Iranian carpets"
-              image={img01.src}
-            />
-          </SwiperSlide>
 
-          <SwiperSlide >
-            <CategoryItem 
-              id={1}
-              name="Weaving original Iranian carpets"
-              image={img01.src}
-            />
-          </SwiperSlide>
 
-          <SwiperSlide >
-            <CategoryItem 
-              id={1}
-              name="Weaving original Iranian carpets"
-              image={img01.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide >
-            <CategoryItem 
-              id={1}
-              name="Weaving original Iranian carpets"
-              image={img01.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide >
-            <CategoryItem 
-              id={1}
-              name="Weaving original Iranian carpets"
-              image={img01.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide >
-            <CategoryItem 
-              id={1}
-              name="Weaving original Iranian carpets"
-              image={img01.src}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide >
-            <CategoryItem 
-              id={1}
-              name="Weaving original Iranian carpets"
-              image={img01.src}
-            />
-          </SwiperSlide>
-       
       </Swiper>
 
       <div className="flex md:hidden w-full items-center space-x-6 justify-end mt-[14px]">

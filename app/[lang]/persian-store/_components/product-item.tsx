@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import p1 from "@/public/image/p1.jpg"
 import { Plus } from 'lucide-react'
 import { useCartStore } from '@/hooks/use-cart-store'
+import { useParams, useRouter } from 'next/navigation'
 
 interface ProductsProps {
     id: number;
@@ -15,11 +16,12 @@ interface ProductsProps {
 
 export const ProductItem = ({ id, name, price, old_price, image }: ProductsProps) => {
 
-    const {  addItem, items } = useCartStore()
+    const { addItem, items } = useCartStore()
     const [addedItems, setAddedItems] = useState<{ [key: number]: boolean }>({})
+    const router = useRouter();
+    const { lang } = useParams()
 
     const handleAddToCart = (product: any) => {
-        console.log("clicled !",product.id)
         addItem(product)
         setAddedItems(prev => ({ ...prev, [product.id]: true }))
         setTimeout(() => {
@@ -29,10 +31,18 @@ export const ProductItem = ({ id, name, price, old_price, image }: ProductsProps
 
 
     return (
-        <div className=' relative  bg-white h-full w-full flex flex-col p-2 lg:p-4'>
+        <div
+            onClick={(event) => {
+                event.stopPropagation()
+                router.push(`/${lang}/persian-store/product/${id}`)
+            }}
+            className=' relative  bg-white h-full w-full flex flex-col p-2 lg:p-4'>
 
             <button
-                onClick={() => handleAddToCart({ id, name, price, image })}
+                onClick={(event) => {
+                    event.stopPropagation()
+                    handleAddToCart({ id, name, price, image })
+                }}
                 disabled={addedItems[id]}
                 className=' w-6 h-6 absolute top-4 left-4 flex items-center justify-center bg-[rgba(169,141,105,0.10)] border border-[rgba(198,178,161,1)] p-1'>
                 <Plus className=' text-[rgba(198,178,161,1)]' />

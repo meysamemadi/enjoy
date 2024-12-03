@@ -2,11 +2,11 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import React from 'react'
 
-export const Title = () => {
+export const Title = ({ count }: {count : number}) => {
     return (
         <div className='  mt-6 lg:mt-[56px] pb-3 flex items-center justify-between  container border-b border-[rgba(160,126,98,0.30)]'>
             <span className='capitalize text-lg lg:text-[32px] font-semibold text-[#594636]'>
-                157 products
+                {count} products
             </span>
 
             <div className='flex items-center text-sm font-semibold text-[#9F7C63] capitalize gap-3'>
