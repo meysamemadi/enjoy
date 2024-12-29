@@ -27,7 +27,7 @@ const Header = ({
     Register: string;
     Login: string;
   };
-  bgNone?:boolean
+  bgNone?: boolean
 }) => {
 
 
@@ -84,6 +84,12 @@ const Header = ({
                 href={`/${lang}/have-your-own-trip`}
               >
                 <span>{dictionary.Travel_yourself}</span>
+              </Link>
+              <Link
+                className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"
+                href={`/${lang}/educational`}
+              >
+                <span className=" capitalize">student tour</span>
               </Link>
               <Link
                 className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"

@@ -56,48 +56,54 @@ const MobileNavbar = ({
         <div className="flex flex-col gap-6 pt-6">
           <Link
             className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"
-            href={"/"}
+            href={`/${lang}/have-your-own-trip`}
           >
             <span>{dictionary.Travel_yourself}</span>
           </Link>
+
           <Link
             className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"
-            href={"/"}
+            href={`/${lang}/educational`}
+          >
+            <span className=" capitalize">student travel tour</span>
+          </Link>
+          <Link
+            className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"
+            href={`/${lang}/tourism`}
           >
             <span>{dictionary.Tourist_tour}</span>
           </Link>
           <Link
             className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"
-            href={"/"}
+            href={`/${lang}/medical`}
           >
             <span>{dictionary.Health_tour}</span>
           </Link>
           <Link
             className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"
-            href={"/"}
+            href={`/${lang}/bussiness`}
           >
             <span>{dictionary.Business_tour}</span>
           </Link>
           <Link
             className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"
-            href={"/"}
+            href={`/${lang}/persian-store`}
           >
             <span>{dictionary.Persian_Store}</span>
           </Link>
           <Link
             className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"
-            href={"/"}
+            href={`/${lang}/about-iran`}
           >
             <span>{dictionary.About_iran}</span>
           </Link>
           <Link
             className=" transition-all font-medium text-[11px] hover:font-bold hover:text-[#594636]"
-            href={"/"}
+            href={`/${lang}/about-us`}
           >
             <span>{dictionary.About_us}</span>
           </Link>
         </div>
-        <div className="flex flex-col gap-2 mt-2">sssss</div>
       </SheetContent>
     </Sheet>
   );

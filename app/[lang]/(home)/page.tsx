@@ -54,7 +54,7 @@ export default async function IndexPage({
                 "py-3 px-[24px] md:px-[48px] md:py-4 bg-white  text-sm md:text-[22px] font-bold leading-[85.2%] text-[#594636] w-fit",
                 Messina_Serif.className
               )}
-              href={""}
+              href={`/${lang}/visa`}
             >
               Registration form
             </Link>
