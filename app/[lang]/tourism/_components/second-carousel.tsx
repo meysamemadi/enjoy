@@ -1,0 +1,70 @@
+'use client'
+
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
+
+// import required modules
+import { Grid, Navigation, Pagination } from "swiper/modules";
+import TourItem from "./tour-item";
+
+import t1 from "@/public/image/t1.png";
+import t2 from "@/public/image/t2.jpg";
+import t3 from "@/public/image/t3.png";
+import {Tour} from "@/types";
+
+interface SecondCarouselProps {
+  items:Tour[]
+  sliderRef: any;
+  navigationNextRef: any;
+  navigationPrevRef: any;
+}
+
+export const SecondCarousel = ({
+    items,
+  sliderRef,
+  navigationNextRef,
+  navigationPrevRef,
+}:SecondCarouselProps) => {
+  return (
+    <Swiper
+      ref={sliderRef}
+      slidesPerView={1}
+      spaceBetween={24}
+      loop={true}
+      breakpoints={{
+        "@0.00": {
+          slidesPerView: 1.3,
+          spaceBetween: 20,
+        },
+
+        "@0.75": {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
+      }}
+      modules={[Navigation]}
+      navigation={{
+        prevEl: navigationPrevRef.current,
+        nextEl: navigationNextRef.current,
+      }}
+      className="mySwiper"
+    >
+
+      {items.map((item, i) => (
+          <SwiperSlide key={item.id}>
+            <TourItem
+                {...item}
+            />
+          </SwiperSlide>
+      ))}
+
+
+
+    </Swiper>
+  );
+};
+ 

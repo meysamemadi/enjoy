@@ -1,0 +1,82 @@
+{
+  "main-menu": {
+    "Travel_yourself": "Kendi gezi rotanı belirle",
+    "Tourist_tour": "Turizm turu",
+    "Health_tour": "Sağlık turizmi",
+    "Business_tour": "İş turu",
+    "Persian_Store": "İran mağazası",
+    "About_iran": "İran hakkında",
+    "About_us": "Hakkımızda",
+    "Login": "Giriş",
+    "Register": "Kayıt ol"
+  },
+  "base":{
+    "enjoy": "Enjoy",
+    "persia": "Persia",
+    "Lovely_destination_for_your_next_travel": "Bir sonraki seyahatiniz için farklı bir durak"
+  },
+  "educational": {
+    "universities" : "üniversiteler",
+    "Educational_Tour": "İran'da eğitim",
+    "Educational_Tour_desc":"Bilim ve medeniyet diyarında eğitim",
+    "What_is_Educational_Tour": "(İran'da eğitim) nedir?",
+    "header_discription": "“Enjoy Persia” bir ilk olarak İran'ın en iyi üniversitelerini koleksiyon halinde size sunuyor, böylelikle seçim yaparken her bir üniversitenin olanaklarını, özelliklerini ve ana bölümlerini inceleyebilir, ayrıca İran üniversitelerinin bilimsel başarıları hakkında bilgi edinebilirsiniz. Enjoy Persia ekibi olarak, İran'da kayıt ve eğitim aşamalarının tamamında sizin yanınızda olmaktan gurur duyarız. Bu yolculukta en iyi anıları yaşamanız dileğiyle."
+  },
+  "medical":{
+    "Medical_Tour": "Sağlık turizmi",
+    "Medical_Tour_desc": "İran'da Düşük Fiyatlı Birinci Sınıf Sağlık Hizmetler",
+    "Medical_Tourism_in_Iran": "İran’da sağlık turismi",
+    "Medical_Tourism_description": "İran, gelişmiş tıbbi ve farmasötik teknolojisi, yetenekli doktor ve hemşireleri, etkin sağlık sistemi ve yüksek tıbbi etik konumu ile dünyadaki sağlık hizmetleri içinde en iyi seçeneklerden biridir ve İran hastaneleri tüm branşlardaki tüm tedavi sürecini sizin için uygun bir maliyetle sağlamaktadır. Enjoy Persia, İran'ın farklı şehirlerindeki uzmanlar ve donanımlı hastanelerle işbirliği yapan turizm ve sağlık endüstrisinde profesyonel bir start up’tır. Ayrıca ülkemizin turizm kapasitelerine göre ekibimiz, tedavi amaçlı seyahatiniz sırasında istediğiniz turistik, konaklama ve doğa tedavi hizmetlerini en kaliteli ve uygun fiyatla sağlayabilir, böylece medikal seyahatiniz sırasında İran'ın turistik ve rekreasyonel cazibe merkezlerinin tadını çıkarabilirsiniz. Enjoy Persia ayrıca hizmet kalitesini artırmak ve rahatınızı korumak için 24 saat özel hemşire ve tercüman hizmetleri sunmaktadır. Uzmanlarımızın günün her saati ücretsiz danışmanlarınız ve rehberleriniz olacağını duyurmaktan gurur duyuyoruz.",
+    "Special_Services": "Özel servis",
+    "Free_consultation": "Ücretsiz danışmanlık",
+    "Free_consultation_description": "Enjoy Persia, sağlık hizmetlerinizi istediğiniz herhangi bir şehirde sağlayabilir. Hatta bizden tavsiye bile alabilirsiniz ve bu tamamen ücretsizdir.",
+    "Enjoy_Persia_health_care_global_network": "“Enjoy Persia” Küresel sağlık hizmetleri ağı",
+    "Enjoy_Persia_health_care_global_network_description": "Enjoy Persia, İran'ın farklı şehirlerindeki mükemmel doktorları, klinikleri ve özel bakım hastaneleri ve ayrıca dünyanın farklı yerlerindeki temsilcileri ve uzmanları ile İran'da en iyi tıp ve sağlık turizm hizmetlerini sunan bir öncüdür.",
+    "Doctors": "doktorlar",
+    "Hospitals" : "Hastaneler",
+    "Clinics": "Klinikler",
+    "Pharmacies": "Eczaneler",
+    "Employees" : "Çalışanlar",
+    "Cities": "Şehirler",
+    "Cities_health_services":"Şehirlerin sağlık hizmetleri",
+    "Facilities_with_treatment":"tedavi yaninda sunulan hizmetler",
+    "naturopathy": "Doğa tedavisi",
+    "naturopathy_description":"İran'da modern tıp bilimi ile tedavinin yanı sıra sıcak su, tuz terapisi, geleneksel tıp ve diğer tedavi imkanları gibi doğa terapisi cazibe merkezlerinden yararlanabilirsiniz.",
+    "Our_doctors_success":"Doktorlarımızın başarıları"
+  },
+  "tourism":{
+    "Tourism" : "Turizm",
+    "Tour" : "turu",
+    "Touch_your_dreams_in_Persia":"İran'da hayallerinize dokunun"
+
+
+  },
+  "have_your_own_trip":{
+    "Have_your" : "rotanı belirle",
+    "own_trip" : "Kendi gezi",
+    "Endless_adventure_in_Persia":"İran'da sonsuz macera",
+    "vip plus": "Vip Plus"
+
+
+  },
+  "server-component": {
+    "welcome": "Hoş geldiniz"
+  },
+  "footer": {
+    "About_Enjoy_Persia": "Enjoy Persia Hakkında",
+    "about_us_text" : "Enjoy Persia, “Raha” ticari grubunun bir alt dalı olarak (rahabusiness.com), İran turizminin büyük topluluğunun işbirliğiyle en çeşitli eğlence ve seyahat hizmetlerini sunan bir turizm şirketidir. İran'da ilk kez turistlere sunulan bu hizmetlerle, kendi zevkinize göre seyahat etmenizi, çekici ve unutulmaz deneyimler yaşamanızı sağlıyoruz. Çeşitli hizmetlerimiz arasında ülkenize ve şehrinize el sanatları ihracatı yapmak, özellikle İran'a seyahat etmek isteyen tüccarlar ve işadamları için endüstrilerimizi, fabrikalarımızı ve fuarlarımızı ziyaret etmek için iş gezisi planlamak, İran'ın on iki şehrinde ilk kez sağlık turları düzenlemektir. İran'da ilk kez, farklı ve çekici eğlence turları düzenleyen ve ayrıca özel bir plana sahip olan (kendi seyahatinizi yapın), ülkemizin çeşitli cazibe merkezlerinin tadını çıkarma zevkiniz, size aşağıdakiler dahil tüm turizm hizmetlerini seçme şansı sunuyor. kendi zevk ve ihtiyaçlarınıza göre tur lideri, rezidans, fotoğrafçı, restoran, araba ve diğer çeşitli paketler ile seyahatinizin keyfini doyasıya çıkarın.",
+    "Link" : "bağlantı",
+    "have_your_own_trip": "Kendi gezi rotanı belirle",
+    "Tourism_tour":"Turizm turu",
+    "Health_tour": "Sağlık turizmi",
+    "About_us": "Hakkımızda",
+    "Medical_tour":"Sağlık turizmi",
+    "Persian_store": "İran mağazası",
+    "Our_Licenses" : "Lisanslarımız",
+    "Application": "Uygulama",
+    "CopyRight" : "Site ve bu siteye ait belgeler dahil tüm haklar saklıdır.",
+    "Need_more_information"  : "Daha fazla bilgiye mi ihtiyacınız var?",
+    "Connect_with_WhatsApp" : "WhatsApp ile bağlantı kurun"
+
+  }
+}

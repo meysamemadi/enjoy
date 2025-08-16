@@ -1,0 +1,62 @@
+.vip_header {
+  /* background: linear-gradient(90deg, #000 42.93%, rgba(0, 0, 0, 0.00) 79.71%); */
+
+  @apply relative;
+}
+
+.vip_header::after {
+  @apply absolute w-full h-full inset-0  content-[''] bg-[linear-gradient(40deg,_#000_17.54%,_rgba(0,_0,_0,_0.00)_53.52%),_linear-gradient(0deg,_rgba(38,_38,_38,_0.50)_0%,_rgba(38,_38,_38,_0.50)_100%)] md:bg-[linear-gradient(90deg,_#000_42.93%,_rgba(0,_0,_0,_0.00)_79.71%)];
+}
+/* background: linear-gradient(40deg, #000 17.54%, rgba(0, 0, 0, 0.00) 53.52%), linear-gradient(0deg, rgba(38, 38, 38, 0.50) 0%, rgba(38, 38, 38, 0.50) 100%), url(<path-to-image>), lightgray 9.188px -1.294px / 119.447% 100.269% no-repeat; */
+.vip_test {
+  @apply bg-[url('img/ownvip2.png')]  md:bg-[url('img/ownvip1.png')] bg-cover md:bg-right;
+}
+
+.bg_trip {
+  @apply bg-[url('img/Trip-planning-made-fun.png')] bg-no-repeat bg-left;
+}
+
+.one_day_tour_header {
+  @apply relative bg-[url('img/one_day_header2.jpg')] md:bg-[url('img/one_day_header.jpg')]  bg-no-repeat md:bg-center bg-cover w-full;
+}
+.one_day_tour_header::after {
+  @apply absolute w-full h-full inset-0  content-[''] md:bg-[linear-gradient(0deg,_rgba(240,_113,_72,_0.50)_0%,_rgba(240,_113,_72,_0.50)_100%),_linear-gradient(90deg,_#568CE6_-5.39%,_rgba(106,_145,_210,_0.70)_19.31%,_rgba(177,_200,_191,_0.00)_100%),_linear-gradient(90deg,_#568CE6_-5.39%,_rgba(106,_145,_210,_0.70)_19.31%,_rgba(177,_200,_191,_0.00)_100%),_linear-gradient(90deg,_#568CE6_-5.39%,_rgba(106,_145,_210,_0.70)_19.31%,_rgba(177,_200,_191,_0.00)_100%)];
+}
+
+.bgWrap {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bulletClassStore {
+  width: 8px;
+  height: 4px;
+  opacity: 0.3;
+  background: #594636;
+  cursor: pointer;
+}
+.bulletActiveClassStore {
+  width: 35px;
+  height: 4px;
+  opacity: 1;
+  background: #594636;
+}
+
+.bulletClassStoreItem {
+  width: 6px;
+  height: 6px;
+  opacity: 0.2;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 0%;
+}
+.bulletActiveClassStoreItem {
+  width: 6px;
+  height: 6px;
+  opacity: 1;
+  border-radius: 0%;
+  background: #fff;
+}

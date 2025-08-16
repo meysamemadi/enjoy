@@ -1,0 +1,31 @@
+/* styles/VerticalCarousel.module.css */
+
+
+/* styles/VerticalCarousel.module.css */
+
+.bulletClassAttraction {
+  width: 8px;
+  height: 4px;
+  opacity: 0.3;
+  background: #594636;
+  cursor: pointer;
+}
+.bulletActiveClassAttraction {
+  width: 35px;
+  height: 4px;
+  opacity: 1;
+  background: #594636;
+}
+
+.swiperButtonPrev, .swiperButtonNext {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+     
+    
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+}

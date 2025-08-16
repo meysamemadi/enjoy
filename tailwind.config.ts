@@ -1,0 +1,32 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "edcational-form": "url('../../public/img/bg-edcational-form.png')",
+        'custom-gradient': 'linear-gradient(0deg, #FAF5EF 33.04%, rgba(250, 245, 239, 0.00) 185.85%)',
+        
+      },
+      container: {
+        padding: {
+          DEFAULT: "1rem",
+          sm: "1rem",
+          lg: "2rem",
+          xl: "4rem",
+          "2xl": "6rem",
+        },
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/forms")],
+};
+export default config

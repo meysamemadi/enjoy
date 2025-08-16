@@ -1,0 +1,12 @@
+.header_tourism{
+    position: relative;
+    
+    
+    
+}
+.header_tourism::after{
+    @apply w-full h-full max-h-[350px]  absolute bottom-[-45px] right-0  content-[''] bg-no-repeat md:bg-[url('img/tourism_header_bg.png')] ;
+        
+}
+
+
