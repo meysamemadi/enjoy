@@ -20,7 +20,15 @@ import { Button } from "@/components/ui/button";
 import { useCallback, useRef } from "react";
 
 
-export const IranProvinceCarousel = () => {
+type CardItem = {
+    id: number;
+    name: string;
+    description: string;
+    image: string;  // url نهایی تصویر
+    status?: string;
+};
+
+export const IranProvinceCarousel = ({items}:{items:CardItem[]}) => {
     const navigationNextRef = useRef(null);
     const navigationPrevRef = useRef(null);
     const sliderRef = useRef(null);
@@ -81,53 +89,15 @@ export const IranProvinceCarousel = () => {
          }}
          className="mySwiper"
        >
-         <SwiperSlide>
-           <ProvinceItem id={1} name="tehran" image={t2.src} />
-         </SwiperSlide>
 
-         <SwiperSlide>
-           <ProvinceItem id={1} name="rasht" image={t2.src} />
-         </SwiperSlide>
+           {items.map((item) => (
+               <SwiperSlide key={item.id}>
+                   <ProvinceItem id={item.id} name={item.name} image={item.image} />
+               </SwiperSlide>
+           ))}
 
-         <SwiperSlide>
-           <ProvinceItem id={1} name="anzali" image={t3.src} />
-         </SwiperSlide>
 
-         <SwiperSlide>
-           <ProvinceItem id={1} name="mashhad" image={t1.src} />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <ProvinceItem id={1} name="shiraz" image={t2.src} />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <ProvinceItem id={1} name="isfahan" image={t3.src} />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <ProvinceItem id={1} name="fouman" image={t1.src} />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <ProvinceItem id={1} name="karaj" image={t2.src} />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <ProvinceItem id={1} name="rasht" image={t3.src} />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <ProvinceItem id={1} name="rasht" image={t1.src} />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <ProvinceItem id={1} name="rasht" image={t2.src} />
-         </SwiperSlide>
-
-         <SwiperSlide>
-           <ProvinceItem id={1} name="rasht" image={t3.src} />
-         </SwiperSlide>
+       
        </Swiper>
 
        <div

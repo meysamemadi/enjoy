@@ -42,3 +42,48 @@ export async function bookTicket(formData: FormData) {
   }
 }
 
+export async function IranBetter(lang: string | string[])
+{
+  try {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}province/know-index?lang=${lang}`
+    );
+
+    const response = await res.json();
+    return response;
+  } catch (error) {
+    console.log("[getCategories]", error);
+    throw new Error("get Categories error");
+  }
+}
+
+
+export async function IranProvinceData(lang: string | string[])
+{
+  try {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}province/province-index?lang=${lang}`
+    );
+
+    const response = await res.json();
+    return response;
+  } catch (error) {
+    console.log("[getCategories]", error);
+    throw new Error("get Categories error");
+  }
+}
+
+export async function getComments (domain:string = "main")
+{
+  try {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}comment/get-comments?domain=${domain}`
+    );
+    const response = await res.json();
+    return response;
+  } catch (error) {
+    console.log("[getCategories]", error);
+    throw new Error("get Categories error");
+  }
+}
+

@@ -15,7 +15,15 @@ import { SayItem } from "./say-item";
 import { Button } from "@/components/ui/button";
 import { useCallback, useRef } from "react";
 
-export const TouristSayCarousel = () => {
+type CommentsProps = {
+  id: number;
+  name: string;
+  comment: string;
+  profile: string;
+  country: string;
+}
+
+export const TouristSayCarousel = ({comments}:{comments:CommentsProps[]}) => {
   const navigationNextRef = useRef(null);
   const navigationPrevRef = useRef(null);
   const sliderRef = useRef(null);
@@ -76,37 +84,15 @@ export const TouristSayCarousel = () => {
         }}
         className="mySwiper max-w-[1440px] mx-auto px-4 md:px-6 lg:px-[200px]"
       >
-        <SwiperSlide>
-          <SayItem />
-        </SwiperSlide>
 
-        <SwiperSlide>
-          <SayItem />
-        </SwiperSlide>
+        {comments.map((comment: CommentsProps) => (
+            <SwiperSlide key={comment.id}>
+              <SayItem {...comment} />
+            </SwiperSlide>
+        ))}
 
-        <SwiperSlide>
-          <SayItem />
-        </SwiperSlide>
 
-        <SwiperSlide>
-          <SayItem />
-        </SwiperSlide>
 
-        <SwiperSlide>
-          <SayItem />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <SayItem />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <SayItem />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <SayItem />
-        </SwiperSlide>
         
       </Swiper>
 

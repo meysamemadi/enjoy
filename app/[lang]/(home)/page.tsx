@@ -61,10 +61,10 @@ export default async function IndexPage({
           </div>
         </div>
       </div>
-      <KnowIranBetter />
+      <KnowIranBetter lang={lang} />
       <OurServices />
       <LastBlogPosts />
-      <IranProvince />
+      <IranProvince lang={lang}/>
       <OurColleagues />
       <Comment />
     </div>
