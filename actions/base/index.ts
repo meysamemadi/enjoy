@@ -87,3 +87,18 @@ export async function getComments (domain:string = "main")
   }
 }
 
+
+export async function getBanner (type:string = "main")
+{
+  try {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}banner/banner-index?type=${type}`
+    );
+    const response = await res.json();
+    return response;
+  } catch (error) {
+    console.log("[getBanner]", error);
+    throw new Error("get getBanner error");
+  }
+}
+

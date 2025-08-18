@@ -13,8 +13,17 @@ import { ColleagueItem } from "./colleague-item";
 
 import style from "@/app/[lang]/medicalService.module.css";
 
-export const ColleaguesCarousel = () => {
+type BannerProps = {
+    id: number;
+    title: string;
+    link: string;
+    image: string;
+}
 
+export const ColleaguesCarousel = ({ banners }:{banners: BannerProps[]}) => {
+
+
+    console.log(banners);
   const pagination = {
     el: ".bullestColleagues",
     clickable: true,
@@ -43,21 +52,12 @@ export const ColleaguesCarousel = () => {
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper container"
       >
-        <SwiperSlide>
-          <ColleagueItem name="snap" />
-        </SwiperSlide>
 
-        <SwiperSlide>
-          <ColleagueItem name="sadad" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <ColleagueItem name="asdasdasd" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <ColleagueItem name="asdef" />
-        </SwiperSlide>
+          {banners.map((banner: BannerProps) => (
+              <SwiperSlide key={banner.id}>
+                  <ColleagueItem {...banner} />
+              </SwiperSlide>
+          ))}
       </Swiper>
 
       <div className="flex bullestColleagues mb-4 justify-center mt-[25px] md:mt-[45px] space-x-[10px]"></div>
